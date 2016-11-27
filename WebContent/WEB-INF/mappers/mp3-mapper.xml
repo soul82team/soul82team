@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mp3">
+	<insert id="insertmp3" parameterType="streaming.pojo.MP3reposit">
+		insert into mp3repository
+		values(mp3repository_seq.nextval, #{artist}, #{title},
+		0, #{mv}, #{url},#{oriname})
+	</insert>
+	
+	<select id="reglist" resultType="streaming.pojo.MP3reposit">
+		select * from mp3repository order by num desc
+	</select>
+	<insert id="infoinsert" parameterType="java.util.HashMap">
+	insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
+	</insert>
+	
+	<insert id="insertalbum" parameterType="java.lang.String">
+		insert into myalbum values(#{id}, #{album}, #{title}, sysdate)
+	</insert>
+</mapper>

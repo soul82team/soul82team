@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+</style>
+
 	<section id="main-slider" class="no-margin">
-		<div class="carousel slide">
+		<div class="carousel slide" id="myCarousel" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
 				<li data-target="#main-slider" data-slide-to="1"></li>
 				<li data-target="#main-slider" data-slide-to="2"></li>
 			</ol>
-			<div class="carousel-inner">
+			<div class="carousel-inner" role="listbox">
 				<div class="item active" style="background-image: url(images/slider/bg1.jpg)">
 					<div class="container">
 						<div class="row slide-margin">
@@ -65,12 +74,17 @@
 				</div>
 			</div>
 		</div>
-		<a class="prev hidden-xs" href="#main-slider" data-slide="prev"> <i
-			class="fa fa-chevron-left"></i>
-		</a> <a class="next hidden-xs" href="#main-slider" data-slide="next">
-			<i class="fa fa-chevron-right"></i>
+<!-- 		<a class="prev hidden-xs" href="#main-slider" data-slide="prev"> <i class="fa fa-chevron-left"></i> -->
+<!-- 		</a> <a class="next hidden-xs" href="#main-slider" data-slide="next"><i class="fa fa-chevron-right"></i> -->
+<!-- 		</a> -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"><i class="fa fa-chevron-left"></i></span>
+			<span class="sr-only">Previous</span></a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 		</a>
-	</section>
+</section>
 	
 	<section id="feature">
 		<div class="container">
@@ -147,234 +161,78 @@
 				</p>
 			</div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item1.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme</a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item1.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
+				<c:forEach var="bugs2" items="${bugs2 }" varStatus="status">
+					<div class="col-xs-12 col-sm-4 col-md-3">
+						<div class="recent-work-wrap">
+							<img src="${bugs2.album}" class="img-responsive" alt="">
+								<div class="overlay">
+									<div class="recent-work-inner">
+										<h3>
+											<a href="#">${bugs2.title }</a>
+										</h3>
+										<p>${bugs2.artist }</p>
+										<a class="preview" href="${bugs2.album}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+									</div>
+								</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item2.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme</a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item2.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item3.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme </a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item3.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item4.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme </a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item4.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item5.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme</a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item5.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item6.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme </a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item6.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item7.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme </a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item7.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap">
-						<img class="img-responsive"
-							src="/images/portfolio/recent/item8.png" alt="">
-						<div class="overlay">
-							<div class="recent-work-inner">
-								<h3>
-									<a href="#">Business theme </a>
-								</h3>
-								<p>There are many variations of passages of Lorem Ipsum
-									available, but the majority</p>
-								<a class="preview" href="/images/portfolio/full/item8.png"
-									rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				</c:forEach>	
 			</div>
 		</div>
 	</section>
-	<section id="services" class="service-item">
-		<div class="container">
-			<div class="center wow fadeInDown">
-				<h2>Our Service</h2>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-					eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut
-					enim ad minim veniam
-				</p>
+
+	<section id="musicchart" class="no-padding">
+		<div class="container-fluid">
+			<div class="container">
+				<h2>Music Chart</h2>
+				<p class="lead">bugs chart :) blah~ blah~ blah~</p>
 			</div>
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services1.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services2.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services3.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services4.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services5.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="media services-wrap wow fadeInDown">
-						<div class="pull-left">
-							<img class="img-responsive" src="/images/services/services6.png">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">SEO Marketing</h3>
-							<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-						</div>
-					</div>
-				</div>
+			<tr>
+				<th><button type="button" class="btn btn-success"
+						onclick="allChk2()">전체 선택</button></th>
+				<th><button type="button" class="btn btn-success">선택 듣기</button></th>
+				<th><button type="button" class="btn btn-success" id="choice"
+						name="title">선택 담기</button></th>
+			</tr>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+							<th>rank</th>
+							<th>album</th>
+							<th>title</th>
+							<th>artist</th>
+							<th>like</th>
+							<th>MV</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="bugs" items="${bugs }" varStatus="status">
+							<tr>
+								<td><input type="checkbox" name="chk"></td>
+								<td>${status.count }</td>
+								<td><img src="${bugs.album }" /></td>
+								<td>${bugs.title }</td>
+								<td>${bugs.artist }</td>
+								<td><img src="/img/like.jpg" width="30" height="30" /></td>
+								<td><img src="/img/mv.png" width="30" height="30" /></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</section>
-	<section id="middle">
+	
+<section id="middle">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 wow fadeInDown">
 					<div class="skill">
 						<h2>Our Skills</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
+							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						<div class="progress-wrap">
 							<h3>Graphic Design</h3>
 							<div class="progress">
@@ -502,7 +360,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="content">
+<section id="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 wow fadeInDown">
@@ -736,4 +594,51 @@
 			</div>
 		</div>
 	</section>
+
+<script>	
+	function allChk(){
+		var chk = $("input[name='chk_all']").is(":checked");
+		
+		if(chk){
+			$("input[name='chk']").prop("checked", true);
+		}else{
+			$("input[name='chk']").prop("checked", false);
+		}
+	}
 	
+	function allChk2(){
+		var chk = $("input[name='chk_all']").is(":checked");
+		
+		if(chk){
+			$("input[name='chk']").prop("checked", false);
+			$("input[name='chk_all']").prop("checked", false);	
+		}else{
+			$("input[name='chk']").prop("checked", true);
+			$("input[name='chk_all']").prop("checked", true);	
+		}
+	}
+	
+	document.getElementById("choice").addEventListener("click", function(){
+		
+		var url = "/choice/list?tt=";
+
+		if(${sessionScope.userId eq null}){
+			window.alert("로그인이 필요합니다 !");
+		}else{
+			$(".chkc").each(function(){
+				//	console.log($(this).val());
+				//	console.log($(this).prop("checked"));
+				
+					if($(this).prop("checked")){
+						var tt = Array();
+						tt = $(this).val() + "/";
+						// console.log(tt);
+						url += tt;
+					}
+			});
+		}
+		console.log(url);
+		window.open(url, "choice", "height=200; width=100");
+	});
+
+</script> 

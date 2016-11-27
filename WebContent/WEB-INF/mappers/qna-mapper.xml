@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qnaboard">
+	<insert id="insertMemo" parameterType="board.pojo.qnaVO">
+		insert into qnaboard
+		values(qnaboard_seq.nextval, #{cate },#{writer}, #{title}, #{content},0, sysdate)
+	</insert>
+	
+	<select id="getList" resultType="board.pojo.qnaVO">
+		select * from qnaboard order by num desc
+	</select>
+	
+	<select id="count" parameterType="java.lang.Integer">
+		update qnaboard set hit = hit +1 where num =#{num }
+	</select>
+	
+	<select id="getView" parameterType="java.lang.Integer" resultType="board.pojo.qnaVO">
+		select * from qnaboard where num=#{num}
+	</select>
+	
+	<select id="qnaPaging" parameterType="java.util.HashMap" resultType="board.pojo.qnaVO">
+		<![CDATA[
+			select * from(
+			select rownum r,temp.* from 
+			(select * from qnaboard order by num desc) 
+				temp )
+					where r >= #{start} and r <= #{end}
+		]]>
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from qnaboard
+	</select>
+	
+	<select id="search" parameterType="java.lang.String" resultType="board.pojo.qnaVO">
+		select * from qnaboard where content like #{search}
+	</select>
+	
+</mapper>

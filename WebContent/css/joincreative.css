@@ -1,0 +1,72 @@
+#reg_form {
+	padding-left: 2em;
+	background: #f2f2f2;
+	border: 1px solid #dcdcdc;
+	color: black;
+}
+
+#reg h2 {
+	font-family: 'Sansita One', cursive;
+	color: black;
+}
+
+#reg label{
+	width : 15%;
+	color: black;
+	padding-right: 5px;
+}
+
+#reg input:not([type=radio]){
+	width: 13em;
+	border: 1px solid #cdcdcd;
+	padding: 1em 0.5em 0.5em 1.5em;
+	border-radius: 5px;
+	color: black;
+}
+
+#reg input:not([type=radio]):focus{
+	width : 15em;
+	background-color: #fff;
+	border-color: #7ccbe8;
+}
+
+#reg input:not([type=radio]):focus{
+	width : 15em;
+	background-color: #fff;
+	border-color: #7ccbe8;
+}
+
+#reg span{
+	color: black;
+	padding-right: 1em;
+}
+
+#reg_new {
+   cursor: pointer;
+   border: 2px solid #fff;
+   background-color : gray;
+   width: 130px;
+   height: 50px;
+   border-radius: 1em;
+}
+#bt {
+   cursor: pointer;
+   border: 2px solid #fff;
+   background-color : gray;
+   width: 130px;
+   height: 50px;
+   border-radius: 1em;
+}
+
+#confirm {
+   cursor: pointer;
+   border: 2px solid #fff;
+   background-color : gray;
+   width: 100px;
+   height: 50px;
+   border-radius: 1em;
+}
+
+#reg_new:hover, #reg_new:focus{
+   background-color: #F05F40;
+}

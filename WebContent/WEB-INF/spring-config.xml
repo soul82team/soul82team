@@ -17,6 +17,11 @@
 	<mvc:annotation-driven/>
 	
 	<context:component-scan base-package="main"/>
+	<context:component-scan base-package="member"/>
+	<context:component-scan base-package="board"/>
+	<context:component-scan base-package="scrap"/>
+	<context:component-scan base-package="streaming"/>
+	<context:component-scan base-package="location"/>
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" id="beanNameViewResolver" p:order="1"/>
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" p:order="2"/>
@@ -40,5 +45,31 @@
 	
 	
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"></bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factory">
+		<property name="dataSource" ref="ds"/>
+		<property name="mapperLocations">
+			<list>
+				<value>/WEB-INF/mappers/member-mapper.xml</value>
+				<value>/WEB-INF/mappers/qna-mapper.xml</value>
+				<value>/WEB-INF/mappers/review-mapper.xml</value>				
+				<value>/WEB-INF/mappers/mp3-mapper.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl" id="javaMailSender" >
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="port" value="587"/>
+		<property name="username" value="webappmgr"/>
+		<property name="password" value="~1q2w3e4r"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.timeout">5000</prop>
+			</props>
+		</property>
+	</bean>
 	
 </beans>

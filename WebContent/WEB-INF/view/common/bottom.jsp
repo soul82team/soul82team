@@ -18,7 +18,8 @@
 			</div>
 		</div>
 	</footer>
-	
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>	
 	<script src="/js/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/jquery.prettyPhoto.js"></script>

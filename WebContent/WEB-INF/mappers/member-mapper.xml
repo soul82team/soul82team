@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="member.pojo.Member" >
+		insert into member values(#{img}, #{id}, #{pass}, #{mail}, #{name}, #{gender}, #{birth}, #{notice} )
+	</insert>
+	<select id="passfind" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from member where id =#{id} and mail=#{mail}and name=#{name} and birth=#{birth}  
+	</select>
+	<!-- 로그인 -->
+	<select id="log" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from member where id =#{id} and pass=#{pass}
+	</select>
+	
+	<select id="logcheck" parameterType="java.lang.String" resultType="java.util.HashMap">
+		select * from member where id =#{id}
+	</select>
+	
+	
+	<update id="memup" parameterType="java.util.HashMap">
+		UPDATE MEMBER set IMG=#{img}, PASS=#{pass} ,MAIL=#{mail} WHERE ID=#{id}
+	</update>
+	<insert id="imgsave" parameterType="java.util.HashMap" >
+		insert into imgsa values( #{id}, #{course}, #{imgname} )
+	</insert>
+	<!-- 로그인 -->
+	<select id="imgget" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from imgsa where id =#{id}
+	</select>
+	<delete id="memdel" parameterType="java.lang.String">
+	DELETE MEMBER WHERE ID=#{id}
+	</delete>
+</mapper>
