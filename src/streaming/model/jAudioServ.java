@@ -80,16 +80,12 @@ public class jAudioServ {
 
 			Artwork artwork =tag.getFirstArtwork();
             
-
-
 			byte[] firstImage = artwork.getBinaryData();
+			String dir= app.getRealPath("/albumimage");
 			
-			String dir= app.getRealPath("/");
-			
-			FileCopyUtils.copy(firstImage, new File(dir+artistp+titlep+".png"));
+			FileCopyUtils.copy(firstImage, new File(dir,artistp+titlep+".png"));
 			
 			// ==========================================
-			
 				map.put("title", title);
 				map.put("artist", artist);
 				map.put("lyrics", lr);

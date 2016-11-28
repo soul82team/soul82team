@@ -20,13 +20,16 @@ public class streamingCon {
 	@Autowired
 	streamingServ upServ;
 
+	@Autowired
+	jAudioServ audio;
+
 	// 관리자 mp3 등록페이지
 	@RequestMapping("/admin/reg")
 	public String soundCould() {
 		return "body:admin/adminpage";
 	}
-	
-	//등록 후 출력되는 리스트 페이지
+
+	// 등록 후 출력되는 리스트 페이지
 	@RequestMapping("/admin/reglist")
 	public ModelAndView mp3list() {
 		ModelAndView mav = new ModelAndView();
@@ -35,26 +38,16 @@ public class streamingCon {
 
 		return mav;
 	}
-	
-	@RequestMapping("/admin/allalbum")
-	public ModelAndView mp3alllist() {
-		ModelAndView mav = new ModelAndView();
-		List<HashMap> li =upServ.allListMp3();
-		mav.addObject("allAlbum", li);
-		mav.setViewName("body:admin/allAlbum");
-
-		return mav;
-	}
 
 	// 관리자 등록 로직 (insert mp3 file)
 	@RequestMapping("/admin/mp3up")
-	public ModelAndView uploadPage(@RequestParam(name = "mp3") MultipartFile f, 
-			String artist, String title, String mv) {
+	public ModelAndView uploadPage(@RequestParam(name = "mp3") MultipartFile f, String artist, String title,
+			String mv) {
 		ModelAndView mav = new ModelAndView();
 		boolean r = upServ.insertmp3(f, artist, title, mv);
 		if (r == true) {
 			System.out.println("등록 성공 제바루ㅜㅜㅜㅜ");
-			upServ.songinfo(artist,title);
+			upServ.songinfo(artist, title);
 			mav.addObject("list", upServ.ListMp3());
 			mav.setViewName("/admin/mp3list");
 		} else {
@@ -62,37 +55,44 @@ public class streamingCon {
 		}
 		return mav;
 	}
-	
-	//List 형식으로 Play Music 실행
+
+	// List 형식으로 Play Music 실행
 	@RequestMapping("/playmusic")
-	public ModelAndView playmusic(){
+	public ModelAndView playmusic() {
 		ModelAndView mav = new ModelAndView();
-		List<MP3reposit> li=upServ.ListMp3();
-		
+		List<MP3reposit> li = upServ.ListMp3();
+
 		ArrayList<HashMap> musicList = new ArrayList<>();
-		for(int i=0;i<li.size();i++){
-			HashMap<String, String> map=new HashMap<String, String>();
-				map.put("title", li.get(i).getTitle());
-				map.put("url", li.get(i).getUrl());
-				musicList.add(map);
+		for (int i = 0; i < li.size(); i++) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("title", li.get(i).getTitle());
+			map.put("url", li.get(i).getUrl());
+			musicList.add(map);
 		}
-		mav.addObject("music",musicList);
-		mav.addObject("musicSize",musicList.size());
-		mav.addObject("list",li);
+		mav.addObject("music", musicList);
+		mav.addObject("musicSize", musicList.size());
+		mav.addObject("list", li);
 		mav.setViewName("/soulplayer/player");
 		return mav;
 	}
-	
-	@Autowired
-	jAudioServ audio;
-	
-	//jAudioTagger mp3파일 정보 불러오기
+
+	// jAudioTagger mp3파일 정보 불러오기
 	@RequestMapping("/loadmp3")
-	public ModelAndView loadFile(){
-		ModelAndView mv=new ModelAndView();
-		
-		audio.jTagger("","");
+	public ModelAndView loadFile() {
+		ModelAndView mv = new ModelAndView();
+
+		audio.jTagger("", "");
 		mv.setViewName("#");
 		return mv;
+	}
+
+	@RequestMapping("/admin/allalbum")
+	public ModelAndView mp3alllist() {
+		ModelAndView mav = new ModelAndView();
+		List<HashMap> li = upServ.allListMp3();
+		mav.addObject("allAlbum", li);
+		mav.setViewName("body:admin/allAlbum");
+
+		return mav;
 	}
 }

@@ -21,53 +21,45 @@ public class streamingServ {
 	@Autowired
 	jAudioServ ja;
 	
-	public boolean insertmp3(MultipartFile f,String artist,String title,String mv){
-		try{
-			String oriname=artist+"-"+title+".mp3";
+	public boolean insertmp3(MultipartFile f, String artist, String title, String mv) {
+		try {
+			String oriname = artist + "-" + title + ".mp3";
 			s3.uploadmp3(f, oriname);
-			String url="https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/"+oriname;
-			
-			MP3reposit mp3up=new MP3reposit();
-				mp3up.setArtist(artist);
-				mp3up.setTitle(title);
-				mp3up.setMv(mv);
-				mp3up.setUrl(url);
-				mp3up.setOriname(oriname);
-			
-			SqlSession ss=fac.openSession();
-			ss.insert("mp3.insertmp3",mp3up);
+			String url = "https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/" + oriname;
+
+			MP3reposit mp3up = new MP3reposit();
+			mp3up.setArtist(artist);
+			mp3up.setTitle(title);
+			mp3up.setMv(mv);
+			mp3up.setUrl(url);
+			mp3up.setOriname(oriname);
+
+			SqlSession ss = fac.openSession();
+			ss.insert("mp3.insertmp3", mp3up);
 			ss.close();
-			
+
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
-	
-	public List ListMp3(){
-		SqlSession ss=fac.openSession();
-		List li=ss.selectList("mp3.reglist");
+
+	public List ListMp3() {
+		SqlSession ss = fac.openSession();
+		List li = ss.selectList("mp3.reglist");
 		ss.close();
 		return li;
 	}
-	
-	public List<HashMap> allListMp3(){
-		SqlSession ss=fac.openSession();
-		List<HashMap> li=ss.selectList("mp3.allAlbum");
-		ss.close();
-		return li;
-	}
-	
-	public void songinfo(String artistp,String titlep){
-		SqlSession ss=fac.openSession();
-		HashMap map=ja.jTagger(artistp, titlep);
+
+	public void songinfo(String artist, String title) {
+		SqlSession ss = fac.openSession();
+		HashMap map = ja.jTagger(artist, title);
 		System.out.println(map.get("title"));
-		
+
 		ss.close();
-		
 	}
-	
+
 	public int makeAlbum(Map map) {
 		SqlSession ss = fac.openSession();
 		int b = ss.insert("mp3.insertAlbum", map);
@@ -80,17 +72,15 @@ public class streamingServ {
 		SqlSession ss = fac.openSession();
 		
 		// rank 올리는거 update하면 응답만 기다리고 실행되지 않음...이유 모름
-		
-//		int rst=0;
-//		rst+=ss.update("mp3.rankUp",num);
-//		
-//		if(rst==0){
-//			return null;
-//		}else{
+		int rst=0;
+		rst+=ss.update("mp3.rankUp",num);
+		if(rst==0){
+			return null;
+		}else{
 			MP3reposit li = ss.selectOne("mp3.selectOne", num);
 			ss.close();
 			return li;
-//		}
+		}
 	}
 
 	public List<HashMap> albumList(String userid) {
@@ -122,6 +112,11 @@ public class streamingServ {
 		return li;
 	}
 	
-	
+	public List<HashMap> allListMp3(){
+		SqlSession ss=fac.openSession();
+		List<HashMap> li=ss.selectList("mp3.allAlbum");
+		ss.close();
+		return li;
+	}
 	
 }

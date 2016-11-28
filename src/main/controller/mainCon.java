@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.htmlparser.jericho.Source;
+import streaming.model.AlbumSer;
 import streaming.model.streamingServ;
 import streaming.pojo.MP3reposit;
 
@@ -22,6 +23,8 @@ import streaming.pojo.MP3reposit;
 public class mainCon {
 	@Autowired
 	streamingServ upServ;
+	@Autowired
+	AlbumSer as;
 	
 	@RequestMapping({ "/", "/index" })
 	public ModelAndView main() {
@@ -322,15 +325,16 @@ public class mainCon {
 	}
 	
 	@RequestMapping("/albuminfo")
-	public ModelAndView albuminfo(String artist,String title){
+	public ModelAndView albuminfo(int num){
 		ModelAndView mv = new ModelAndView();
 		
-		List<MP3reposit> ls=upServ.ListMp3();
+		HashMap info=as.songinfo(num);
 		
-		mv.addObject("mp3",ls );
+		mv.addObject("mp3",info );
 		mv.setViewName("/common/albuminfo");
 		return mv;
-}
+	}
+	
 	@RequestMapping("/soulSearch")
 	public ModelAndView soulSearch(String search){
 		ModelAndView mv=new ModelAndView();
