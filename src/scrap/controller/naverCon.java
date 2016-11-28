@@ -69,7 +69,7 @@ public class naverCon {
 				ssk.add(map);
 			}
 			mv.addObject("ssk",ssk);
-			mv.setViewName("body:naver/superstar");
+			mv.setViewName("/naver/superstar");
 			return mv;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -106,7 +106,7 @@ public class naverCon {
 			String castUrl="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn"+playUrl[0];
 			
 			mv.addObject("castUrl",castUrl);
-			mv.setViewName("body:naver/naverCast");
+			mv.setViewName("/naver/naverCast");
 			return mv;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -161,7 +161,7 @@ public class naverCon {
 				yhy.add(map);
 			}
 			mv.addObject("yhy",yhy);
-			mv.setViewName("body:naver/sketchbook");
+			mv.setViewName("/naver/sketchbook");
 			return mv;
 		}catch(Exception e){
 			e.printStackTrace();

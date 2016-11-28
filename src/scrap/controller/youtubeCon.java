@@ -33,15 +33,12 @@ public class youtubeCon {
 	public ModelAndView mvSearch(String urlSearch) {
 		try {
 			System.out.println("유튭 검색어"+urlSearch);
-			String urlPath = "https://www.youtube.com/results?search_query="+URLDecoder.decode(urlSearch,"UTF-8");
-			System.out.println("youtube검색?==>"+urlPath);
-			System.out.println("=======================");
+			String urlPath = "https://www.youtube.com/results?search_query="+URLEncoder.encode(urlSearch,"UTF-8");
 			String pageContents = "";
 			StringBuilder contents = new StringBuilder();
 			ModelAndView mv = new ModelAndView();
 			
-//			URL url = new URL(urlPath);
-			URL url = new URL(URLDecoder.decode(urlPath,"utf-8"));
+			URL url = new URL(urlPath);
 			URLConnection con = (URLConnection) url.openConnection();
 			System.out.println(con);
 			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
@@ -56,36 +53,37 @@ public class youtubeCon {
 			// 여기까지 검색 결과 받아오기
 
 			String searchSource = contents.toString();
+			
+			//스플릿 시작
 			String[] vSplit = searchSource.split("data-context-item-id=\"");
+			vSplit[1].split("");
+			
 			String[] video = null;
-
-			String[] iSplit2=searchSource.split(".ytimg.com/vi/");
-			 
-			String[] image = null;
-			String[] himage = null;
-			himage=iSplit2[0].split("//");
 			
-			String[] tSplit = searchSource.split("aria-hidden=\"true\">");
-			String[] time = null;
-			
-			String[] titleSplit=searchSource.split("dir=\"ltr\">");
-			String [] title=null;
 			ArrayList<HashMap> search = new ArrayList<>();
-			
-			for (int i = 0; i < 5; i++) {
+			for (int i = 1; i < 7; i++) {
 				HashMap<String,String>map=new HashMap<>();
-				video = vSplit[i+1].split("\"");
-				time = tSplit[i+1].split("<");
-				image = iSplit2[i+5].split(".jpg");
-				title= titleSplit[i+4+i].split("<");
 				
-				System.out.println(image[0]);
+				//제목 ==> i=1 부터 for 문 넣기
+				String[] titleSplit=vSplit[i].split("dir=\"ltr\">");
+				String [] title=null;
+				//유튭 이미지
+				String[] iSplit2=vSplit[i].split(".ytimg.com/vi/");
+				String[] image = null;
+				
+				//재생시간
+				String[] tSplit = vSplit[i].split("aria-hidden=\"true\">");
+				String[] time = null;
+				
+				video = vSplit[i].split("\"");
+				title=titleSplit[1].split("<");
+				time=tSplit[1].split("<");
+				image=iSplit2[1].split(".jpg");
 				
 				map.put("video", video[0]);
 				map.put("time", time[0]);
 				map.put("image", "//i.ytimg.com/vi/"+image[0]+".jpg");
 				map.put("title", title[0]);
-				
 				search.add(map);
 			}
 			

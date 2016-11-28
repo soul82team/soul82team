@@ -23,8 +23,8 @@
 <header>
 
 <div class="container" style="padding-top: 5%">
-	<img src="/images/superstar_logo.jpg" class="img-circle" alt="Cinque Terre" width="200" height="140" />
-	<h2>SUPER STAR K 2016</h2> 
+<img src="/img/sketchbook_logo.png" class="img-circle" alt="Cinque Terre" width="200" height="140" />
+<h2>유희열의 스케치북</h2> 
 </div>
 <hr/>
 
@@ -35,24 +35,26 @@
 <div class="container" style="padding-top: 5%">
 	<table class="tg" style="background: white ;" > 
 	  <tr>
-		<c:forEach var="i" items="${ssk }">
+		<c:forEach var="i" items="${yhy }">
 	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>
   		</c:forEach>
 	  </tr>
 	  <tr>
-	  	<c:forEach var="i" items="${ssk }">
+	  	<c:forEach var="i" items="${yhy }">
 	    <td class="tg-yw4l" onclick="sskCast('${i.link}')">${i.title}</td>
 	    </c:forEach>
 	  </tr>
 	  <tr>
-	  	<c:forEach var="i" items="${ssk }">
+	  	<c:forEach var="i" items="${yhy }">
 	    <td class="tg-yw4l">재생시간 : ${i.time }</td>
 	    </c:forEach>
 	  </tr>
 	</table>
 </div>
 
+
 </header>
+
 <script>
 function sskCast(link){
 	var url="/naver/cast?link="+link;
