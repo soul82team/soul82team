@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="jPlayer/lib/jquery.min.js"></script>
-<script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
+<link href="/jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/jPlayer/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/jPlayer/dist/add-on/jplayer.playlist.min.js"></script>
 
 <script type="text/javascript">
 	
@@ -26,7 +26,7 @@ $(document).ready(function(){
 			<c:if test="${loop.last eq false}">,</c:if>
 			</c:forEach>
 	], {
-		swfPath: "jPlayer/dist/jplayer",
+		swfPath: "/jPlayer/dist/jplayer",
 		supplied: "oga, mp3, m4a",
 		wmode: "window",
 		useStateClassSkin: true,
