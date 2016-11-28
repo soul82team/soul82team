@@ -27,13 +27,13 @@
 	<c:forEach var="i" items="${search }">
 	  <tr>
 	    <th class="tg-yw4l" rowspan="3"><img src="${i.image}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>
-	    <th class="tg-yw4l"><a onclick="mvOpen('${i.video}')">${i.title }</a></th>
+	    <th class="tg-yw4l"><a onclick="mvOpen('${i.video}')"> <font size="4.5em" color="#00008B"><b> ${i.title }</b> </font></a></th>
 	  </tr>
 	  <tr>
-	    <td class="tg-yw4l">재생시간 : ${i.time }</td>
+	    <td class="tg-yw4l"><font size="2em" color="#696969">재생시간 : <b>${i.time }</b></font></td>
 	  </tr>
 	  <tr>
-	    <td class="tg-yw4l">설명</td>
+	    <td class="tg-yw4l">${i.ex }</td>
 	  </tr>
 	  </c:forEach>
 	</table>

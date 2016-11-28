@@ -57,7 +57,7 @@ public class youtubeCon {
 			//스플릿 시작
 			String[] vSplit = searchSource.split("data-context-item-id=\"");
 			vSplit[1].split("");
-			
+			String [] eSplit=searchSource.split("ellipsis-2\" dir=\"ltr\">");
 			String[] video = null;
 			
 			ArrayList<HashMap> search = new ArrayList<>();
@@ -75,6 +75,9 @@ public class youtubeCon {
 				String[] tSplit = vSplit[i].split("aria-hidden=\"true\">");
 				String[] time = null;
 				
+				//설명
+				String[] exS=eSplit[i].split("</div>");
+
 				video = vSplit[i].split("\"");
 				title=titleSplit[1].split("<");
 				time=tSplit[1].split("<");
@@ -84,6 +87,7 @@ public class youtubeCon {
 				map.put("time", time[0]);
 				map.put("image", "//i.ytimg.com/vi/"+image[0]+".jpg");
 				map.put("title", title[0]);
+				map.put("ex", exS[0]);
 				search.add(map);
 			}
 			

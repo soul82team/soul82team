@@ -76,8 +76,6 @@ public class jAudioServ {
 		
 			
 			// ===============================================
-
-
 			Artwork artwork =tag.getFirstArtwork();
             
 			byte[] firstImage = artwork.getBinaryData();

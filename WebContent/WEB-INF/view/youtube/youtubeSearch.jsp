@@ -11,18 +11,22 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-
 <header>
-	    <div style="width: 40%" align="center">
-	      <input type="text" class="form-control" placeholder="Soul Search" name="urlSearch" id="search"/>
+
+	<div align="center">
+	
+	 <h1> <i class="fa fa-youtube-play" style="font-size:48px;color:red"></i> Soul Music Video</h1>
+	    <div style="width: 40%">
 	      <div class="input-group-btn">
-	        <button class="btn btn-default" type="button" id="bt-okay" ><i class="glyphicon glyphicon-search"></i></button>
+		      <input type="text" class="form-control" placeholder="Soul Search" name="urlSearch" id="search"/>
+		      <button class="btn btn-default" type="button" id="bt-okay"><i class="glyphicon glyphicon-search"></i>
+		      </button>
 	      </div>
 	    </div>
-	
-<div class="container" id="search_rst">
-</div>
-
+   
+		<div class="container" id="search_rst">
+		</div>
+ </div>
 </header>
 
 <script>
