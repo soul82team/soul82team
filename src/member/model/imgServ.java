@@ -26,7 +26,7 @@ public class imgServ {
 		return "no";
 		try{
 			imgname=img.getOriginalFilename();
-			String dir= app.getRealPath("/");
+			String dir= app.getRealPath("/memberimage");
 			System.out.println(dir);
 			File save = new File(dir,id+imgname);
 			String fn=id+imgname;
