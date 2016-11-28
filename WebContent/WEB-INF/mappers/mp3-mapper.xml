@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="infoinsert" parameterType="java.util.HashMap">
-		insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album},#{savetitle}, #{saveartist}, songsdata_seq.nextval)
+		insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album},#{savetitle}, #{saveartist},songsdata_seq.nextval)
 	</insert>
 	<select id="getAlbum" resultType="java.util.HashMap" parameterType="java.lang.Integer">
 		select * from songsdata where num=#{num} 
