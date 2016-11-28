@@ -16,11 +16,11 @@ import streaming.pojo.MP3reposit;
 public class streamingServ {
 	@Autowired
 	SqlSessionFactory fac;
-	
 	@Autowired
 	s3upload s3;
 	@Autowired
 	jAudioServ ja;
+	
 	public boolean insertmp3(MultipartFile f,String artist,String title,String mv){
 		try{
 			String oriname=artist+"-"+title+".mp3";
@@ -48,6 +48,13 @@ public class streamingServ {
 	public List ListMp3(){
 		SqlSession ss=fac.openSession();
 		List li=ss.selectList("mp3.reglist");
+		ss.close();
+		return li;
+	}
+	
+	public List<HashMap> allListMp3(){
+		SqlSession ss=fac.openSession();
+		List<HashMap> li=ss.selectList("mp3.allAlbum");
 		ss.close();
 		return li;
 	}

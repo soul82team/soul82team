@@ -13,11 +13,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="reglist" resultType="streaming.pojo.MP3reposit">
 		select * from mp3repository order by num desc
 	</select>
+	
+	<select id="selectOne" parameterType="java.lang.Integer" resultType="streaming.pojo.MP3reposit">
+		select * from mp3repository where num=#{num}
+	</select>
+	
+	<select id="rankUp" parameterType="java.lang.Integer">
+		update mp3repository set rank =	rank +1 where num=#{num}
+	</select>
+	
 	<insert id="infoinsert" parameterType="java.util.HashMap">
-	insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album})
+		insert into songsdata values(#{title}, #{artist}, #{lyrics}, #{year}, #{genre}, #{album},#{savetitle}, #{saveartist}, songsdata_seq.nextval)
+	</insert>
+	<select id="getAlbum" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+		select * from songsdata where num=#{num} 
+	</select>
+	
+	<insert id="insertAlbum" parameterType="java.util.HashMap">
+		insert into myalbum values(myalbum_seq.nextval, #{userid},#{albumname}, #{title_num}, sysdate)
 	</insert>
 	
-	<insert id="insertalbum" parameterType="java.lang.String">
-		insert into myalbum values(#{id}, #{album}, #{title}, sysdate)
-	</insert>
+
+	<select id="callAlbum" resultType="java.util.HashMap">
+		select * from myalbum where userid=#{userid} order by num desc
+	</select>
+	
+	<select id="callMyList" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+		select * from myalbum where num=#{num}
+	</select>
+	
+	<delete id="deleteAlbum" parameterType="java.lang.Integer">	
+		delete from myalbum where num=#{num}
+	</delete>
+	
+	<select id="search" parameterType="java.lang.String" resultType="streaming.pojo.MP3reposit"> 
+		select * from mp3repository where (title like #{search}) or (artist like #{search})
+	</select>
+	
+	<select id="allAlbum" resultType="java.util.HashMap"> 
+		select * from songsdata
+	</select>
 </mapper>

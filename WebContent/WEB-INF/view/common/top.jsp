@@ -4,36 +4,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header id="header">
-	<div class="top-bar">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-xs-4">
-					<div class="top-number">
-						<p>
-							<i class="fa fa-phone-square"></i>${sessionScope.userId }
-						</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-xs-8">
-					<div class="social">
-						<ul class="social-share">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-skype"></i></a></li>
-						</ul>
-						<div class="search">
-							<form role="form">
-								<input type="text" class="search-form" autocomplete="off"
-									placeholder="Search"> <i class="fa fa-search"></i>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- 	<div class="top-bar"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-sm-6 col-xs-3"> -->
+<!-- 					<div class="top-number"> -->
+<!-- 						<p> -->
+<%-- 							<i class="fa fa-phone-square"></i>${sessionScope.userId } --%>
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-sm-6 col-xs-8"> -->
+<!-- 					<div class="social"> -->
+<!-- 						<div class="search"> -->
+<!-- 							<form role="form"> -->
+<!-- 								<input type="text" class="search-form" autocomplete="off" -->
+<!-- 									placeholder="Search"> <i class="fa fa-search"></i> -->
+<!-- 							</form> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<nav class="navbar navbar-inverse" role="banner">
 		<div class="container">
 			<div class="navbar-header">
@@ -44,7 +37,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="index.html"><img
-					src="images/logo.png" alt="logo"></a>
+					src="images/logo1.png" alt="logo"></a>
 			</div>
 			<div class="collapse navbar-collapse navbar-right">
 				<c:choose>
@@ -69,12 +62,15 @@
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
 									<li><a href="#">리뷰게시판</a></li>
 								</ul></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">내정보 <span class="caret"></span></a>
+							<li class="dropdown">
+							<img src="/images/services/services1.png" style="width:30px; height: 30px;">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							 ${sessionScope.userId }<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/board/review">리뷰 작성</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
+									<li><a href="/admin/allalbum">all list</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/naver/channelSSK">슈스케</a></li>
 									<li><a href="/naver/channelYHY">뉴이얼</a></li>

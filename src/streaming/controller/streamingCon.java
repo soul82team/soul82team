@@ -35,6 +35,16 @@ public class streamingCon {
 
 		return mav;
 	}
+	
+	@RequestMapping("/admin/allalbum")
+	public ModelAndView mp3alllist() {
+		ModelAndView mav = new ModelAndView();
+		List<HashMap> li =upServ.allListMp3();
+		mav.addObject("allAlbum", li);
+		mav.setViewName("body:admin/allAlbum");
+
+		return mav;
+	}
 
 	// 관리자 등록 로직 (insert mp3 file)
 	@RequestMapping("/admin/mp3up")

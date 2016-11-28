@@ -11,16 +11,24 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
+import javax.servlet.ServletContext;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagField;
+import org.jaudiotagger.tag.datatype.Artwork;
 import org.jaudiotagger.tag.id3.AbstractID3v2Frame;
 import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 import org.jaudiotagger.tag.id3.ID3v24Tag;
 import org.jaudiotagger.tag.id3.framebody.FrameBodyAPIC;
 import org.jaudiotagger.tag.id3.valuepair.TextEncoding;
+
+
+import org.jaudiotagger.tag.mp4.Mp4Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 
@@ -30,22 +38,23 @@ import streaming.pojo.MP3reposit;
 public class jAudioServ {
 	@Autowired
 	streamingServ stream;
-
+	@Autowired
+	ServletContext app;
+	@Autowired
+	SqlSessionFactory fac;
 	public HashMap jTagger(String artistp, String titlep) {
 		HashMap map = new HashMap();
 		try {
-
 			String encoding = "utf-8";
 			// DB 데이터 가져오기
 			List<MP3reposit> li = stream.ListMp3();
+			
 			// DB에서 [가수-제목] 으로 파일 이름 설정하기
 			String name = artistp + "-" + titlep;
 			System.out.println(name);
 			// DB에 있는 해당 노래의 url가져오기
 			File file = new File(name + ".mp3");
 			// 이 밑으로 audio 정보 가져오는거
-			// String url = li.get(2).getUrl();
-			// System.out.println(url);
 			URL u = new URL(
 					"https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/" + URLEncoder.encode(name, encoding) + ".mp3");
 
@@ -55,27 +64,44 @@ public class jAudioServ {
 			System.out.println(mp3);
 
 			Tag tag = mp3.getTag();
+			System.out.println("####"+tag.getFirstArtwork());
+			System.out.println(tag.getFields(tag.getFirst(FieldKey.COVER_ART)));
+			
 			String lr = tag.getFirst(FieldKey.LYRICS);
 			String title = tag.getFirst(FieldKey.TITLE);
 			String artist = tag.getFirst(FieldKey.ARTIST);
 			String album = tag.getFirst(FieldKey.ALBUM);
 			String year = tag.getFirst(FieldKey.YEAR);
 			String genre = tag.getFirst(FieldKey.GENRE);
-			// ===============================================
+		
 			
-			BufferedImage b= mp3.getTag().getFirstArtwork().getImage();
-//			ImageIO.write(b, "jpg", file);
-			ImageIO.createImageInputStream(mp3.getTag().getFirstArtwork().getImage());
-			System.out.println(b);
+			// ===============================================
+
+
+			Artwork artwork =tag.getFirstArtwork();
+            
+
+
+			byte[] firstImage = artwork.getBinaryData();
+			
+			String dir= app.getRealPath("/");
+			
+			FileCopyUtils.copy(firstImage, new File(dir+artistp+titlep+".png"));
+			
 			// ==========================================
-			map.put("title", title);
-			map.put("artist", artist);
-			map.put("lyrics", lr);
-			map.put("year", year);
-			map.put("genre", genre);
-			map.put("album", album);
+			
+				map.put("title", title);
+				map.put("artist", artist);
+				map.put("lyrics", lr);
+				map.put("year", year);
+				map.put("genre", genre);
+				map.put("album", album);
+				map.put("savetitle", titlep);
+				map.put("saveartist", artistp);
 			System.out.println(map.get("title") + "/!!/" + map.get("artist") + "/!!/" + map.get("year") + "/!!/"
 					+ map.get("genre") + "/!!/" + map.get("album"));
+			SqlSession sql = fac.openSession();
+			sql.insert("mp3.infoinsert",map);
 
 			// System.out.println("Tag : " + tag2);
 			System.out.println("gasa : " + lr);

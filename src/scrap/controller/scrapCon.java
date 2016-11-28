@@ -273,9 +273,4 @@ public class scrapCon {
 		
 	}
 	
-	@RequestMapping("/musicchart")
-	public String musicChart(){
-		return "body:chart/bugsChart";
-	}
-	
 }
