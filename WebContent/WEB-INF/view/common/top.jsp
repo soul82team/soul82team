@@ -71,6 +71,7 @@
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
 									<li><a href="/admin/allalbum">all list</a></li>
+									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>

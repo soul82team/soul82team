@@ -495,15 +495,11 @@
 	
 	
 	$("#superstar").click(function(){  
-	    var url="/naver/channelSSK";
-// 	    <c:import url="/naver/channelSSK"></c:import>
-	    $.ajax({      
-	        type:"get",  
-	        url:url,      
-	    }).done(function(resp){
-	    	$("#channel").html(resp);
-	    });  
+    	var inner="<c:import url='/naver/channelSSK'></c:import>";
+    	$("#channel").slideDown(inner);
+    	
 	});  
 	
+// 			";
 	
 </script> 

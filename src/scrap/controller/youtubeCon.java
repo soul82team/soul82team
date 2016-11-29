@@ -61,7 +61,7 @@ public class youtubeCon {
 			String[] video = null;
 			
 			ArrayList<HashMap> search = new ArrayList<>();
-			for (int i = 1; i < 7; i++) {
+			for (int i = 2; i < 7; i++) {
 				HashMap<String,String>map=new HashMap<>();
 				
 				//力格 ==> i=1 何磐 for 巩 持扁

@@ -41,12 +41,11 @@ public class streamingCon {
 
 	// 관리자 등록 로직 (insert mp3 file)
 	@RequestMapping("/admin/mp3up")
-	public ModelAndView uploadPage(@RequestParam(name = "mp3") MultipartFile f, String artist, String title,
-			String mv) {
+	public ModelAndView uploadPage(@RequestParam(name = "mp3") MultipartFile f, 
+			String artist, String title,String mv) {
 		ModelAndView mav = new ModelAndView();
 		boolean r = upServ.insertmp3(f, artist, title, mv);
 		if (r == true) {
-			System.out.println("등록 성공 제바루ㅜㅜㅜㅜ");
 			upServ.songinfo(artist, title);
 			mav.addObject("list", upServ.ListMp3());
 			mav.setViewName("/admin/mp3list");
