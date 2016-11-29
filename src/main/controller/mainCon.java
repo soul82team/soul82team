@@ -25,7 +25,7 @@ public class mainCon {
 	streamingServ upServ;
 	@Autowired
 	AlbumSer as;
-	
+
 	@RequestMapping({ "/", "/index" })
 	public ModelAndView main() {
 		try {
@@ -93,12 +93,12 @@ public class mainCon {
 			}
 
 			// ========================================================================
-			
+
 			String urlPath = "http://www.mnet.com/chart/top100/";
 			String pageContents = "";
 			StringBuilder contents = new StringBuilder();
-			
-			
+			//ModelAndView mv = new ModelAndView();
+
 			URL url = new URL(urlPath);
 			URLConnection con = (URLConnection) url.openConnection();
 			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
@@ -114,33 +114,31 @@ public class mainCon {
 			String mnetSite2 = contents.toString();
 			String[] mSplit = mnetSite2.split("<td class=\"MMLItemCheck\"");
 			ArrayList<HashMap> mnet = new ArrayList<>();
-			for(int i=1;i<11;i++){
-				HashMap map = new HashMap();
-				//이거 for문 i 넣어주면됨(1부터 시작하는 i)
-				String [] stitle=mSplit[i].split("title=\"");
-				String [] title3=stitle[1].split("-");
-				String [] simg=mSplit[i].split("><img src=");
-				String [] img=simg[1].split("alt");
-				String [] atitle=mSplit[i].split("/artist");
-				String [] atitle2=atitle[1].split("title=\"");
-				String [] artist3=atitle2[1].split("-");
-				map.put("title", title[0]);
-				map.put("artist", artist[0]);
-				map.put("album", img[0]);
-				mnet.add(map);
-//				System.out.println(title[0]);
-//				System.out.println(artist[0]);
+			for (int i = 1; i < 9; i++) {
+				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
+				HashMap map2 = new HashMap();
+				String[] stitle = mSplit[i].split("title=\"");
+				String[] title3 = stitle[1].split("-");
+				String[] simg = mSplit[i].split("><img src=");
+				String[] img = simg[1].split("alt");
+				String[] atitle = mSplit[i].split("/artist");
+				String[] atitle2 = atitle[1].split("title=\"");
+				String[] artist3 = atitle2[1].split("-");
+				map2.put("title", title3[0]);
+				map2.put("artist", artist3[0]);
+				map2.put("album",  img[0]);
+				mnet.add(map2);
+				
 			}
-			//==========================================================================
-			
+			// ==========================================================================
 
-			List<MP3reposit> ls=upServ.ListMp3();
-			
-			mv.addObject("mp3",ls );
+			List<MP3reposit> ls = upServ.ListMp3();
+
+			mv.addObject("mp3", ls);
 
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
-			mv.addObject("mnet", mnet);
+			 mv.addObject("mnet", mnet);
 			mv.setViewName("t:nav");
 			return mv;
 		} catch (Exception e) {
@@ -148,7 +146,7 @@ public class mainCon {
 			return null;
 		}
 	}
-	
+
 	@RequestMapping("/soulPlayer")
 	public ModelAndView soulPlayer() {
 		ModelAndView mv = new ModelAndView();
@@ -156,7 +154,7 @@ public class mainCon {
 		// mv.setViewName("#");
 		return mv;
 	}
-	
+
 	@RequestMapping("/musicchart")
 	public ModelAndView chartView() {
 		try {
@@ -247,7 +245,7 @@ public class mainCon {
 				map.put("title", title[0]);
 				map.put("artist", artist[0]);
 				map.put("album", album[0]);
-				
+
 				mnet.add(map);
 			}
 
@@ -302,43 +300,43 @@ public class mainCon {
 			return null;
 		}
 	}
-	
+
 	@RequestMapping("/albuminfo")
-	public ModelAndView albuminfo(int num){
+	public ModelAndView albuminfo(int num) {
 		ModelAndView mv = new ModelAndView();
-		
-		HashMap info=as.songinfo(num);
-		
-		mv.addObject("mp3",info );
+
+		HashMap info = as.songinfo(num);
+
+		mv.addObject("mp3", info);
 		mv.setViewName("/common/albuminfo");
 		return mv;
 	}
-	
+
 	@RequestMapping("/soulSearch")
-	public ModelAndView soulSearch(String search){
-		ModelAndView mv=new ModelAndView();
+	public ModelAndView soulSearch(String search) {
+		ModelAndView mv = new ModelAndView();
 		System.out.println(search);
-		List<MP3reposit> li=upServ.searchMusic(search);
-		mv.addObject("list",li);
+		List<MP3reposit> li = upServ.searchMusic(search);
+		mv.addObject("list", li);
 		mv.setViewName("body:admin/mp3list");
 		return mv;
 	}
-	
+
 	@RequestMapping("/search/word")
 	@ResponseBody
-	public List searchWord(String search){
-		List<MP3reposit> li=upServ.searchMusic(search);
-		
-		ArrayList<HashMap> ar=new ArrayList<>();
-		for(int i=0;i<ar.size();i++){
-			HashMap<String,String> map=new HashMap<>();
+	public List searchWord(String search) {
+		List<MP3reposit> li = upServ.searchMusic(search);
+
+		ArrayList<HashMap> ar = new ArrayList<>();
+		for (int i = 0; i < ar.size(); i++) {
+			HashMap<String, String> map = new HashMap<>();
 			map.put("title", li.get(i).getTitle());
 			map.put("artist", li.get(i).getArtist());
 			ar.add(map);
 		}
-		
+
 		return li;
 
 	}
-	
+
 }
