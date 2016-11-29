@@ -24,7 +24,7 @@ public class reviewCon {
 		ModelAndView mav = new ModelAndView();
 		String Id = (String) session.getAttribute("userId");
 		mav.addObject("userid", Id);
-		mav.setViewName("board:board/review/write");
+		mav.setViewName("body:board/albuminfo");
 		return mav;
 	}
 //¸®ºä³»¿ë insert
