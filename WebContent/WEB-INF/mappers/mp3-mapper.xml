@@ -53,4 +53,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="allAlbum" resultType="java.util.HashMap"> 
 		select * from songsdata
 	</select>
+	
+	<select id="albumPaging" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		<![CDATA[
+			select * from(
+			select rownum r,temp.* from 
+			(select * from songsdata order by num desc) 
+				temp )
+					where r >= #{start} and r <= #{end}
+		]]>
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from songsdata
+	</select>
 </mapper>

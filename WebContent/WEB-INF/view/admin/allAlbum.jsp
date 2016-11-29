@@ -16,10 +16,15 @@
 			</c:forEach>
 		</div>
 	</div>
-
 </section>
 
-
+<div align="center">
+	<ul class="pagination pagination-sm">
+		<c:forEach var="i" begin="1" end="${last }">
+			<li><a href="/admin/allalbum?page=${i }">${i }</a></li>
+		</c:forEach>
+	</ul>
+</div>
 
 
 
