@@ -17,8 +17,8 @@
          </p>
          <p>
             <label>비밀번호</label> 
-            <input type="password" id="pass" name="pass" placeholder="비밀번호" required /> 
-            <input type="password" id="pass2" placeholder="비밀번호확인" disabled="disabled" required />
+            <input type="password" id="repass1" name="pass" placeholder="비밀번호" required /> 
+            <input type="password" id="repass2" placeholder="비밀번호확인" disabled="disabled" required />
          </p>
          <span id="rst2"></span>
          <p>
@@ -30,11 +30,7 @@
          </p>
          <p>
             <label>생년월일</label>&nbsp;&nbsp;<b>${data.BIRTH}</b>
-           
-         <p>
-            <label>이메일</label>
-            <input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
-         </p>
+       	 </p>
          <!-- 
          <p id="accept">
          <input id="accept_terms" name="accept_terms" type="checkbox" />
@@ -47,7 +43,7 @@
          -->          
       </div>
       <p>
-         <button id="modify" type="submit">수정하기</button><button id="modify">회원탈퇴</button>
+         <button id="modify" type="submit">수정하기</button><button id="modify" name="leave">회원탈퇴</button>
       </p>
    </form>
 </div>
@@ -68,7 +64,44 @@
 
 <script>
 $(document.getElementById("port")).hide();
-	$(document.getElementsByName("bt")).click(function(){
+	$(document.getElementsByName("leave")).click(function(){
 		$(document.getElementById("port")).slideToggle();
 	});
+	
+	document.getElementById("repass1").addEventListener("blur", function(){
+		var pass1 = document.getElementById("repass1").value;
+		var pass2 = document.getElementById("repass2").value;
+		var chk_num = pass1.search(/[0-9]/g);
+		var chk_eng = pass1.search(/[a-z]/ig);
+		
+		
+ 			if(pass1.length < 8){
+ 				html = "<b style='color:red; padding-left : 100px;'>비밀번호를 8~20자리로 설정해주세요.</b><br/><br/>";
+ 			}else {
+ 				if(chk_num<0 || chk_eng<0){
+ 					html = "<b style='color:red; padding-left : 100px;'>비밀번호를  영문, 숫자 조합으로 설정해주세요.</b><br/><br/>";
+ 				}else if(/(\w)\1\1\1/.test(pass1)){
+ 					html = "<b style='color:red; padding-left : 100px;'>비밀번호에 같은 문자를 4번이상 사용하실 수 없습니다.</b><br/><br/>";
+ 				}else{
+ 					html = "";
+ 					document.getElementById("rst2").innerHTML = html;
+ 					document.getElementById("repass2").disabled = false;
+ 				}
+			}
+		document.getElementById("rst2").innerHTML = html;		
+	});
+
+
+document.getElementById("repass2").addEventListener("blur", function(){
+	var pass1 = document.getElementById("repass1").value;
+	var pass2 = document.getElementById("repass2").value;
+		if(pass2.length < 1){
+			document.getElementById("repass2").disabled = true;
+		}else if(pass2==pass1){
+			html = "<b style='color:green; padding-left : 100px;'>비밀번호 일치</b><br/><br/>";
+		}else {
+			html = "<b style='color:red; padding-left : 100px;'>비밀번호 불일치</b><br/><br/>";
+		}					
+	document.getElementById("rst2").innerHTML = html;
+});
 </script>
