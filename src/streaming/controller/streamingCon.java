@@ -49,7 +49,7 @@ public class streamingCon {
 			System.out.println("등록 성공 제바루ㅜㅜㅜㅜ");
 			upServ.songinfo(artist, title);
 			mav.addObject("list", upServ.ListMp3());
-			mav.setViewName("/admin/mp3list");
+			mav.setViewName("t:nav");
 		} else {
 			System.out.println("망함");
 		}

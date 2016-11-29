@@ -183,7 +183,7 @@
 											<a href="#">${mp3.title }</a>
 										</h3>
 										<p>${mp3.artist }</p>
-										<a class="preview" href="/albumimage/${mp3.artist}${mp3.title}.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+										<a class="preview" onclick="window.open('/albuminfo?num=${mp3.num}','new','width=500px; height=450px')"><i class="fa fa-eye"></i> View</a>
 									</div>
 								</div>
 						</div>
@@ -491,8 +491,6 @@
 		console.log(url);
 		window.open(url, "choice", "height=200; width=100");
 	});
-
-	
 	
 	$("#superstar").click(function(){  
 	    var url="/naver/channelSSK";
@@ -503,6 +501,7 @@
 	    	$("#channel").html(resp);
 	    });  
 	});  
+	
 	
 	
 </script> 
