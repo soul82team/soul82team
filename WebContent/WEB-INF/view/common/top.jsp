@@ -55,7 +55,7 @@
 							<li><a href="/">About</a></li>
 							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
-							<li><a href="/chat">Chat</a></li>
+							
 							<li class="dropdown"><a class="dropdown-toggle"
 								data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
 								<ul class="dropdown-menu">
@@ -63,11 +63,11 @@
 									<li><a href="#">리뷰게시판</a></li>
 								</ul></li>
 							<li class="dropdown">
-							<img src="/images/services/services1.png" style="width:30px; height: 30px;">
+							<img src="" style="width:30px; height: 30px;" id="img">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							 ${sessionScope.userId }<span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="/board/review">리뷰 작성</a></li>
+									<li><a href="/board/review" on>리뷰 작성</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
 									<li><a href="/admin/allalbum?page=1">all list</a></li>
@@ -150,6 +150,20 @@
 	</div>
 	
 	<script>
+	
+	
+	$(document).ready(function() {
+		$.ajax({
+			"url":"/memberImg",
+			"methode":"get"
+		}).done(function(rst){
+			if(rst!=""){
+				alert(rst);
+				$("#img").attr("src","/memberimage/"+rst);
+			}
+		})
+	})
+	
 		function soulplayer(){
 			window.open("/playmusic", "", "width=460,height=900");
 		}
