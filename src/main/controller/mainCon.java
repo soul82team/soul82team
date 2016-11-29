@@ -247,6 +247,7 @@ public class mainCon {
 				map.put("title", title[0]);
 				map.put("artist", artist[0]);
 				map.put("album", album[0]);
+				
 				mnet.add(map);
 			}
 
