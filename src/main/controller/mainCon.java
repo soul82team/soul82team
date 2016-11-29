@@ -114,7 +114,7 @@ public class mainCon {
 			String mnetSite2 = contents.toString();
 			String[] mSplit = mnetSite2.split("<td class=\"MMLItemCheck\"");
 			ArrayList<HashMap> mnet = new ArrayList<>();
-			for (int i = 1; i < 51; i++) {
+			for (int i = 1; i < 9; i++) {
 				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
 				HashMap map2 = new HashMap();
 				String[] stitle = mSplit[i].split("title=\"");
