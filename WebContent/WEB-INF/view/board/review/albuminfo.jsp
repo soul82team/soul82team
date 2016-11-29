@@ -133,14 +133,13 @@
 }
 </style>
 
-
 <table class="tg">
 	<tr>
 		<th class="tg-031e" rowspan="5"><img
 			src="/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png"
 			style="width: 300px; height: 300px"></th>
 		<th class="tg-yw4l" colspan="4"><h2>앨범</h2>
-			<br />${mp3.ALBUM}<br /></th>
+			<br /> ${mp3.ALBUM}<br /></th>
 	</tr>
 	<tr>
 		<td class="tg-yw4l" colspan="4"><h2>아티스트</h2>${mp3.ARTIST}</td>
@@ -173,16 +172,18 @@
 		</thead>
 
 		<tbody>
-			<c:forEach var="obj" items="${data }">
-					<tr id="f${obj.NUM}">
-						<td>${obj.NUM}</td>
-						<td>${obj.ID }</td>
-						<td>${obj.MUSICTITLE }</td>
-						<td>${obj.COMMENTS}</td>
-						<td>${obj.GRADE}</td>
-						<td>${obj.WRITEDATE}</td>
-					</tr>
-				</c:forEach>
+		<c:forEach var="obj" items="${data }">
+			<tr id="f${obj.NUM}">
+				<td>${obj.NUM}</td>
+				<td> ${obj.ID } </td>
+				<td> ${obj.MUSICTITLE }  </td>
+				<td>${obj.COMMENTS}</td>
+				<td>${obj.GRADE}</td>
+				<td>${obj.WRITEDATE}</td>
+				
+				
+			</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </div>
@@ -194,11 +195,11 @@
 		<table class="tg" style="width: 100%;">
 			<tr>
 				<th class="tg-a2cf">작성자</th>
-				<th class="tg-h31u" colspan="4">${userId}</th>
+				<th class="tg-h31u" colspan="4">${userid}</th>
 			</tr>
 			<tr>
 				<td class="tg-7dqm">곡제목</td>
-				<td class="tg-zsu9" colspan="4" >${mp3.TITLE}</td>
+				<td class="tg-zsu9" colspan="4"></td>
 			</tr>
 			<tr>
 				<td class="tg-a2cf">평점</td>
@@ -270,3 +271,5 @@
 	starRating();
 
 </script>
+
+

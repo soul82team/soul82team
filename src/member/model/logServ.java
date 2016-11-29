@@ -33,6 +33,13 @@ public class logServ {
 		sql.close();
 		return rst;
 	}
+	public HashMap imgnameGet(String id){
+		HashMap map=new HashMap();
+		SqlSession sql = fac.openSession();
+		map=sql.selectOne("member.imgnameget",id);
+		sql.close();
+		return map;
+	}
 	
 	
 }

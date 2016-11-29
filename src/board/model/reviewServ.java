@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class reviewServ {
 	@Autowired
 	SqlSessionFactory fac;
+	
 	public boolean reviewin(HashMap map) {
 		SqlSession sql = fac.openSession();
 		int r = sql.insert("review.write", map);
@@ -20,10 +21,19 @@ public class reviewServ {
 		else
 			return false;
 	}
-	public List readAll() {
+	public List selectAlbum(int num) {
 		SqlSession sql = fac.openSession();
 		
-		List<HashMap> list=sql.selectList("review.getall");
+		List<HashMap> list=sql.selectList("review.selectOne", num);
+		 
+		sql.close();
+		return list;
+	}
+	
+	public List readTitle(String title) {
+		SqlSession sql = fac.openSession();
+		
+		List<HashMap> list=sql.selectList("review.gettitle", title);
 		 
 		sql.close();
 		return list;

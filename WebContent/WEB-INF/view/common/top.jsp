@@ -4,40 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header id="header">
-<!-- 	<div class="top-bar"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="row"> -->
-<!-- 				<div class="col-sm-6 col-xs-3"> -->
-<!-- 					<div class="top-number"> -->
-<!-- 						<p> -->
-<%-- 							<i class="fa fa-phone-square"></i>${sessionScope.userId } --%>
-<!-- 						</p> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="col-sm-6 col-xs-8"> -->
-<!-- 					<div class="social"> -->
-<!-- 						<div class="search"> -->
-<!-- 							<form role="form"> -->
-<!-- 								<input type="text" class="search-form" autocomplete="off" -->
-<!-- 									placeholder="Search"> <i class="fa fa-search"></i> -->
-<!-- 							</form> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+
 	<nav class="navbar navbar-inverse" role="banner">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><img
-					src="images/logo1.png" alt="logo"></a>
+				<a class="navbar-brand" href="/"><img src="/images/2.png" alt="logo" style="width: 50px; height: 50px"></a>
 			</div>
 			<div class="collapse navbar-collapse navbar-right">
 				<c:choose>
@@ -55,54 +29,42 @@
 							<li><a href="/">About</a></li>
 							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
-							<li><a href="/chat">Chat</a></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
+							
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
 									<li><a href="#">리뷰게시판</a></li>
-								</ul></li>
+								</ul>
+							</li>
 							<li class="dropdown">
-							<img src="/images/services/services1.png" style="width:30px; height: 30px;">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							 ${sessionScope.userId }<span class="caret"></span></a>
+							<img src="" style="width:30px; height: 30px;" id="img">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userId }<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/board/review">리뷰 작성</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
+<<<<<<< HEAD
 									<li><a href="/admin/allalbum">all list</a></li>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
+=======
+									<li><a href="/admin/allalbum?page=1">all list</a></li>
+>>>>>>> branch 'new' of https://github.com/soul82team/soul82team.git
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
-								</ul></li>
+								</ul>
+							</li>
 						</ul>
 					</c:otherwise>
 				</c:choose>
-				<!-- 					<ul class="nav navbar-nav"> -->
-				<!-- 						<li class="active"><a href="index.html">Home</a></li> -->
-				<!-- 						<li><a href="about-us.html">About Us</a></li> -->
-				<!-- 						<li><a href="services.html">Services</a></li> -->
-				<!-- 						<li><a href="portfolio.html">Portfolio</a></li> -->
-
-				<!-- 						<li><a href="blog.html">Blog</a></li> -->
-				<!-- 						<li><a href="contact-us.html">Contact</a></li> -->
-				<!-- 						<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-				<!-- 							data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a> -->
-				<!-- 							<ul class="dropdown-menu"> -->
-				<!-- 								<li><a href="blog-item.html">Blog Single</a></li> -->
-				<!-- 								<li><a href="pricing.html">Pricing</a></li> -->
-				<!-- 								<li><a href="404.html">404</a></li> -->
-				<!-- 								<li><a href="shortcodes.html">Shortcodes</a></li> -->
-				<!-- 							</ul> -->
-				<!-- 						</li> -->
-				<!-- 					</ul> -->
 			</div>
 		</div>
 	</nav>
+	
+	
+	
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
-
 			<div class="modal-content">
 				<div class="modal-header" style="padding: 35px 50px;">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -149,17 +111,29 @@
 			</div>
 		</div>
 	</div>
-	
-	<script>
-		function soulplayer(){
-			window.open("/playmusic", "", "width=460,height=900");
-		}
-	
-		$(document).ready(function() {
-			$("#myBtn").click(function() {
-				$("#myModal").modal();
-			});
-		});
-	</script>
-	
 </header>
+
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			"url":"/memberImg",
+			"methode":"get"
+		}).done(function(rst){
+			if(rst!=""){
+				alert(rst);
+				$("#img").attr("src","/memberimage/"+rst);
+			}
+		})
+	})
+	
+	function soulplayer(){
+		window.open("/playmusic", "", "width=460,height=900");
+	}
+
+	$(document).ready(function() {
+		$("#myBtn").click(function() {
+			$("#myModal").modal();
+		});
+	});
+</script>
+

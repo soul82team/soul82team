@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.logServ;
+import member.model.modifyServ;
 
 @Controller
 public class logCon {
@@ -61,4 +63,15 @@ public class logCon {
 		return mav;
 	}
 	
+	@RequestMapping("/memberImg")
+	@ResponseBody
+	public String memberImg(HttpSession session) {
+		String id = (String)session.getAttribute("userId");
+		System.out.println(id+"+++++++++");
+		
+		HashMap map=ls.imgnameGet(id);
+		String name=(String)map.get("IMGNAME");
+		System.out.println("!!!!!!!!"+name);
+		return name;
+	}
 }

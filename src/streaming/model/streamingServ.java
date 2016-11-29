@@ -112,11 +112,29 @@ public class streamingServ {
 		return li;
 	}
 	
-	public List<HashMap> allListMp3(){
+	public List allListMp3(int page){
 		SqlSession ss=fac.openSession();
-		List<HashMap> li=ss.selectList("mp3.allAlbum");
+		int block=12;
+		HashMap map=new HashMap();
+			map.put("start",(page*block)-11);
+			map.put("end",page*block);
+		List li=ss.selectList("mp3.albumPaging",map);
 		ss.close();
 		return li;
+	}
+	
+	public int LastPage(){
+		SqlSession ss=fac.openSession();
+		int page=ss.selectOne("mp3.getCount");
+		ss.close();
+		
+		int s=page%12;
+		int div=page/12;
+
+		if(s>=1){
+			return div+=1;
+		}
+			return div;
 	}
 	
 }

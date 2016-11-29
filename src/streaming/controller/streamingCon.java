@@ -48,7 +48,7 @@ public class streamingCon {
 		if (r == true) {
 			upServ.songinfo(artist, title);
 			mav.addObject("list", upServ.ListMp3());
-			mav.setViewName("/admin/mp3list");
+			mav.setViewName("t:nav");
 		} else {
 			System.out.println("¸ÁÇÔ");
 		}
@@ -86,11 +86,13 @@ public class streamingCon {
 	}
 
 	@RequestMapping("/admin/allalbum")
-	public ModelAndView mp3alllist() {
+	public ModelAndView mp3alllist(int page) {
 		ModelAndView mav = new ModelAndView();
-		List<HashMap> li = upServ.allListMp3();
-		mav.addObject("allAlbum", li);
-		mav.setViewName("body:admin/allAlbum");
+		
+		List<HashMap> li = upServ.allListMp3(page);
+			mav.addObject("allAlbum", li);
+			mav.addObject("last",upServ.LastPage());
+			mav.setViewName("body:admin/allAlbum");
 
 		return mav;
 	}

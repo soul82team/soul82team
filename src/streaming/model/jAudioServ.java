@@ -1,7 +1,5 @@
 package streaming.model;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
@@ -9,8 +7,6 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 import javax.servlet.ServletContext;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,16 +15,7 @@ import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
-import org.jaudiotagger.tag.TagField;
 import org.jaudiotagger.tag.datatype.Artwork;
-import org.jaudiotagger.tag.id3.AbstractID3v2Frame;
-import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
-import org.jaudiotagger.tag.id3.ID3v24Tag;
-import org.jaudiotagger.tag.id3.framebody.FrameBodyAPIC;
-import org.jaudiotagger.tag.id3.valuepair.TextEncoding;
-
-
-import org.jaudiotagger.tag.mp4.Mp4Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 
@@ -76,6 +63,8 @@ public class jAudioServ {
 		
 			
 			// ===============================================
+
+
 			Artwork artwork =tag.getFirstArtwork();
             
 			byte[] firstImage = artwork.getBinaryData();
