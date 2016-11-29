@@ -9,10 +9,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<style>
-		.tg  {border-collapse:collapse;border-spacing:0;border-width:1px;border-style:solid;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-		.tg .tg-yw4l{vertical-align:top}
+		.tg  {border: 2px solid gray; background-color: white; border-collapse:collapse;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal; width: 20%;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal; width: 20%;}
+		.tg .tg-yw4l{vertical-align:top; cursor: pointer;}
 		table.tg {
  		    opacity: 0.9; 
  		    filter: alpha(opacity=90); 
@@ -23,17 +23,14 @@
 <header>
 
 <div class="container" style="padding-top: 5%">
-<img src="/img/sketchbook_logo.png" class="img-circle" alt="Cinque Terre" width="200" height="140" />
-<h2>À¯Èñ¿­ÀÇ ½ºÄÉÄ¡ºÏ</h2> 
-</div>
-<hr/>
-
-<div class="container"id="castplay">
+<img src="/images/sketchbook_logo.png" class="img-circle" alt="Cinque Terre" width="150" height="150" /><b style="font-size: 24px">&nbsp;&nbsp;À¯Èñ¿­ÀÇ ½ºÄÉÄ¡ºÏ</b>
 </div>
 
-<hr/>
-<div class="container" style="padding-top: 5%">
-	<table class="tg" style="background: white ;" > 
+<div class="container"id="castplay" style="padding-top: 3%">
+</div>
+
+<div class="container" style="padding-top: 3%; width: 90%">
+	<table class="tg"> 
 	  <tr>
 		<c:forEach var="i" items="${yhy }">
 	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>

@@ -164,15 +164,13 @@
 <!-- Ã¤³Î ¼½¼Ç -->
 <section id="middle">
 	<div class="container">
-		<button type="button" class="btn btn-success btn-sm" id="superstar">½´ÆÛ½ºÅ¸
-			K</button>
-		<button type="button" class="btn btn-info btn-sm" id="sketch">À¯Èñ¿­ÀÇ
-			½ºÄÉÄ¡ºÏ</button>
+		<button type="button" class="btn btn-success btn-sm" id="superstar">½´ÆÛ½ºÅ¸ K</button>
+		<button type="button" class="btn btn-info btn-sm" id="sketch">À¯Èñ¿­ÀÇ ½ºÄÉÄ¡ºÏ</button>
 	</div>
 	<div class="container">
 		<div class="row" id="channel">
 			<c:import url="/naver/channelSSK"></c:import>
-			<c:import url="/naver/channelYHY"></c:import>
+<%-- 			<c:import url="/naver/channelYHY"></c:import> --%>
 		</div>
 	</div>
 </section>
@@ -200,7 +198,27 @@
 </section>
 
 
-<script>	
+<script>
+	$("#superstar").click(function(){  
+	    var url="/naver/channelSSK";
+	    $.ajax({      
+	        type:"get",  
+	        url:url,      
+	    }).done(function(resp){
+	    	$("#channel").html(resp);
+	    });  
+	});
+	
+	$("#sketch").click(function(){  
+	    var url="/naver/channelYHY";
+	    $.ajax({      
+	        type:"get",  
+	        url:url,      
+	    }).done(function(resp){
+	    	$("#channel").html(resp);
+	    });  
+	});
+
 	function allChk(){
 		var chk = $("input[name='chk_all']").is(":checked");
 		
@@ -245,16 +263,6 @@
 		console.log(url);
 		window.open(url, "choice", "height=200; width=100");
 	});
-	
-	$("#superstar").click(function(){  
-	    var url="/naver/channelSSK";
-	    $.ajax({      
-	        type:"get",  
-	        url:url,      
-	    }).done(function(resp){
-	    	$("#channel").html(resp);
-	    });  
-	}); 
 	
 	function albumView(num, title){
 		var url="/music/inform?num=" + num + "&title=" + title;
