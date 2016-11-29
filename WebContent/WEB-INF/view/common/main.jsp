@@ -496,7 +496,6 @@
 	
 	$("#superstar").click(function(){  
 	    var url="/naver/channelSSK";
-// 	    <c:import url="/naver/channelSSK"></c:import>
 	    $.ajax({      
 	        type:"get",  
 	        url:url,      
