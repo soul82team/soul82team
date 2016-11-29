@@ -55,6 +55,8 @@
 </div>
 </header>
 
+</html>
+
 <script>
 
 	document.getElementById("createId").addEventListener("blur", function(){
@@ -125,5 +127,3 @@
 	}
 
 </script>
-
-</html>

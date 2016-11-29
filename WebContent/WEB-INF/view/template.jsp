@@ -11,6 +11,7 @@
 	
 	<title>Soul ♪</title>
 	
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Sansita+One" />
 	<link href="/css/animate.min.css" rel="stylesheet">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">

@@ -133,13 +133,14 @@
 }
 </style>
 
+
 <table class="tg">
 	<tr>
 		<th class="tg-031e" rowspan="5"><img
 			src="/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png"
 			style="width: 300px; height: 300px"></th>
 		<th class="tg-yw4l" colspan="4"><h2>앨범</h2>
-			<br /> ${mp3.ALBUM}<br /></th>
+			<br />${mp3.ALBUM}<br /></th>
 	</tr>
 	<tr>
 		<td class="tg-yw4l" colspan="4"><h2>아티스트</h2>${mp3.ARTIST}</td>

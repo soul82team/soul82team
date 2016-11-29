@@ -478,7 +478,7 @@
 	
 	function albumView(num, title){
 		var url="/music/inform?num=" + num + "&title=" + title;
-		console.log(url);
+		console.log(num + "" + title);
 		location.href = url;
 	}
 	
