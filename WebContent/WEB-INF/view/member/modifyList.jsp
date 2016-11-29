@@ -3,20 +3,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 <div id="reg" align="center">
-   <img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
+   <img src="/images/1.png" style="width: 100px; padding-bottom: 20px;" />
 
   <form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/memUp">
       <h2 align="left">회원 정보 수정</h2>
       <div align="left">
          <p>
-         
             <label>사진</label>
             <img src="/memberimage/${img.IMGNAME}" width="30" height="30"/>
-            
          </p>
          <p>
-            <label>아이디</label>&nbsp;&nbsp;<b>${data.ID}</b>
-            <span id="rst"></span>                                              
+            <label>아이디</label>&nbsp;&nbsp;<b>${data.ID}</b>                                             
          </p>
          <p>
             <label>비밀번호</label> 
@@ -50,7 +47,7 @@
          -->          
       </div>
       <p>
-         <button id="reg_new" type="submit">수정하기</button><input type="button" id="reg_new" name="bt" value="회원탈퇴"/>
+         <button id="modify" type="submit">수정하기</button><button id="modify">회원탈퇴</button>
       </p>
    </form>
 </div>
@@ -59,10 +56,10 @@
 		<b>회원탈퇴</b>
 	</legend>
 	<form id="reg_form" action="/member/leave">
-		 <b> ${id }</b> <br /> <b>PASS</b><br /> <input
-			type="password" required="required" name="pass" /><br />
+		 <b> ${id }</b> <br /> <b>PASS</b><br />
+		 <input type="password" required="required" name="pass" /><br />
 		<hr />
-		<input type="submit" value="수정" />
+		<button id="modify" type="submit">수정</button>
 	</form>
 
 </div>

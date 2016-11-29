@@ -1,3 +1,7 @@
+#reg{
+	padding-top: 3%;
+}
+
 #reg_form {
 	padding-left: 2em;
 	background: #f2f2f2;
@@ -6,7 +10,7 @@
 }
 
 #reg h2 {
-	font-family: 'Sansita One', cursive;
+	font-family: ¸¼Àº°íµñ, "Malgun Gothic", cursive;
 	color: black;
 }
 
@@ -49,6 +53,7 @@
    height: 50px;
    border-radius: 1em;
 }
+
 #bt {
    cursor: pointer;
    border: 2px solid #fff;
@@ -56,6 +61,18 @@
    width: 130px;
    height: 50px;
    border-radius: 1em;
+}
+
+#modify {
+	cursor: pointer;
+	border: 2px solid #fff;
+	background-color: gray;
+	width: 100px;
+	height: 50px;
+	border-radius: 1em;
+}
+#modify:hover, #modify:focus{
+   background-color: #c52d2f;
 }
 
 #confirm {
