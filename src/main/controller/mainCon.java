@@ -114,7 +114,7 @@ public class mainCon {
 			String mnetSite2 = contents.toString();
 			String[] mSplit = mnetSite2.split("<td class=\"MMLItemCheck\"");
 			ArrayList<HashMap> mnet = new ArrayList<>();
-			for (int i = 1; i < 9; i++) {
+			for (int i = 1; i < 51; i++) {
 				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
 				HashMap map2 = new HashMap();
 				String[] stitle = mSplit[i].split("title=\"");
@@ -223,35 +223,10 @@ public class mainCon {
 
 			// ========================================================================
 
-			// Mnet
-			Source mnetSource = new Source(new URL(mnetSite));
-			mnetSource.getAllTags();
-			mnetSource.fullSequentialParse();
-			String sourMnet = mnetSource.toString();
-			String[] mnetTitle = sourMnet.split("class=\"btn_recom\" title=\"");
-
-			String[] mnetArtist1 = sourMnet.split("class=\"MMLIInfo_Artist\"");
-			String[] mnetArtist2 = mnetArtist1[1].split(">");
-
-			String[] mnetAlbum = sourMnet.split("target=\"_self\"><img src=");
-			// String []mnetArtist2=null;
-			ArrayList<HashMap> mnet = new ArrayList<>();
-
-			for (int i = 1; i < 51; i++) {
-				HashMap map = new HashMap();
-				title = mnetTitle[i].split("-");
-				artist = mnetArtist2[i].split("<");
-				album = mnetAlbum[i].split("alt");
-				map.put("title", title[0]);
-				map.put("artist", artist[0]);
-				map.put("album", album[0]);
-
-				mnet.add(map);
-			}
-
-			String urlPath = "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
+			String urlPath = "http://www.mnet.com/chart/top100/";
 			String pageContents = "";
 			StringBuilder contents = new StringBuilder();
+			//ModelAndView mv = new ModelAndView();
 
 			URL url = new URL(urlPath);
 			URLConnection con = (URLConnection) url.openConnection();
@@ -265,41 +240,83 @@ public class mainCon {
 			}
 			buff.close();
 
-			String naverSource = contents.toString();
-			String[] naverTitle = naverSource.split("><span class=\"ellipsis\">");
-			String[] title1 = null;
-
-			String[] naverArtist = naverSource.split("<span class=\"ellipsis\" >");
-			String[] artist1 = null;
-
-			String[] navernAlbum = naverSource.split("http://musicmeta.phinf.naver.net");
-			String[] album1 = null;
-
-			ArrayList<HashMap> naverMusic = new ArrayList<>();
-
-			for (int i = 1; i < 45; i++) {
-				HashMap map = new HashMap();
-				title = naverTitle[i].split("\\<");
-				artist = naverArtist[i].split("\\<");
-				artist[0] = artist[0].replaceAll("\\s+", "");
-				album = navernAlbum[i].split("\\?");
-				album[0] = "http://musicmeta.phinf.naver.net" + album[0];
-				map.put("title", title[0]);
-				map.put("artist", artist[0]);
-				map.put("album", album[0]);
-				naverMusic.add(map);
+			String mnetSite2 = contents.toString();
+			String[] mSplit = mnetSite2.split("<td class=\"MMLItemCheck\"");
+			
+			
+			ArrayList<HashMap> mnet = new ArrayList<>();
+			for (int i = 1; i < 51; i++) {
+				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
+				HashMap map2 = new HashMap();
+				String[] stitle = mSplit[i].split("title=\"");
+				String[] title3 = stitle[1].split("-");
+				String[] simg = mSplit[i].split("><img src=");
+				String[] img = simg[1].split("alt");
+				String[] atitle = mSplit[i].split("/artist");
+				String[] atitle2 = atitle[1].split("title=\"");
+				String[] artist3 = atitle2[1].split("-");
+				map2.put("title", title3[0]);
+				map2.put("artist", artist3[0]);
+				map2.put("album",  img[0]);
+				mnet.add(map2);
+				
 			}
+			// ==========================================================================
+			
+			String urlPath4="http://www.mnet.com/chart/TOP100/20161128?pNum=2";
+			String pageContents4 = "";
+			StringBuilder contents4 = new StringBuilder();
+			
+
+			URL url4 = new URL(urlPath4);
+			URLConnection con4 = (URLConnection) url4.openConnection();
+			InputStreamReader reader4 = new InputStreamReader(con4.getInputStream(), "utf-8");
+
+			BufferedReader buff4 = new BufferedReader(reader4);
+
+			while ((pageContents4 = buff4.readLine()) != null) {
+				contents4.append(pageContents4);
+				contents4.append("\r\n");
+			}
+			buff4.close();
+
+			String mnetSite4 = contents.toString();
+			String[] mSplit4 = mnetSite4.split("<td class=\"MMLItemCheck\"");
+			
+			
+			
+			for (int i = 1; i < 51; i++) {
+				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
+				HashMap map2 = new HashMap();
+				String[] stitle = mSplit4[i].split("title=\"");
+				String[] title3 = stitle[1].split("-");
+				String[] simg = mSplit4[i].split("><img src=");
+				String[] img = simg[1].split("alt");
+				String[] atitle = mSplit4[i].split("/artist");
+				String[] atitle2 = atitle[1].split("title=\"");
+				String[] artist3 = atitle2[1].split("-");
+				map2.put("title", title3[0]);
+				map2.put("artist", artist3[0]);
+				map2.put("album",  img[0]);
+				mnet.add(map2);
+				
+			}
+			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			List<MP3reposit> ls = upServ.ListMp3();
+
+			mv.addObject("mp3", ls);
 
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
-			mv.addObject("mnet", mnet);
-			mv.setViewName("body:chart/bugsChart");
+			 mv.addObject("mnet", mnet);
+			 mv.setViewName("body:chart/bugsChart");
 			return mv;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
+	
 
 	@RequestMapping("/albuminfo")
 	public ModelAndView albuminfo(int num) {
