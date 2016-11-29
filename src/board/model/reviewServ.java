@@ -28,4 +28,13 @@ public class reviewServ {
 		sql.close();
 		return list;
 	}
+	
+	public List readTitle(String title) {
+		SqlSession sql = fac.openSession();
+		
+		List<HashMap> list=sql.selectList("review.gettitle", title);
+		 
+		sql.close();
+		return list;
+	}
 }

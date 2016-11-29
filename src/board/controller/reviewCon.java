@@ -20,26 +20,37 @@ public class reviewCon {
 	reviewServ rs;
 //아이디 넘기면서 리뷰작성 페이지
 	@RequestMapping("/board/review")
-	public ModelAndView sasd(HttpSession session, int num) {
+	public ModelAndView sasd(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String Id = (String) session.getAttribute("userId");
 			mav.addObject("userid", Id);
-			mav.addObject("num", num);
-		mav.setViewName("body:board/albuminfo");
+		mav.setViewName("board:board/review/write");
 		return mav;
 	}
+	
+	@RequestMapping("music/inform")
+	public ModelAndView albuminform(int num , String title){
+		ModelAndView mav = new ModelAndView();
+		List li= rs.readTitle(title);
+			mav.addObject("data",li);
+			mav.addObject("num", num);
+			mav.setViewName("body:common/albuminfo");
+		return mav; 
+	}
+	
 //리뷰내용 insert
 	@RequestMapping("/music/review")
 	public ModelAndView write(HttpServletRequest req, HttpSession session) {
 		String Id = (String) session.getAttribute("userId");
 		int g = Integer.parseInt(req.getParameter("star-input"));
+		String t = req.getParameter("title");
 		String c = req.getParameter("comment");
 		System.out.println(g + "//" + c);
 		HashMap map = new HashMap();
-		map.put("id", Id);
-		map.put("musictitle", "숨");
-		map.put("comments", c);
-		map.put("grade", g);
+			map.put("id", Id);
+			map.put("musictitle", t);
+			map.put("comments", c);
+			map.put("grade", g);
 		boolean b = rs.reviewin(map);
 		ModelAndView mav = new ModelAndView();
 		if (b == true) {

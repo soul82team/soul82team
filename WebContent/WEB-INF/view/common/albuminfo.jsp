@@ -155,7 +155,6 @@
 	</tr>
 </table>
 
-<<<<<<< HEAD
 <div class="container">
 	<h2>Review</h2> 
 	<hr/>
@@ -173,18 +172,16 @@
 		</thead>
 
 		<tbody>
-		<c:forEach var="obj" items="${data }">
-			<tr id="f${obj.NUM}">
-				<td>${obj.NUM}</td>
-				<td> ${obj.ID } </td>
-				<td> ${obj.MUSICTITLE }  </td>
-				<td>${obj.COMMENTS}</td>
-				<td>${obj.GRADE}</td>
-				<td>${obj.WRITEDATE}</td>
-				
-				
-			</tr>
-			</c:forEach>
+			<c:forEach var="obj" items="${data }">
+					<tr id="f${obj.NUM}">
+						<td>${obj.NUM}</td>
+						<td>${obj.ID }</td>
+						<td>${obj.MUSICTITLE }</td>
+						<td>${obj.COMMENTS}</td>
+						<td>${obj.GRADE}</td>
+						<td>${obj.WRITEDATE}</td>
+					</tr>
+				</c:forEach>
 		</tbody>
 	</table>
 </div>
@@ -196,11 +193,11 @@
 		<table class="tg" style="width: 100%;">
 			<tr>
 				<th class="tg-a2cf">작성자</th>
-				<th class="tg-h31u" colspan="4">${userid}</th>
+				<th class="tg-h31u" colspan="4">${userId}</th>
 			</tr>
 			<tr>
 				<td class="tg-7dqm">곡제목</td>
-				<td class="tg-zsu9" colspan="4"></td>
+				<td class="tg-zsu9" colspan="4" >${mp3.TITLE}</td>
 			</tr>
 			<tr>
 				<td class="tg-a2cf">평점</td>
@@ -272,7 +269,3 @@
 	starRating();
 
 </script>
-
-
-=======
->>>>>>> branch 'new' of https://github.com/soul82team/soul82team.git

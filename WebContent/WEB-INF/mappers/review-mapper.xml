@@ -12,4 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getall" resultType="java.util.HashMap">
 		select * from reviewboard order by num desc
 	</select>
+	
+	<select id="gettitle" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from reviewboard where musictitle = #{title } order by num desc
+	</select>
 </mapper>
