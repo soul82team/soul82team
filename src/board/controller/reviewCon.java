@@ -20,10 +20,11 @@ public class reviewCon {
 	reviewServ rs;
 //아이디 넘기면서 리뷰작성 페이지
 	@RequestMapping("/board/review")
-	public ModelAndView sasd(HttpSession session) {
+	public ModelAndView sasd(HttpSession session, int num) {
 		ModelAndView mav = new ModelAndView();
 		String Id = (String) session.getAttribute("userId");
-		mav.addObject("userid", Id);
+			mav.addObject("userid", Id);
+			mav.addObject("num", num);
 		mav.setViewName("body:board/albuminfo");
 		return mav;
 	}

@@ -155,6 +155,7 @@
 	</tr>
 </table>
 
+<<<<<<< HEAD
 <div class="container">
 	<h2>Review</h2> 
 	<hr/>
@@ -273,3 +274,5 @@
 </script>
 
 
+=======
+>>>>>>> branch 'new' of https://github.com/soul82team/soul82team.git

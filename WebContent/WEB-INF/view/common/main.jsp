@@ -98,70 +98,36 @@
 		</a>
 </section>
 	
-	<section id="feature">
-		<div class="container">
-			<div class="center wow fadeInDown">
-				<h2>Features</h2>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-					eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut
-					enim ad minim veniam
-				</p>
+	<form action="/soulSearch">
+			<div class="w3-container">
+			  <div class="w3-dropdown-hover">
+			    <button class="w3-btn w3-blue">select category</button>
+			    <div class="w3-dropdown-content w3-border">
+			      <a href="#">artist</a>
+			      <a href="#">title</a>
+			    </div>
+			  </div>
 			</div>
-			<div class="row">
-				<div class="features">
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-bullhorn"></i>
-							<h2>Fresh and Clean</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-comments"></i>
-							<h2>Retina ready</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-cloud-download"></i>
-							<h2>Easy to customize</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-leaf"></i>
-							<h2>Adipisicing elit</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-cogs"></i>
-							<h2>Sed do eiusmod</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div class="feature-wrap">
-							<i class="fa fa-heart"></i>
-							<h2>Labore et dolore</h2>
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-						</div>
+				<div class="input-group input-group-lg">
+					<input type="text" class="form-control" placeholder="Search music" id="search" name="search" list="datas">
+					
+					<datalist id="datas">
+
+					</datalist>
+
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
 					</div>
 				</div>
-			</div>
+			</form>
+
+			<hr>
+			<a onclick="soulplayer()" class="btn btn-primary btn-xl page-scroll">Play
+				music</a>
 		</div>
-	</section>
+	</div>
 	<section id="recent-works">
 		<div class="container">
 			<div class="center wow fadeInDown">
@@ -183,7 +149,7 @@
 											<a href="#">${mp3.title }</a>
 										</h3>
 										<p>${mp3.artist }</p>
-										<a class="preview" onclick="window.open('/albuminfo?num=${mp3.num}','new','width=500px; height=450px')"><i class="fa fa-eye"></i> View</a>
+										<a class="preview" onclick="albumView('${mp3.num}')"><i class="fa fa-eye"></i> View</a>
 									</div>
 								</div>
 						</div>
@@ -500,7 +466,24 @@
 	    }).done(function(resp){
 	    	$("#channel").html(resp);
 	    });  
-	});  
+	}); 
+	
+	$("#search").keyup(function(){
+		var word=$("#search").val();
+		console.log(word);
+		
+		 var url="/search/word?search="+word;  
+		 $.ajax({      
+		   type:"get",  
+		    url:url,      
+		 }).done(function(resp){
+		  	$("#datas").html(resp);
+		});
+	});
+	
+	function albumView(var num){
+		console.log(num);
+	}
 	
 	
 	
