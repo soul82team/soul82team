@@ -173,17 +173,17 @@
 				</p>
 			</div>
 			<div class="row">
-				<c:forEach var="bugs2" items="${bugs2 }" varStatus="status">
+				<c:forEach var="mp3" items="${mp3 }" begin="1" end="8" step="1">
 					<div class="col-xs-12 col-sm-4 col-md-3">
 						<div class="recent-work-wrap">
-							<img src="${bugs2.album}" class="img-responsive" alt="">
+							<img src="/albumimage/${mp3.artist}${mp3.title}.png" class="img-responsive" style="height:300px" alt="">
 								<div class="overlay">
 									<div class="recent-work-inner">
 										<h3>
-											<a href="#">${bugs2.title }</a>
+											<a href="#">${mp3.title }</a>
 										</h3>
-										<p>${bugs2.artist }</p>
-										<a class="preview" href="${bugs2.album}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+										<p>${mp3.artist }</p>
+										<a class="preview" href="/albumimage/${mp3.artist}${mp3.title}.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
 									</div>
 								</div>
 						</div>
