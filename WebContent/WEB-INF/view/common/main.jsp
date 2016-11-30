@@ -17,7 +17,7 @@
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
+							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
 								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">
 									<tr>
 										<td style="width: 10px">${status.count }</td>
@@ -68,8 +68,6 @@
 								</c:forEach>
 							</div>
 						</div>
-
-			
 				</div>
 			</div>
 		</div>
@@ -77,9 +75,8 @@
 </section>
 
 
-<section id="feature"
-	style="background-image: url(images/search_back.jpg)"
-	style="max-width: 100%; height: auto;">
+<section id="feature" style="background-image: url(images/search_back.jpg); max-width: 100%; background-size: cover;"
+	style="">
 	
 	<div class="container" align="center" style="height: 660px">
 	<br/><br/><br/><br/>

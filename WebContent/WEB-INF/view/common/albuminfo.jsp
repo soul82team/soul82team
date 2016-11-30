@@ -133,59 +133,59 @@
 }
 </style>
 
-
-<table class="tg">
-	<tr>
-		<th class="tg-031e" rowspan="5"><img
-			src="/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png"
-			style="width: 300px; height: 300px"></th>
-		<th class="tg-yw4l" colspan="4"><h2>앨범</h2>
-			<br />${mp3.ALBUM}<br /></th>
-	</tr>
-	<tr>
-		<td class="tg-yw4l" colspan="4"><h2>아티스트</h2>${mp3.ARTIST}</td>
-	</tr>
-	<tr>
-		<td class="tg-yw4l" colspan="4"><h2>타이틀</h2>${mp3.TITLE}</td>
-	</tr>
-	<tr>
-		<td class="tg-yw4l" colspan="4"><h2>년도</h2>${mp3.YEAR}</td>
-	</tr>
-	<tr>
-		<td class="tg-yw4l" colspan="4"><h2>장르</h2>${mp3.GENRE}</td>
-	</tr>
-</table>
-
-<div class="container">
-	<h2>Review</h2> 
-	<hr/>
-	<table class="table">
-		<thead>
+<div align="center" style="padding-top: 3%">
+	<div align="center" id="albuminfo" style="width: 80%">
+		<table class="tg">
 			<tr>
-				<th>글 번호</th>
-				<th>작성자</th>
-				<th>곡제목</th>
-				<th>리뷰내용</th>
-				<th>평점</th>
-				<th>작성일</th>
-				
+				<th class="tg-031e" rowspan="5"><img src="/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png" style="width: 300px; height: 300px"></th>
+				<th class="tg-yw4l" colspan="4"><h2>앨범</h2>
+					<br />${mp3.ALBUM}<br /></th>
 			</tr>
-		</thead>
-
-		<tbody>
-			<c:forEach var="obj" items="${data }">
-					<tr id="f${obj.NUM}">
-						<td>${obj.NUM}</td>
-						<td>${obj.ID }</td>
-						<td>${obj.MUSICTITLE }</td>
-						<td>${obj.COMMENTS}</td>
-						<td>${obj.GRADE}</td>
-						<td>${obj.WRITEDATE}</td>
-					</tr>
-				</c:forEach>
-		</tbody>
-	</table>
-</div>
+			<tr>
+				<td class="tg-yw4l" colspan="4"><h2>아티스트</h2>${mp3.ARTIST}</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l" colspan="4"><h2>타이틀</h2>${mp3.TITLE}</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l" colspan="4"><h2>년도</h2>${mp3.YEAR}</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l" colspan="4"><h2>장르</h2>${mp3.GENRE}</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="container">
+		<h2>Review</h2> 
+		<hr/>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>글 번호</th>
+					<th>작성자</th>
+					<th>곡제목</th>
+					<th>리뷰내용</th>
+					<th>평점</th>
+					<th>작성일</th>
+					
+				</tr>
+			</thead>
+	
+			<tbody>
+				<c:forEach var="obj" items="${data }">
+						<tr id="f${obj.NUM}">
+							<td>${obj.NUM}</td>
+							<td>${obj.ID }</td>
+							<td>${obj.MUSICTITLE }</td>
+							<td>${obj.COMMENTS}</td>
+							<td>${obj.GRADE}</td>
+							<td>${obj.WRITEDATE}</td>
+						</tr>
+					</c:forEach>
+			</tbody>
+		</table>
+	</div>
 
 <form action="/music/review">
 	<input type="hidden">
@@ -234,7 +234,7 @@
 		<button type="submit" class="btn btn-success">등록</button>
 	</div>
 </form>
-
+</div>
 <script>
 	// star rating
 	var starRating = function(){
