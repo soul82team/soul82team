@@ -18,12 +18,12 @@
 						<div class="carousel-content" align="center">
 							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
 							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
+								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">
 									<tr>
 										<td style="width: 10px">${status.count }</td>
-										<td><img src="${bugs.album }" /></td>
-										<td>${bugs.title }</td>
-										<td>${bugs.artist }</td>
+										<td><img src="/albumimage/${mp3.title }${mp3.artist}.png" /></td>
+										<td>${mp3.title }</td>
+										<td>${mp3.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +28,7 @@ public class mainCon {
 	AlbumSer as;
 
 	@RequestMapping({ "/", "/index" })
-	public ModelAndView main() {
+	public ModelAndView main(@CookieValue(name="savaId", required=false)String id) {
 		try {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
@@ -139,6 +140,7 @@ public class mainCon {
 			mv.addObject("bugs", bugs);
 			mv.addObject("bugs2", bugs2);
 			mv.addObject("mnet", mnet);
+			mv.addObject("cid", id);
 			mv.setViewName("t:nav");
 			return mv;
 		} catch (Exception e) {
