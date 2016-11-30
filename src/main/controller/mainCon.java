@@ -180,7 +180,7 @@ public class mainCon {
 
 			ArrayList<HashMap> bugs = new ArrayList<>();
 
-			for (int i = 1; i < 101; i++) {
+			for (int i = 1; i < 51; i++) {
 				HashMap map = new HashMap();
 				title = bugsTitle[i].split("\"");
 				artist = bugsArtist[i].split("\"");
@@ -263,45 +263,7 @@ public class mainCon {
 			}
 			// ==========================================================================
 			
-			String urlPath4="http://www.mnet.com/chart/TOP100/20161128?pNum=2";
-			String pageContents4 = "";
-			StringBuilder contents4 = new StringBuilder();
 			
-
-			URL url4 = new URL(urlPath4);
-			URLConnection con4 = (URLConnection) url4.openConnection();
-			InputStreamReader reader4 = new InputStreamReader(con4.getInputStream(), "utf-8");
-
-			BufferedReader buff4 = new BufferedReader(reader4);
-
-			while ((pageContents4 = buff4.readLine()) != null) {
-				contents4.append(pageContents4);
-				contents4.append("\r\n");
-			}
-			buff4.close();
-
-			String mnetSite4 = contents.toString();
-			String[] mSplit4 = mnetSite4.split("<td class=\"MMLItemCheck\"");
-			
-			
-			
-			for (int i = 1; i < 51; i++) {
-				// 이거 for문 i 넣어주면됨(1부터 시작하는 i)
-				HashMap map2 = new HashMap();
-				String[] stitle = mSplit4[i].split("title=\"");
-				String[] title3 = stitle[1].split("-");
-				String[] simg = mSplit4[i].split("><img src=");
-				String[] img = simg[1].split("alt");
-				String[] atitle = mSplit4[i].split("/artist");
-				String[] atitle2 = atitle[1].split("title=\"");
-				String[] artist3 = atitle2[1].split("-");
-				map2.put("title", title3[0]);
-				map2.put("artist", artist3[0]);
-				map2.put("album",  img[0]);
-				mnet.add(map2);
-				
-			}
-			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			List<MP3reposit> ls = upServ.ListMp3();
 
 			mv.addObject("mp3", ls);
