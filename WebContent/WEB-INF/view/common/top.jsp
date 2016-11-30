@@ -74,7 +74,7 @@
 						<div class="form-group">
 							<label for="usrname"><span
 								class="glyphicon glyphicon-user"></span> ID</label> <input type="text"
-								class="form-control" id="id" name="id" placeholder="ID를 입력해주세요!"
+								class="form-control" value="${cid}" id="id" name="id" placeholder="ID를 입력해주세요!"
 								required="required">
 						</div>
 						<div class="form-group">
@@ -84,7 +84,7 @@
 								placeholder="비밀번호를 입력해주세요!" required="required">
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" id="idcheck" name="idcheck" onClick="confirmSave(this)" >나를
+							<label><input type="checkbox" id="idcheck" name="idcheck"  >나를
 								기억해줘</label>
 						</div>
 						<button type="submit" class="btn btn-success btn-block">
