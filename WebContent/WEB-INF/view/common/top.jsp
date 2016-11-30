@@ -109,7 +109,9 @@
 </header>
 
 <script>
-	$(document).ready(function() {
+
+/* 
+$(document).ready(function() {
 		$.ajax({
 			"url":"/memberImg",
 			"methode":"get"
@@ -120,7 +122,7 @@
 			}
 		})
 	})
-	
+ */	
 	function soulplayer(){
 		window.open("/playmusic", "", "width=460,height=900");
 	}
