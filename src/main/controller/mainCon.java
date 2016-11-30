@@ -265,6 +265,8 @@ public class mainCon {
 			
 			
 			List<MP3reposit> ls = upServ.ListMp3();
+			
+			mv.addObject("list", upServ.ListMp3());
 
 			mv.addObject("mp3", ls);
 
