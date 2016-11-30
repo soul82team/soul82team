@@ -5,13 +5,18 @@
 
 <header id="header">
 
-	<nav class="navbar navbar-inverse" role="banner" style="margin-bottom: 0px;">
+	<nav class="navbar navbar-inverse" role="banner"
+		style="margin-bottom: 0px;">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/" style="padding: 0px;"><img src="/images/2.png" alt="logo" style="width: 50px; height: 50px;"/></a>
+				<a class="navbar-brand" href="/" style="padding: 0px;"><img
+					src="/images/2.png" alt="logo" style="width: 50px; height: 50px;" /></a>
 			</div>
 			<div class="collapse navbar-collapse navbar-right">
 				<c:choose>
@@ -30,34 +35,30 @@
 							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
-							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
+							
+							<li class="dropdown"><img src=""
+								style="width: 30px; height: 30px;" id="img"> <a
+								class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userId }<span
+									class="caret"></span></a>
 								<ul class="dropdown-menu">
+									<!-- <li><a href="/board/review">리뷰 작성</a></li> -->
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
-									<li><a href="#">리뷰게시판</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-							<img src="" style="width:30px; height: 30px;" id="img">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userId }<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-<!-- 									<li><a href="/board/review">리뷰 작성</a></li> -->
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
-								</ul>
-							</li>
+								</ul></li>
 						</ul>
 					</c:otherwise>
 				</c:choose>
 			</div>
 		</div>
 	</nav>
-	
-	
-	
+
+
+
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -69,12 +70,12 @@
 				</div>
 				<div class="modal-body" style="padding: 40px 50px;">
 
-					<form action="/member/login">
+					<form action="/member/login" name="frm" id="login" method="post">
 						<div class="form-group">
 							<label for="usrname"><span
-								class="glyphicon glyphicon-user"></span> ID</label> <input
-								type="text" class="form-control" id="id" name="id"
-								placeholder="ID를 입력해주세요!" required="required">
+								class="glyphicon glyphicon-user"></span> ID</label> <input type="text"
+								class="form-control" value="${cid}" id="id" name="id" placeholder="ID를 입력해주세요!"
+								required="required">
 						</div>
 						<div class="form-group">
 							<label for="psw"><span
@@ -83,7 +84,8 @@
 								placeholder="비밀번호를 입력해주세요!" required="required">
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" value="" checked>나를 기억해줘</label>
+							<label><input type="checkbox" id="idcheck" name="idcheck"  >나를
+								기억해줘</label>
 						</div>
 						<button type="submit" class="btn btn-success btn-block">
 							<span class="glyphicon glyphicon-off"></span> Login
@@ -109,28 +111,12 @@
 </header>
 
 <script>
-
-/* 
-$(document).ready(function() {
-		$.ajax({
-			"url":"/memberImg",
-			"methode":"get"
-		}).done(function(rst){
-			if(rst!=""){
-				alert(rst);
-				$("#img").attr("src","/memberimage/"+rst);
-			}
-		})
-	})
- */	
-	function soulplayer(){
+	function soulplayer() {
 		window.open("/playmusic", "", "width=460,height=900");
 	}
-
 	$(document).ready(function() {
 		$("#myBtn").click(function() {
 			$("#myModal").modal();
 		});
 	});
 </script>
-

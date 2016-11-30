@@ -2,7 +2,8 @@ package member.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,13 +50,20 @@ public class logCon {
 	
 	
 	@RequestMapping("/member/login")
-	public ModelAndView proceed(HttpSession session, @RequestParam(name="id")String id, String pass){
+	public ModelAndView proceed(HttpSession session, @RequestParam(name="id")String id, String pass ,String idcheck, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		System.out.println(id+"@@"+ pass);
 		int rst = ls.logCheck(id, pass);
 		
 		if(rst==1) {
 			session.setAttribute("userId", id);
+			 if(idcheck != null){
+		            Cookie ck = new Cookie("saveId", id);
+		            ck.setPath("/");
+		            ck.setMaxAge(60*60*24*30);
+		            response.addCookie(ck);            
+		         }
+
 			mav.setViewName("redirect:/index");	// redirect:   경로는 뷰설정이 애초에 다른 매핑잡아둔 경로로 요청 전환
 		}else {
 			mav.setViewName("body:member/loginFail");
