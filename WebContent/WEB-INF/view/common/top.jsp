@@ -20,7 +20,7 @@
 							<li><a href="/">About</a></li>
 							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
-							<li><a href="/album">Album</a></li>
+							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							<li><a id="myBtn" style="cursor: pointer;">Login</a></li>
 						</ul>
 					</c:when>
@@ -29,7 +29,7 @@
 							<li><a href="/">About</a></li>
 							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
-							
+							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
@@ -40,15 +40,10 @@
 							<img src="" style="width:30px; height: 30px;" id="img">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userId }<span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="/board/review">리뷰 작성</a></li>
+<!-- 									<li><a href="/board/review">리뷰 작성</a></li> -->
 									<li><a href="/admin/reg">mp3 등록</a></li>
 									<li><a href="/admin/reglist">mp3 list</a></li>
-<<<<<<< HEAD
-									<li><a href="/admin/allalbum">all list</a></li>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
-=======
-									<li><a href="/admin/allalbum?page=1">all list</a></li>
->>>>>>> branch 'new' of https://github.com/soul82team/soul82team.git
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>
 									<li><a href="/member/logout">로그아웃</a></li>
