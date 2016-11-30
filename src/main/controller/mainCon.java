@@ -28,7 +28,7 @@ public class mainCon {
 	AlbumSer as;
 
 	@RequestMapping({ "/", "/index" })
-	public ModelAndView main(@CookieValue(name="savaId", required=false)String id) {
+	public ModelAndView main(@CookieValue(name="saveId", required=false)String id) {
 		try {
 			ModelAndView mv = new ModelAndView();
 			// 링크연결
