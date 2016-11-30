@@ -29,13 +29,13 @@ public class joinCon {
 	}
 	
 	@RequestMapping("/member/joinConfirm")
-	public ModelAndView join(@RequestParam(name="img") MultipartFile img,String id,String pass1, String mail, String name, String gender, String birthYear, String birthMonth, String birthDay){
+	public ModelAndView join(@RequestParam(name="img")MultipartFile img,String id,String pass1, String mail, String name, String gender, String birthYear, String birthMonth, String birthDay){
 		ModelAndView mv=new ModelAndView();
-		System.out.println(id+" / "+pass1+" / "+mail+" / "+name+" / "+gender+" / "+birthYear+" / "+birthMonth+" / "+birthDay);
+//		System.out.println(id+" / "+pass1+" / "+mail+" / "+name+" / "+gender+" / "+birthYear+" / "+birthMonth+" / "+birthDay);
 		String birth=birthYear+birthMonth+birthDay;
 		int notice=0;
 		String is= imgser.imgSave(img,id);
-		System.out.println(is);
+//		System.out.println(is);
 		Member mem=new Member();
 			mem.setId(id);
 			mem.setPass(pass1);

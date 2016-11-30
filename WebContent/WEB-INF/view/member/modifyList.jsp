@@ -10,7 +10,7 @@
       <div align="left">
          <p>
             <label>사진</label>
-            <img src="/memberimage/${img.IMGNAME}" width="30" height="30"/>
+            <img src="/images/tab1.png" width="30" height="30"/>
          </p>
          <p>
             <label>아이디</label>&nbsp;&nbsp;<b>${data.ID}</b>                                             

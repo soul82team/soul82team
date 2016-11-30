@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 
 <header>
 <div id="reg" align="center">
@@ -43,22 +41,20 @@
 			</p>
 			<p>
 				<label>이메일</label>
-				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required />
+				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required="required" />
 				<button id="confirm" onclick="authpop()" type="button">인증받기</button>
 			</p>
 		</div>
 		<p>
-			<button id="reg_new" type="submit">회원가입</button>
+			<button id="reg_new" type="submit" disabled="disabled">회원가입</button>
 		</p>
 	</form>
 
 </div>
 </header>
 
-</html>
 
 <script>
-
 	document.getElementById("createId").addEventListener("blur", function(){
 		var v =document.getElementById("createId").value;
 		console.log(v);
@@ -123,7 +119,8 @@
 	function authpop(){
 		var mail = document.getElementById("mail").value;
 		var url = "/member/mailConfirm?authmail="+mail;
-		window.open(url, "authmail", "heigth=100; width=150");
+		window.open(url, "authmail", "height=90, width=250");
+		
 	}
 
 </script>
