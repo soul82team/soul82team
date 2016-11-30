@@ -11,16 +11,12 @@
 
 	<section id="main-slider" class="no-margin">
 		<div class="carousel slide" id="myCarousel" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
-				<li data-target="#main-slider" data-slide-to="1"></li>
-				<li data-target="#main-slider" data-slide-to="2"></li>
-			</ol>
+			
 			<div class="carousel-inner">
 				<div class="item active" style="background-image: url(images/slider/bg1.jpg)">
 					<div class="container">
 						<div class="carousel-content" align="center">
-							<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
+							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
 							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
 								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
 									<tr>
@@ -32,20 +28,34 @@
 									</tr>
 								</c:forEach>
 							</div>
-							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
 						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+					</div>
+				</div>
+				
+				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
+					<div class="container">
+						<div class="carousel-content" align="center">
+							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
+							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
+								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
+									<tr>
+										<td>${status.count }</td>
+										<td><img src="${bugs.album }" /></td>
+										<td>${bugs.title }</td>
+										<td>${bugs.artist }</td>
+										<p></p>
+									</tr>
+								</c:forEach>
+							</div>
+
+						</div>
 					</div>
 				</div>
 				
 				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
 					<div class="container">
 						<div class="carousel-content" align="center"> 
-							<h2 class="animation animated-item-2">Mnet Chart !!!</h2>
+							<img src="/images/mnet.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
 							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
 								<c:forEach var="mnet" items="${mnet }" varStatus="status">
 									<tr>
@@ -59,38 +69,10 @@
 							</div>
 							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
 						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
 					</div>
 				</div>
 				
-				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
-					<div class="container">
-						<div class="carousel-content" align="center">
-							<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
-									<tr>
-										<td>${status.count }</td>
-										<td><img src="${bugs.album }" /></td>
-										<td>${bugs.title }</td>
-										<td>${bugs.artist }</td>
-										<p></p>
-									</tr>
-								</c:forEach>
-							</div>
-							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
-						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-					</div>
-				</div>			
+							
 			</div>
 		</div>
 </section>
