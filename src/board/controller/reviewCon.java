@@ -31,13 +31,15 @@ public class reviewCon {
 	}
 	
 	@RequestMapping("music/inform")
-	public ModelAndView albuminform(int num , String title){
+	public ModelAndView albuminform(int num , String title, HttpSession session){
 		ModelAndView mav = new ModelAndView();
+		String Id = (String) session.getAttribute("userId");
 		List li= rs.readTitle(title);
 		HashMap li2 = as.songinfo(num);
 			mav.addObject("data",li);
 			mav.addObject("mp3",li2);
 			mav.addObject("num", num);
+			mav.addObject("userid", Id);
 			System.out.println(title);
 			System.out.println(num);
 			mav.setViewName("body:common/albuminfo");

@@ -9,23 +9,31 @@
 }
 </style>
 
-	<section id="main-slider" class="no-margin">
+	<section id="main-slider" class="no-margin" >
 		<div class="carousel slide" id="myCarousel" data-ride="carousel">	
 			<div class="carousel-inner">
-				<div class="item active" style="background-image: url(images/slider/bg1.jpg)">
+				<div class="item active" style="background-image: url(images/slider/bg1.jpg);">
 					<div class="container">
 						<div class="carousel-content" align="center">
-							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">
+							<img src="/images/soul.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
+							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%; margin-bottom: 5%" class="animation animated-item-3">
+								<table>
+								<tr>
+									<th>Rank</th>
+									<th>Image</th>
+									<th>Title</th>
+									<th>Artist</th>
+								</tr>
+								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">								
 									<tr>
-										<td style="width: 10px">${status.count }</td>
-										<td><img src="/albumimage/${mp3.title }${mp3.artist}.png" /></td>
+										<td style="width: 10px">${status.count }&nbsp;</td>
+										<td><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
 										<td>${mp3.title }</td>
 										<td>${mp3.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>
+								</table>
 							</div>
 						</div>
 					</div>

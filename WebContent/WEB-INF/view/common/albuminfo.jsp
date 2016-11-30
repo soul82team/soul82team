@@ -3,34 +3,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	
 <style type="text/css">
+h2 {
+	float: left;
+}
 .tg {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-.tg td {
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	padding: 10px 5px;
-	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
-	word-break: normal;
+.tg th b{
+	font-size: 20px;
 }
-
 .tg th {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	font-weight: normal;
-	padding: 10px 5px;
 	border-style: solid;
 	border-width: 1px;
 	overflow: hidden;
 	word-break: normal;
 }
 
-.tg .tg-yw4l {
-	vertical-align: top
+.tg-yw4l {
+	padding : 3% 3% 3% 3%;
+	vertical-align: top;
+}
+
+.tg-031e {
+	padding: 10px 5px;
+	width: 30%;
 }
 
 .star-input>.input,
@@ -134,106 +134,80 @@
 </style>
 
 <div align="center" style="padding-top: 3%">
-	<div align="center" id="albuminfo" style="width: 80%">
-		<table class="tg">
+	<div align="center" id="albuminfo" >
+		<table class="tg" style="width: 80%">
 			<tr>
-				<th class="tg-031e" rowspan="5"><img src="/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png" style="width: 300px; height: 300px"></th>
-				<th class="tg-yw4l" colspan="4"><h2>앨범</h2>
-					<br />${mp3.ALBUM}<br /></th>
-			</tr>
-			<tr>
-				<td class="tg-yw4l" colspan="4"><h2>아티스트</h2>${mp3.ARTIST}</td>
-			</tr>
-			<tr>
-				<td class="tg-yw4l" colspan="4"><h2>타이틀</h2>${mp3.TITLE}</td>
-			</tr>
-			<tr>
-				<td class="tg-yw4l" colspan="4"><h2>년도</h2>${mp3.YEAR}</td>
-			</tr>
-			<tr>
-				<td class="tg-yw4l" colspan="4"><h2>장르</h2>${mp3.GENRE}</td>
+				<th class="tg-031e" rowspan="5"><img src="/albumimage/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png" style="width: 300px; height: 300px"></th>
+				<th class="tg-yw4l" colspan="3">
+					<p><b>앨범</b>${mp3.ALBUM}</p>
+					<p><b>아티스트</b>${mp3.ARTIST}</p>
+					<p><b>타이틀</b>${mp3.TITLE}</p>
+					<p><b>년도</b>${mp3.YEAR}</p>
+					<p><b>장르</b>${mp3.GENRE}</p>
+				</th>
 			</tr>
 		</table>
 	</div>
-	
+ <div class="form-group" align="center" style="padding-top: 5%; padding-bottom: 5%">
+<form action="/music/review">
+	<input name="userId" value="${userid}" hidden/>
+	<input name="title" value="그대라는사치" hidden/>
+   
+    <table style="width: 80%;">
+        <tr>
+        	<th width="20%" style="padding-left: 20px"> 
+           	<span class="star-input"> <span class="input">
+           	<input type="radio" name="star-input" id="p1" value="1"><label for="p1">1</label>
+            <input type="radio" name="star-input" id="p2" value="2"><label for="p2">2</label>
+            <input type="radio" name="star-input" id="p3" value="3"><label for="p3">3</label>
+            <input type="radio" name="star-input" id="p4" value="4"><label for="p4">4</label>
+            <input type="radio" name="star-input" id="p5" value="5"><label for="p5">5</label>
+            <input type="radio" name="star-input" id="p6" value="6"><label for="p6">6</label>
+            <input type="radio" name="star-input" id="p7" value="7"><label for="p7">7</label>
+            <input type="radio" name="star-input" id="p8" value="8"><label for="p8">8</label>
+            <input type="radio" name="star-input" id="p9" value="9"><label for="p9">9</label>
+            <input type="radio" name="star-input" id="p10" value="10"><label for="p10">10</label>
+      </span>
+         <output for="star-input" id="star">
+            <b>0</b>점
+         </output>
+      </span>
+      		</th>
+   
+     <th width="70%">
+        <textarea class="form-control" rows="2" name="comment" style="width: 100%; resize: none; border: 1px solid gray;" placeholder="곡 평가"></textarea>
+     </th>
+     <th width="10%" style="padding-left: 20px">
+      	<button type="submit" onclick="pass()" class="btn btn-success">등록</button>
+ 	 </th>
+   </tr>
+   </table>
+</form>
+ </div>
+
 	<div class="container">
-		<h2>Review</h2> 
-		<hr/>
-		<table class="table">
+		<table class="table" style="width: 80%">
 			<thead>
 				<tr>
-					<th>글 번호</th>
 					<th>작성자</th>
-					<th>곡제목</th>
 					<th>리뷰내용</th>
 					<th>평점</th>
 					<th>작성일</th>
-					
 				</tr>
 			</thead>
-	
+
 			<tbody>
 				<c:forEach var="obj" items="${data }">
-						<tr id="f${obj.NUM}">
-							<td>${obj.NUM}</td>
-							<td>${obj.ID }</td>
-							<td>${obj.MUSICTITLE }</td>
-							<td>${obj.COMMENTS}</td>
-							<td>${obj.GRADE}</td>
-							<td>${obj.WRITEDATE}</td>
-						</tr>
-					</c:forEach>
+					<tr id="f${obj.NUM}">
+						<td>${obj.ID }</td>
+						<td>${obj.COMMENTS}</td>
+						<td>${obj.GRADE}</td>
+						<td>${obj.WRITEDATE}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
-<form action="/music/review">
-	<input type="hidden">
-	<div align="left" style="width: 100%">
-		<h2>곡 리뷰 쓰기</h2>
-		<table class="tg" style="width: 100%;">
-			<tr>
-				<th class="tg-a2cf">작성자</th>
-				<th class="tg-h31u" colspan="4">${userId}</th>
-			</tr>
-			<tr>
-				<td class="tg-7dqm">곡제목</td>
-				<td class="tg-zsu9" colspan="4" >${mp3.TITLE}</td>
-			</tr>
-			<tr>
-				<td class="tg-a2cf">평점</td>
-				<td class="tg-h31u" colspan="4"><span class="star-input">
-						<span class="input"> <input type="radio" name="star-input"
-							id="p1" value="1"><label for="p1">1</label> <input
-							type="radio" name="star-input" id="p2" value="2"><label
-							for="p2">2</label> <input type="radio" name="star-input" id="p3"
-							value="3"><label for="p3">3</label> <input type="radio"
-							name="star-input" id="p4" value="4"><label for="p4">4</label>
-							<input type="radio" name="star-input" id="p5" value="5"><label
-							for="p5">5</label> <input type="radio" name="star-input" id="p6"
-							value="6"><label for="p6">6</label> <input type="radio"
-							name="star-input" id="p7" value="7"><label for="p7">7</label>
-							<input type="radio" name="star-input" id="p8" value="8"><label
-							for="p8">8</label> <input type="radio" name="star-input" id="p9"
-							value="9"><label for="p9">9</label> <input type="radio"
-							name="star-input" id="p10" value="10"><label for="p10">10</label>
-					</span> <output for="star-input">
-							<b>0</b>점
-						</output>
-				</span></td>
-			</tr>
-			<tr>
-				<td class="tg-7dqm">평가</td>
-				<td class="tg-zsu9" colspan="4"><textarea class="form-control"
-						rows="15" name="comment" style="width: 100%; resize: none;"
-						placeholder="솔직한 상품평을 써달라능"></textarea></td>
-			</tr>
-		</table>
-	</div>
-	<div align="right">
-		<button type="submit" class="btn btn-success">등록</button>
-	</div>
-</form>
 </div>
 <script>
 	// star rating
@@ -268,5 +242,5 @@
 	  });
 	};
 	starRating();
-
+	
 </script>
