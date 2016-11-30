@@ -7,6 +7,21 @@
 	width: 70%;
 	margin: auto;
 }
+
+.chartV td{
+	padding-top: 5px;
+}
+
+.chartV th{
+	padding-bottom: 5px;
+}
+
+.chartV #chartImage{
+	padding-left:4%;
+	padding-right:4%; 
+}
+
+
 </style>
 
 	<section id="main-slider" class="no-margin" >
@@ -16,20 +31,20 @@
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/soul.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%; margin-bottom: 5%" class="animation animated-item-3">
-								<table>
-								<tr>
-									<th>Rank</th>
-									<th>Image</th>
-									<th>Title</th>
-									<th>Artist</th>
+							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+								<table class="chartV">
+								<tr style="text-align: center">
+									<th id="chartRank">Rank</th>
+									<th id="chartImage">Image</th>
+									<th id="chartTitle">Title</th>
+									<th id="chartArtist">Artist</th>
 								</tr>
 								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">								
 									<tr>
-										<td style="width: 10px">${status.count }&nbsp;</td>
-										<td><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
-										<td>${mp3.title }</td>
-										<td>${mp3.artist }</td>
+										<td id="chartRank" style="width: 10px; text-align: center">${status.count }</td>
+										<td id="chartImage"><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
+										<td id="chartTitle">${mp3.title }</td>
+										<td id="chartArtist">${mp3.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>
