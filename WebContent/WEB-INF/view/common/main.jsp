@@ -9,9 +9,8 @@
 }
 </style>
 
-	<section id="main-slider" class="no-margin" style="height: auto;">
+	<section id="main-slider" class="no-margin">
 		<div class="carousel slide" id="myCarousel" data-ride="carousel">	
-
 			<div class="carousel-inner">
 				<div class="item active" style="background-image: url(images/slider/bg1.jpg)">
 					<div class="container">
@@ -77,9 +76,7 @@
 </section>
 
 
-<section id="feature"
-	style="background-image: url(images/search_back.jpg)"
-	style="max-width: 100%; height: auto;">
+<section id="feature" style="background-image: url(images/search_back.jpg); max-width: 100%; height: auto; background-size: cover;" >
 	
 	<div class="container" align="center" style="height: 660px">
 	<br/><br/><br/><br/>
