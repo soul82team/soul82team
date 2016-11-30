@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
@@ -9,131 +9,148 @@
 }
 </style>
 
-	<section id="main-slider" class="no-margin">
-		<div class="carousel slide" id="myCarousel" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
-				<li data-target="#main-slider" data-slide-to="1"></li>
-				<li data-target="#main-slider" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="item active" style="background-image: url(images/slider/bg1.jpg)">
-					<div class="container">
-						<div class="carousel-content" align="center">
-							<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
-									<tr>
-										<td>${status.count }</td>
-										<td><img src="${bugs.album }" /></td>
-										<td>${bugs.title }</td>
-										<td>${bugs.artist }</td>
-										<p></p>
-									</tr>
-								</c:forEach>
-							</div>
-							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
+<section id="main-slider" class="no-margin">
+	<div class="carousel slide" id="myCarousel" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#main-slider" data-slide-to="0" class="active"></li>
+			<li data-target="#main-slider" data-slide-to="1"></li>
+			<li data-target="#main-slider" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active"
+				style="background-image: url(images/slider/bg1.jpg)">
+				<div class="container">
+					<div class="carousel-content" align="center">
+						<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
+						<div align="left"
+							style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%"
+							class="animation animated-item-3">
+							<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
+								<tr>
+									<td>${status.count }</td>
+									<td><img src="${bugs.album }" /></td>
+									<td>${bugs.title }</td>
+									<td>${bugs.artist }</td>
+									<p></p>
+								</tr>
+							</c:forEach>
 						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+						<a class="btn-slide animation animated-item-4" href="#">Read
+							More</a>
 					</div>
+					<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
+					<!-- 							<div class="slider-img"> -->
+					<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> -->
+					-->
+					<!-- 							</div> -->
+					<!-- 						</div> -->
 				</div>
-				
-				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
-					<div class="container">
-						<div class="carousel-content" align="center"> 
-							<h2 class="animation animated-item-2">Mnet Chart !!!</h2>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="mnet" items="${mnet }" varStatus="status">
-									<tr>
-										<td>${status.count }</td>
-										<td><img src="${mnet.album }" /></td>
-										<td>${mnet.title }</td>
-										<td>${mnet.artist }</td>
-										<p></p>
-									</tr>
-								</c:forEach>
-							</div>
-							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
+			</div>
+
+			<div class="item"
+				style="background-image: url(images/slider/bg1.jpg)">
+				<div class="container">
+					<div class="carousel-content" align="center">
+						<h2 class="animation animated-item-2">Mnet Chart !!!</h2>
+						<div align="left"
+							style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%"
+							class="animation animated-item-3">
+							<c:forEach var="mnet" items="${mnet }" varStatus="status">
+								<tr>
+									<td>${status.count }</td>
+									<td><img src="${mnet.album }" /></td>
+									<td>${mnet.title }</td>
+									<td>${mnet.artist }</td>
+									<p></p>
+								</tr>
+							</c:forEach>
 						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+						<a class="btn-slide animation animated-item-4" href="#">Read
+							More</a>
 					</div>
+					<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
+					<!-- 							<div class="slider-img"> -->
+					<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> -->
+					-->
+					<!-- 							</div> -->
+					<!-- 						</div> -->
 				</div>
-				
-				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
-					<div class="container">
-						<div class="carousel-content" align="center">
-							<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
-									<tr>
-										<td>${status.count }</td>
-										<td><img src="${bugs.album }" /></td>
-										<td>${bugs.title }</td>
-										<td>${bugs.artist }</td>
-										<p></p>
-									</tr>
-								</c:forEach>
-							</div>
-							<a class="btn-slide animation animated-item-4" href="#">Read More</a>
+			</div>
+
+			<div class="item"
+				style="background-image: url(images/slider/bg1.jpg)">
+				<div class="container">
+					<div class="carousel-content" align="center">
+						<h2 class="animation animated-item-2">Bugs Chart !!!</h2>
+						<div align="left"
+							style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%"
+							class="animation animated-item-3">
+							<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
+								<tr>
+									<td>${status.count }</td>
+									<td><img src="${bugs.album }" /></td>
+									<td>${bugs.title }</td>
+									<td>${bugs.artist }</td>
+									<p></p>
+								</tr>
+							</c:forEach>
 						</div>
-<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
-<!-- 							<div class="slider-img"> -->
-<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> --> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+						<a class="btn-slide animation animated-item-4" href="#">Read
+							More</a>
 					</div>
-				</div>			
+					<!-- 						<div class="col-sm-6 hidden-xs animation animated-item-5"> -->
+					<!-- 							<div class="slider-img"> -->
+					<!-- <!-- 								<img src="/images/slider/img1.png" class="img-responsive"> -->
+					-->
+					<!-- 							</div> -->
+					<!-- 						</div> -->
+				</div>
 			</div>
 		</div>
+	</div>
 </section>
 
-<section id="middle">
-	<form action="/soulSearch">
-		<div class="w3-container" align="center">
-			<div class="w3-dropdown-hover">
-				<button class="w3-btn w3-blue">select category</button>
-				<div class="w3-dropdown-content w3-border">
-					<a href="#">artist</a> <a href="#">title</a>
+
+<section id="feature"
+	style="background-image: url(images/search_back.jpg)"
+	style="max-width: 100%; height: auto;">
+	
+	<div class="container" align="center" style="height: 660px">
+	<br/><br/><br/><br/>
+		<form action="/soulSearch">
+			<div>
+				<font face="Arial Black" color=white size="100"> Soul Music </font> 
+			</div>
+			<br/><br/>
+			<div class="input-group input-group-lg">
+				<input type="text" class="form-control" placeholder="가수 또는 제목을 입력해주세요"
+					id="search" name="search" list="datas" width="">
+				<datalist id="datas">
+				</datalist>
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
 				</div>
 			</div>
-		</div>
-		<div class="input-group input-group-lg">
-			<input type="text" class="form-control" placeholder="Search music"
-				id="search" name="search" list="datas">
-
-			<datalist id="datas">
-
-			</datalist>
-
-			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit">
-					<i class="glyphicon glyphicon-search"></i>
-				</button>
-			</div>
-		</div>
-	</form>
-
-
-	<a onclick="soulplayer()" class="btn btn-primary btn-xl page-scroll">Play
-		music</a>
+		</form>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br /> <i class="fa fa-play-circle-o"
+			style="font-size: 100px; color: white" onclick="soulplayer()"></i>
+	</div>
 </section>
+
+
 
 <section id="recent-works">
 	<div class="container">
 		<div class="center wow fadeInDown">
-			<h2>Recent Works</h2>
+			<h2>오늘의 노래</h2>
 			<p class="lead">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-				eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut
-				enim ad minim veniam
+				오늘의 인기차트 <b>TOP 10</b>
 			</p>
 		</div>
 		<div class="row">
@@ -161,16 +178,20 @@
 </section>
 
 
+
+
 <!-- 채널 섹션 -->
 <section id="middle">
 	<div class="container">
-		<button type="button" class="btn btn-success btn-sm" id="superstar">슈퍼스타 K</button>
-		<button type="button" class="btn btn-info btn-sm" id="sketch">유희열의 스케치북</button>
+		<button type="button" class="btn btn-success btn-sm" id="superstar">슈퍼스타
+			K</button>
+		<button type="button" class="btn btn-info btn-sm" id="sketch">유희열의
+			스케치북</button>
 	</div>
 	<div class="container">
 		<div class="row" id="channel">
 			<c:import url="/naver/channelSSK"></c:import>
-<%-- 			<c:import url="/naver/channelYHY"></c:import> --%>
+			<%-- 			<c:import url="/naver/channelYHY"></c:import> --%>
 		</div>
 	</div>
 </section>
@@ -283,4 +304,4 @@
 		});
 	});
 
-</script> 
+</script>
