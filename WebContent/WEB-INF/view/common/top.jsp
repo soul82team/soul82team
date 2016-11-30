@@ -5,13 +5,13 @@
 
 <header id="header">
 
-	<nav class="navbar navbar-inverse" role="banner" style="margin-bottom: 0px">
+	<nav class="navbar navbar-inverse" role="banner" style="margin-bottom: 0px;">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/"><img src="/images/2.png" alt="logo" style="width: 50px; height: 50px"></a>
+				<a class="navbar-brand" href="/" style="padding: 0px;"><img src="/images/2.png" alt="logo" style="width: 50px; height: 50px;"/></a>
 			</div>
 			<div class="collapse navbar-collapse navbar-right">
 				<c:choose>
