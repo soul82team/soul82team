@@ -283,17 +283,4 @@
 		});
 	});
 
-<<<<<<< HEAD
-	
-	
-	$("#superstar").click(function(){  
-    	var inner="<c:import url='/naver/channelSSK'></c:import>";
-    	$("#channel").slideDown(inner);
-    	
-	});  
-	
-// 			";
-	
-=======
->>>>>>> branch 'new' of https://github.com/soul82team/soul82team.git
 </script> 
