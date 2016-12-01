@@ -70,6 +70,6 @@
 				<prop key="mail.smtp.timeout">5000</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> 
 	
 </beans>
