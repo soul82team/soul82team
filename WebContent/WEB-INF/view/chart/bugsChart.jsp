@@ -23,19 +23,19 @@
 		<table class="table">
 				<thead>
 					<tr>
-						<th>순위</th>
-						<th>앨범</th>
-						<th>가수</th>
+						<th style="width:80px;">순위</th>
+						<th style="width:180px;">앨범</th>
+						<th style="width:180px;">가수</th>
 						<th>제목</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="list" items="${list }" varStatus="status">
+					<c:forEach var="list" items="${mp3}" varStatus="status">
 					<tr>
-						<td>${status.count }</td>
-						<td><img src="/albumimage/${list.artist}${list.title}"/></td>
+						<td style="width:80px;">${status.count }</td>
+						<td style="width:180px;"><img src="/albumimage/${list.artist}${list.title}.png" style="width:50px; height:50px"/></td>
+						<td style="width:180px;">${list.artist }</td>
 						<td>${list.title }</td>
-						<td>${list.artist }</td>
 						
 					</tr>
 					</c:forEach>
@@ -53,19 +53,19 @@
 		<table class="table">
 				<thead>
 					<tr>
-						<th>순위</th>
-						<th>앨범</th>
-						<th>가수</th>
+						<th style="width:80px;">순위</th>
+						<th style="width:180px;">앨범</th>
+						<th style="width:180px;">가수</th>
 						<th>제목</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="bugs" items="${bugs }" varStatus="status">
 					<tr>
-						<td>${status.count }</td>
-						<td><img src="${bugs.album }"/></td>
+						<td style="width:80px;">${status.count }</td>
+						<td style="width:180px;"><img src="${bugs.album }"/></td>
+						<td style="width:180px;">${bugs.artist }</td>
 						<td>${bugs.title }</td>
-						<td>${bugs.artist }</td>
 						
 					</tr>
 					</c:forEach>
@@ -80,19 +80,19 @@
 		<table class="table">
 				<thead>
 					<tr>
-						<th>순위</th>
-						<th>앨범</th>
-						<th>가수</th>
+						<th style="width:80px;">순위</th>
+						<th style="width:180px;">앨범</th>
+						<th style="width:180px;">가수</th>
 						<th>제목</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="mnet" items="${mnet }" varStatus="status">
 					<tr>
-						<td>${status.count }</td>
-						<td><img src="${mnet.album }"/></td>
+						<td style="width:80px;">${status.count }</td>
+						<td style="width:180px;"><img src="${mnet.album }"/></td>
+						<td style="width:180px;">${mnet.artist }</td>
 						<td>${mnet.title }</td>
-						<td>${mnet.artist }</td>
 						
 					</tr>
 					</c:forEach>
