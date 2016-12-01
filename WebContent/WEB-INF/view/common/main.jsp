@@ -31,7 +31,7 @@
 	<section id="main-slider" class="no-margin" >
 		<div class="carousel slide" id="myCarousel" data-ride="carousel">	
 			<div class="carousel-inner">
-				<div class="item active" style="background-image: url(images/slider/bg1.jpg);">
+				<div class="item active" style="background-image: url(images/slider/mainback.jpg);">
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/soul.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
+				<div class="item" style="background-image: url(images/slider/mainback.jpg)">
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 				
-				<div class="item" style="background-image: url(images/slider/bg1.jpg)">
+				<div class="item" style="background-image: url(images/slider/mainback.jpg)">
 					<div class="container">
 						<div class="carousel-content" align="center"> 
 							<img src="/images/mnet.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
