@@ -23,12 +23,11 @@
 	<table class="table">
 			<thead>
 				<tr>
-					<th>check</th>
-					<th>rank</th>
-					<th>title</th>
-					<th>artist</th>
-					<th>like</th>
-					<th>MV</th>
+					<th>선택</th>
+					<th>순위</th>
+					<th>가수</th>
+					<th>제목</th>
+					<th>가사</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,8 +37,7 @@
 					<td id="pk">${list.num }</td>
 					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
 					<td>${list.artist }</td>
-					<td><img src="/img/like.jpg" width="30" height="30" /></td>
-					<td><img src="${list.mv }" width="30" height="30" /></td>
+					<td><i style="font-size:24px" class="fa" id="lyrics">&nbsp;&#xf0f6;</i></td>
 				</tr>
 				</c:forEach>
 			</tbody>
