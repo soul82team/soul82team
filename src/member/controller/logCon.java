@@ -64,7 +64,7 @@ public class logCon {
 		            ck.setMaxAge(60*60*24*30);
 		            response.addCookie(ck);
 		            
-		         }
+		     }
 			 System.out.println(id);
 			 String name=ms.imgnameGet(id);
 			 

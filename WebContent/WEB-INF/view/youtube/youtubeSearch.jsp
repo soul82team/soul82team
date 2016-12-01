@@ -13,7 +13,7 @@
 
 <header>
 
-	<div align="center">
+	<div align="center" style="height: auto;">
 	
 	 <h1> <i class="fa fa-youtube-play" style="font-size:48px;color:red"></i> Soul Music Video</h1>
 	    <div style="width: 40%">
