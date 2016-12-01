@@ -42,9 +42,11 @@
 <body class="homepage">
 
 	<tiles:insertAttribute name="header" />
-
-	<tiles:insertAttribute name="body" />
-
+	
+	<div style="min-height: 80%">
+		<tiles:insertAttribute name="body" />
+	</div>
+	
 	<tiles:insertAttribute name="footer" />
 
 </body>

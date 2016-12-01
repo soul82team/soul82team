@@ -13,18 +13,17 @@
 
 <header>
 
-	<div align="center" style="height: auto;">
+	<div align="center" style="padding-top: 5%;">
 	
 	 <h1> <i class="fa fa-youtube-play" style="font-size:48px;color:red"></i> Soul Music Video</h1>
 	    <div style="width: 40%">
 	      <div class="input-group-btn">
-		      <input type="text" class="form-control" placeholder="Soul Search" name="urlSearch" id="search"/>
-		      <button class="btn btn-default" type="button" id="bt-okay"><i class="glyphicon glyphicon-search"></i>
-		      </button>
+		      <input type="text" class="form-control" placeholder="Soul Search" name="urlSearch" id="search" style="margin-bottom: 3%"/>
+		      <button class="btn btn-default" type="button" id="bt-okay" style="width: 10%; height: 15%;"><i class="glyphicon glyphicon-search"></i></button>
 	      </div>
 	    </div>
    
-		<div class="container" id="search_rst">
+		<div class="container" id="search_rst" style="padding-bottom: 5%">
 		</div>
  </div>
 </header>
