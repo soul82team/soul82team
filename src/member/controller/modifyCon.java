@@ -53,11 +53,11 @@ public class modifyCon {
 		return mav;
 	}
 	@RequestMapping("/member/memUp")
-	public ModelAndView memUp(String img, String pass, String mail,HttpSession session) {
+	public ModelAndView memUp(String pass,HttpSession session) {
 		ModelAndView mav= new ModelAndView();
 		String id=(String)session.getAttribute("userId");
-		System.out.println(img+"//"+ pass+"//"+ mail+"//"+ id);
-		int r=ms.memset(img, pass, mail, id);
+		
+		int r=ms.memset( pass, id);
 		
 		if(r==1){
 			mav.setViewName("body:member/modifyComplete");

@@ -24,13 +24,13 @@ public class streamingServ {
 	public boolean insertmp3(MultipartFile f) {
 		try {
 			String ori=f.getOriginalFilename();
-			String music=ori.substring(4);
-			String[] artistSplit=music.split(" ");
-			String[] titleSplit=music.split("-");
-			
-			String title=titleSplit[1];
-			String artist=artistSplit[0];
-			String oriname = artist + " -" + title + ".mp3";
+	         String music=ori.substring(4);
+	         String[] Split=music.split("-");
+	         
+	         String title=Split[1];
+	         String artist=Split[0];
+	         System.out.println(title+" / "+artist);
+	         String oriname = artist + "-" + title + ".mp3";
 			
 			s3.uploadmp3(f, oriname);
 			String url = "https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/" + oriname;

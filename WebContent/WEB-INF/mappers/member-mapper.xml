@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<update id="memup" parameterType="java.util.HashMap">
-		UPDATE MEMBER set IMG=#{img}, PASS=#{pass} ,MAIL=#{mail} WHERE ID=#{id}
+		UPDATE MEMBER set  PASS=#{pass} WHERE ID=#{id}
 	</update>
 	<insert id="imgsave" parameterType="java.util.HashMap" >
 		insert into imgsa values( #{id}, #{course}, #{imgname} )

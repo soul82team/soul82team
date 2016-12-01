@@ -23,12 +23,10 @@ public class modifyServ {
 		sql.close();
 		return r;
 	}
-	public int memset(String img, String pass, String mail,String id) {
+	public int memset( String pass,String id) {
 		SqlSession sql = fac.openSession();
 		HashMap map= new HashMap();
-		map.put("img", img);
 		map.put("pass", pass);
-		map.put("mail", mail);
 		map.put("id", id);
 			
 		int r = sql.update("member.memup", map);

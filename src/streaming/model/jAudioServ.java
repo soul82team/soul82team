@@ -37,7 +37,7 @@ public class jAudioServ {
          List<MP3reposit> li = stream.ListMp3();
          
          // DB에서 [가수-제목] 으로 파일 이름 설정하기
-         String name = artistp + " -" + titlep;
+         String name = artistp + "-" + titlep;
          System.out.println(name);
          // DB에 있는 해당 노래의 url가져오기
          File file = new File(name + ".mp3");
