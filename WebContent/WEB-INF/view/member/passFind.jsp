@@ -21,12 +21,7 @@
 				<input type="text" id="name" name="name" placeholder="본인의 이름" min="2" maxlength="15" required />
 			</p>
 			
-			<p>
-				<label>생년월일</label>
-				<input type="text" id="birthYear" name="birthYear" style="width: 80px;" maxlength="4"><span>년</span> 
-				<input type="text" id="birthMonth" name="birthMonth" style="width: 50px;" maxlength="2"><span>월</span>
-				<input type="text" id="birthDay" name="birthDay" style="width: 50px;" maxlength="2"><span>일</span>
-			</p>
+			
 			<p>
 				<label>이메일</label>
 				<input type="email" id="mail" name="mail" placeholder="가입시 E-mail입력" required />

@@ -22,13 +22,13 @@ public class logServ {
 		sql.close();
 		return rst.size();
 	}
-	public HashMap infoCheck(String id, String mail, String name, String birth) {
+	public HashMap infoCheck(String id, String mail, String name) {
 		SqlSession sql = fac.openSession();
 		HashMap<String, String> map = new HashMap<>();
 			map.put("id", id);
 			map.put("mail", mail);
 			map.put("name", name);
-			map.put("birth",birth);
+			
 		HashMap rst = sql.selectOne("member.passfind", map);
 		sql.close();
 		return rst;

@@ -82,6 +82,35 @@ public class joinServ {
       }   
       
    }
+   public boolean sendPassEmail(String sendmail, String pass){
+	      MimeMessage mail = sender.createMimeMessage();   
+	      
+	      System.out.println(sendmail);
+	      System.out.println(pass);
+	      
+	      try{
+	         mail.setRecipient(RecipientType.TO, new InternetAddress(sendmail));
+	         mail.setSender(new InternetAddress("test@group.kr"));
+	         mail.setSubject("Soul82-password");
+	         
+	         String text = "<h3>password!</h3>";
+	         text += "당신의 비밀번호는<br/>";
+	         
+	         text += "<h2>"+pass+"</h2>";
+	         text += pass;
+	         mail.setText(text, "utf-8", "html");
+	         
+	         sender.send(mail);
+	         System.out.println("발송 성공 !");
+	         return true;
+	         
+	      }catch (Exception e) {
+	         System.out.println("발송 에러 !");
+	         e.printStackTrace();
+	         return false;
+	      }   
+	      
+	   }
    
    public String authMail(String id){
       SqlSession sql = fac.openSession();

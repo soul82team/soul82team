@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import member.model.joinServ;
 import member.model.logServ;
 import member.model.modifyServ;
 
@@ -23,6 +24,8 @@ public class logCon {
 	logServ ls;
 	@Autowired
 	modifyServ ms;
+	@Autowired
+	joinServ js;
 	@RequestMapping("/member/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
@@ -38,14 +41,23 @@ public class logCon {
 		return "body:member/passFind";
 	}
 	@RequestMapping("/member/passf")
-	public ModelAndView passfind(String id, String mail, String name, String birthYear, String birthMonth, String birthDay){
+	public ModelAndView passfind(String id, String mail, String name){
 		ModelAndView mav = new ModelAndView();
-		String birth=birthYear+birthMonth+birthDay;
-		HashMap map= ls.infoCheck(id, mail, name, birth);
 		
-		mav.addObject("pass",map);
+		HashMap map= ls.infoCheck(id, mail, name);
+		
+		if(map==null){
+			mav.setViewName("body:member/passFail");
+		}else{
+		String pass=(String)map.get("PASS");
+		System.out.println(pass);
+		 boolean r=js.sendPassEmail(mail, pass);
+		if(r==true){
 		mav.setViewName("body:member/pass");
-		
+		}else{
+			mav.setViewName("body:member/passFail");
+		}
+		}
 		return mav;
 	}
 	
