@@ -28,9 +28,9 @@
 			</p>
 			<p>
 				<label>성별</label> 
-				<input type="radio" name="gender" id="genderM" class="input_check"> 
+				<input type="radio" name="gender" id="genderM" class="input_check" value="남자"> 
 				<label for="genderM" class="label_check">남자</label> 
-				<input type="radio" name="gender" id="genderW" class="input_check">
+				<input type="radio" name="gender" id="genderW" class="input_check" value="여자">
 				<label for="genderW" class="label_check">여자</label>
 			</p>
 			<p>
