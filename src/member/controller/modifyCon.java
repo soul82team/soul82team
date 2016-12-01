@@ -64,8 +64,10 @@ public class modifyCon {
 		}
 		return mav;
 	}
+	
 	@RequestMapping("/member/leave")
 	public ModelAndView leave(HttpSession session,String pass){
+		System.out.println(pass);
 		ModelAndView mav= new ModelAndView();
 		String id=(String)session.getAttribute("userId");
 		int rst = ls.logCheck(id, pass);
@@ -74,10 +76,10 @@ public class modifyCon {
 			if(rr==1){
 				session.invalidate();
 				mav.setViewName("body:member/deletComplete");
-			}else{
-				mav.setViewName("body:member/modify");
-				
 			}
+		}else{
+			mav.setViewName("body:member/modify");
+			
 		}
 		
 		return mav;

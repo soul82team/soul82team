@@ -16,9 +16,13 @@
 	padding-bottom: 5px;
 }
 
-.chartV #chartImage{
-	padding-left:4%;
-	padding-right:4%; 
+.chartImage{
+	padding-left:6%;
+	padding-right:6%; 
+}
+
+.chartTA{
+	padding-left:6%;
 }
 
 
@@ -34,17 +38,15 @@
 							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
 								<table class="chartV">
 								<tr style="text-align: center">
-									<th id="chartRank">Rank</th>
-									<th id="chartImage">Image</th>
-									<th id="chartTitle">Title</th>
-									<th id="chartArtist">Artist</th>
+									<th class="chartRank">Rank</th>
+									<th class="chartImage">Image</th>
+									<th class="chartTA">Music</th>
 								</tr>
 								<c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">								
 									<tr>
-										<td id="chartRank" style="width: 10px; text-align: center">${status.count }</td>
-										<td id="chartImage"><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
-										<td id="chartTitle">${mp3.title }</td>
-										<td id="chartArtist">${mp3.artist }</td>
+										<td class="chartRank" style="width: 10px; text-align: center">${status.count }</td>
+										<td class="chartImage"><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
+										<td class="chartTA">${mp3.title } - ${mp3.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>
@@ -57,16 +59,23 @@
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">
+							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+								<table class="chartV">
+								<tr style="text-align: center">
+									<th class="chartRank">Rank</th>
+									<th class="chartImage">Image</th>
+									<th class="chartTA">Music</th>
+								</tr>
+								<c:forEach var="bugs" items="${bugs2 }" varStatus="status">								
 									<tr>
-										<td>${status.count }</td>
-										<td><img src="${bugs.album }" /></td>
-										<td>${bugs.title }</td>
-										<td>${bugs.artist }</td>
+										<td class="chartRank" style="width: 10px; text-align: center">${status.count }</td>
+										<td class="chartImage"><img src="${bugs.album }"/></td>
+										<td class="chartTA">${bugs.title } - ${bugs.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>
+								</table>
+								
 							</div>
 
 						</div>
@@ -78,16 +87,22 @@
 					<div class="container">
 						<div class="carousel-content" align="center"> 
 							<img src="/images/mnet.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 2% 2% 2% 2%" class="animation animated-item-3">
-								<c:forEach var="mnet" items="${mnet }" varStatus="status">
+							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+								<table class="chartV">
+								<tr style="text-align: center">
+									<th class="chartRank">Rank</th>
+									<th class="chartImage">Image</th>
+									<th class="chartTA">Music</th>
+								</tr>
+								<c:forEach var="mnet" items="${mnet }" varStatus="status">								
 									<tr>
-										<td>${status.count }</td>
-										<td><img src="${mnet.album }" /></td>
-										<td>${mnet.title }</td>
-										<td>${mnet.artist }</td>
+										<td class="chartRank" style="width: 10px; text-align: center">${status.count }</td>
+										<td class="chartImage"><img src="${mnet.album }"/></td>
+										<td class="chartTA">${mnet.title } - ${mnet.artist }</td>
 										<p></p>
 									</tr>
 								</c:forEach>
+								</table>
 							</div>
 						</div>
 				</div>
@@ -99,17 +114,22 @@
 
 <section id="feature" style="background-image: url(images/search_back.jpg); max-width: 100%; height: auto; background-size: cover;" >
 
-	
+
 	<div class="container" align="center" style="height: 660px">
-	<br/><br/><br/><br/>
+		<br />
+		<br />
+		<br />
+		<br />
 		<form action="/soulSearch">
 			<div>
-				<font face="Arial Black" color=white size="100"> Soul Music </font> 
+				<font face="Arial Black" color=white size="100"> Soul Music </font>
 			</div>
-			<br/><br/>
+			<br />
+			<br />
 			<div class="input-group input-group-lg">
-				<input type="text" class="form-control" placeholder="가수 또는 제목을 입력해주세요"
-					id="search" name="search" list="datas" width="">
+				<input type="text" class="form-control"
+					placeholder="가수 또는 제목을 입력해주세요" id="search" name="search"
+					list="datas" width="">
 				<datalist id="datas">
 				</datalist>
 				<div class="input-group-btn">
@@ -119,12 +139,7 @@
 				</div>
 			</div>
 		</form>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br /> <i class="fa fa-play-circle-o"
-			style="font-size: 100px; color: white" onclick="soulplayer()"></i>
+		<br /> <br /> <br /> <br /> <br /> <i class="fa fa-play-circle-o" style="font-size: 100px; color: white; cursor: pointer;" onclick="soulplayer()"></i>
 	</div>
 </section>
 

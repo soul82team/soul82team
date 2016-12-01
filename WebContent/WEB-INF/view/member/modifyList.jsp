@@ -6,7 +6,7 @@
    <img src="/images/1.png" style="width: 100px; padding-bottom: 20px;" />
 
   <form id="reg_form" style="width: 700px; border: black solid 1px; border-radius: 1em" action="/member/memUp">
-      <h2 align="left">회원 정보 수정</h2>
+      <h2 align="left" style="padding-bottom: 3%">회원 정보 수정</h2>
       <div align="left">
          <p>
             <label>사진</label>
@@ -43,30 +43,25 @@
          -->          
       </div>
       <p>
-         <button id="modify" type="submit">수정하기</button><button id="modify" name="leave">회원탈퇴</button>
+         <button type="submit" id="modify">수정하기</button>
+         <input type="button" value="회원탈퇴" onclick="dropdown()"/>
       </p>
    </form>
-</div>
-  <div id="port" align="center" name="port">
-	<legend>
-		<b>회원탈퇴</b>
-	</legend>
-	<form id="reg_form" action="/member/leave">
-		 <b> ${id }</b> <br /> <b>PASS</b><br />
-		 <input type="password" required="required" name="pass" /><br />
-		<hr />
-		<button id="modify" type="submit">수정</button>
-	</form>
-
+   
 </div>
 </header>
 
-
 <script>
-$(document.getElementById("port")).hide();
-	$(document.getElementsByName("leave")).click(function(){
-		$(document.getElementById("port")).slideToggle();
-	});
+// 	$(document.getElementById("port")).hide();
+// 		$(document.getElementsByName("leave")).click(function(){
+// 			$(document.getElementById("port")).slideToggle();
+// 	});
+
+	function dropdown(){
+		var pw = prompt("비밀번호 입력");
+		var url = "/member/leave?pass="+pw;
+		window.open(url, "get", "height = 180, width = 300");
+	}
 	
 	document.getElementById("repass1").addEventListener("blur", function(){
 		var pass1 = document.getElementById("repass1").value;
