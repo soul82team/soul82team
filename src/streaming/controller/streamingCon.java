@@ -31,9 +31,12 @@ public class streamingCon {
 
 	// 등록 후 출력되는 리스트 페이지
 	@RequestMapping("/admin/reglist")
-	public ModelAndView mp3list() {
+	public ModelAndView mp3list(int page) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", upServ.ListMp3());
+		
+		List<HashMap> li = upServ.RankallListMp3(page);
+			mav.addObject("list", li);
+	
 		mav.setViewName("body:admin/mp3list");
 
 		return mav;

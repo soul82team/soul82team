@@ -2,21 +2,23 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="container">
-<h2>Soul Music Chart</h2>
-	<tr>
+
+
+<div class="container" >
+	<div style="padding-top: 3%; padding-bottom: 1%"><img src="/images/soul.png" /></div>
+	<tr style="padding-bottom: 1%">
 		<th>  <button type="button" class="btn btn-success" id="cBox_all">전체 선택</button></th>
 		<th>  <button type="button" class="btn btn-success" id="listen">선택 듣기</button></th>
 		<th>  <button type="button" class="btn btn-success" id="select">선택 담기</button></th>
 	</tr>
-<div class="table-responsive">
+<div class="table-responsive" style="padding-top: 1%">
 	<table class="table">
 			<thead>
 				<tr>
 					<th>선택</th>
 					<th>순위</th>
-					<th>가수</th>
-					<th>제목</th>
+					<th>앨범</th>
+					<th>뮤직</th>
 					<th>가사</th>
 				</tr>
 			</thead>
@@ -24,10 +26,11 @@
 				<c:forEach var="list" items="${list }" varStatus="status">
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
-					<td id="pk">${list.num }</td>
-					<td>${list.artist }</td>
-					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
-					<td><i style="font-size:24px" class="fa" id="lyrics">&nbsp;&#xf0f6;</i></td>
+					<td id="pk">${list.NUM }</td>
+					<td><img src="/albumimage/${list.SAVEARTIST}${list.SAVETITLE}.png"
+							style="width: 50px; height: 50px"></td>
+					<td id="tt" onclick="selectOne('${list.TITLE}', '${list.NUM }')">${list.TITLE } - ${list.ARTIST }</td>
+					<td><button type="button" onclick="lyrics('${list.LYRICS }')">가사</button></td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -98,4 +101,34 @@ function selectOne(val,num){
 	window.open("/mp3/Onelisten?num="+num, "target", "width=440,height=150");
 	setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 }
+
+function lyrics(lyrics){
+	var url = "/mp3/lyrics?lyrics="+lyrics;
+	console.log(lyrics);
+	window.open(url, "get", "height=800; width=500");
+}
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

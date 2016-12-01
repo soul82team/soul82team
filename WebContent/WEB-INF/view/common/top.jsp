@@ -31,7 +31,7 @@
 					<c:otherwise>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/">About</a></li>
-							<li><a href="/admin/reglist">Music</a></li>
+							<li><a href="/admin/reglist?page=1">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							

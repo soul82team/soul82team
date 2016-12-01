@@ -159,4 +159,33 @@ public class clientAlbumCon {
 		mv.setViewName("#");
 		return mv;
 	}
+	
+	@RequestMapping("/mp3/lyrics")
+	public ModelAndView lyricsView(String lyrics){
+		System.out.println(lyrics);
+		ModelAndView mav = new ModelAndView("/admin/lyricsView");
+			mav.addObject("lyrics", lyrics);
+		return mav;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

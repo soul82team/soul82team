@@ -145,4 +145,29 @@ public class streamingServ {
 			return div;
 	}
 	
+	public List RankallListMp3(int page){
+		SqlSession ss=fac.openSession();
+		int block=50;
+		HashMap map=new HashMap();
+			map.put("start",(page*block)-49);
+			map.put("end",page*block);
+		List li=ss.selectList("mp3.albumPaging",map);
+		ss.close();
+		return li;
+	}
+	
+	public int RankLastPage(){
+		SqlSession ss=fac.openSession();
+		int page=ss.selectOne("mp3.getCount");
+		ss.close();
+		
+		int s=page%50;
+		int div=page/50;
+
+		if(s>=1){
+			return div+=1;
+		}
+			return div;
+	}
+	
 }
