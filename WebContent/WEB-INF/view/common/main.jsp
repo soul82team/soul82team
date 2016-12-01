@@ -43,7 +43,7 @@
                            <th class="chartImage">Image</th>
                            <th class="chartTA">Music</th>
                         </tr>
-                        <c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="1" end="10" step="1">                        
+                        <c:forEach var="mp3" items="${mp3 }" varStatus="status" begin="0" end="9" step="1">                        
                            <tr>
                               <td class="chartRank" style="width: 10px; text-align: center">${status.count }</td>
                               <td class="chartImage"><img src="/albumimage/${mp3.artist}${mp3.title}.png" style="height:50px; width: 50px"/></td>
