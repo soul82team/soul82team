@@ -13,7 +13,7 @@
 							<div class="recent-work-inner">
 								<h3><a href="#">${allAlbum.SAVETITLE}</a></h3>
 								<p>${allAlbum.SAVEARTIST}</p>
-								<a class="preview" onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')"><i class="fa fa-eye"></i> View</a>
+								<a class="preview" onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')" style="cursor: pointer;"><i class="fa fa-eye"></i> View</a>
 							</div>
 						</div>
 					</div>

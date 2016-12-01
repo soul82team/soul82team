@@ -180,7 +180,7 @@ h2 {
         <textarea class="form-control" rows="2" name="comment" style="width: 100%; resize: none; border: 1px solid gray;" placeholder="곡 평가"></textarea>
      </th>
      <th width="10%" style="padding-left: 20px">
-      	<button type="submit" onclick="pass()" class="btn btn-success">등록</button>
+      	<button type="submit" class="btn btn-success">등록</button>
  	 </th>
    </tr>
    </table>
