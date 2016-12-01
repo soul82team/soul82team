@@ -19,6 +19,7 @@
 		<th>  <button type="button" class="btn btn-success" id="listen">선택 듣기</button></th>
 		<th>  <button type="button" class="btn btn-danger	" id="select">선택 삭제</button></th>
 	</tr>
+	<br/>
 <div class="table-responsive">
 	<table class="table">
 			<thead>
