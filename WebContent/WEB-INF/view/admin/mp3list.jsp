@@ -30,8 +30,8 @@
 					<td><img src="/albumimage/${list.SAVEARTIST}${list.SAVETITLE}.png"
 							style="width: 50px; height: 50px"></td>
 					<td id="tt" onclick="selectOne('${list.TITLE}', '${list.NUM }')">${list.TITLE } - ${list.ARTIST }</td>
-					<td><button type="button" onclick="lyrics('${list.NUM }')">가사</button></td>
-<%-- 					onclick="lyrics('${list.LYRICS }')" --%>
+<%-- 					<td><button type="button" onclick="lyrics('${list.NUM }')">가사</button></td> --%>
+					<td><i class="fa fa-file-text-o" style="font-size: 24px" onclick="lyrics('${list.NUM}')"></i></td>
 				</tr>
 				</c:forEach>
 			</tbody>
