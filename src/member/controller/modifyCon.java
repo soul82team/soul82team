@@ -47,6 +47,8 @@ public class modifyCon {
 			map2=ms.imgGet(id);
 			mav.addObject("img",map2 );
 			mav.setViewName("body:member/modifyList");
+		}else{
+			
 		}
 		return mav;
 	}
@@ -78,8 +80,7 @@ public class modifyCon {
 				mav.setViewName("body:member/deletComplete");
 			}
 		}else{
-			mav.setViewName("body:member/modify");
-			
+			mav.setViewName("/member/deleteFail");
 		}
 		
 		return mav;
