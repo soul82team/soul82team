@@ -145,7 +145,7 @@ h2 {
 					<p><b>발매일</b>&nbsp;&nbsp;${mp3.YEAR}</p>
 					<p><b>장르</b>&nbsp;&nbsp;${mp3.GENRE}</p>
 					<br/><br/><br/>
-					<i style="font-size:24px;" class="fa" id="lyrics">&nbsp;&#xf0f6;</i>
+					<i style="font-size:24px;" class="fa" onclick="lyrics('${mp3.NUM}')">&nbsp;&#xf0f6;</i>
 				</th>
 			</tr>
 		</table>

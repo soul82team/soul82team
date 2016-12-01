@@ -115,12 +115,6 @@ function selectOne(val,num){
 	setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 }
 
-function lyrics(num){
-
-	var url = "/mp3/lyrics?num="+num;
-	console.log(num);
-	window.open(url, "get", "height=800; width=500");
-}
 </script>
 
 

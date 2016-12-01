@@ -146,8 +146,8 @@
 
 
 
-<section id="recent-works">
-   <div class="container">
+<section id="recent-works" style="height: 900px">
+   <div class="container" style="padding-top: 5%">
       <div class="center wow fadeInDown">
          <h2>오늘의 노래</h2>
          <p class="lead">
@@ -180,8 +180,8 @@
 
 
 <!-- 채널 섹션 -->
-<section id="middle">
-   <div class="container">
+<section id="middle" style="height: 700px">
+   <div class="container" style="padding-top: 5%">
       <button type="button" class="btn btn-success btn-sm" id="superstar">슈퍼스타
          K</button>
       <button type="button" class="btn btn-info btn-sm" id="sketch">유희열의

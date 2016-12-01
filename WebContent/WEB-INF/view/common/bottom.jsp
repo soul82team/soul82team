@@ -26,6 +26,13 @@
 		console.log(num + "" + title);
 		location.href = url;
 	}
+	
+	function lyrics(num){
+		var url = "/mp3/lyrics?num="+num;
+		console.log(num);
+		window.open(url, "get", "height=800; width=500");
+	}
+	
 	</script>
 
     
