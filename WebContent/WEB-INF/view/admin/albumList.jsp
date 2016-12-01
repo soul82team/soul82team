@@ -9,7 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="/bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Custom Fonts -->
 
 <div class="container">
@@ -25,8 +25,7 @@
 				<tr>
 					<th>선택</th>
 					<th>순위</th>
-					<th>가수</th>
-					<th>제목</th>
+					<th>뮤직</th>
 					<th>가사</th>
 				</tr>
 			</thead>
@@ -35,9 +34,8 @@
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td id="pk">${list.num }</td>
-					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
-					<td>${list.artist }</td>
-					<td><i style="font-size:24px" class="fa" id="lyrics">&nbsp;&#xf0f6;</i></td>
+					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title } - ${list.artist }</td>
+					<td><i class="fa fa-file-text-o" style="font-size: 24px" onclick="lyrics('${list.num}')"></i></td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -95,6 +93,12 @@ $(function(){
 function selectOne(val,num){
 	console.log(num);
 	window.open("/mp3/Onelisten?num="+num, "", "width=440,height=150");
+}
+
+function lyrics(num){
+	var url = "/mp3/lyrics?num="+num;
+	console.log(num);
+	window.open(url, "get", "height=800; width=500");
 }
 
 </script>
