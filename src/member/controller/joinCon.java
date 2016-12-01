@@ -66,6 +66,7 @@ public class joinCon {
 		return mav;
 	}
 	
+
 	@RequestMapping("/member/mailConfirm")
 	public ModelAndView sendEmail(String authmail, HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView("/member/auth");
@@ -82,7 +83,7 @@ public class joinCon {
 			mav.addObject("uid", uid);
 			
 		return mav;
-			
+	
 	}
 	
 }
