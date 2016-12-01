@@ -23,7 +23,6 @@
 					<c:when test="${sessionScope.userId eq null }">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/">About</a></li>
-							<li><a onclick="soulplayer()">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							<li><a id="myBtn" style="cursor: pointer;">Login</a></li>
@@ -32,7 +31,7 @@
 					<c:otherwise>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/">About</a></li>
-							<li><a onclick="soulplayer()">Music</a></li>
+							<li><a href="/admin/reglist">Music</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							
@@ -44,7 +43,6 @@
 									<!-- <li><a href="/board/review">리뷰 작성</a></li> -->
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
 									<li><a href="/admin/reg">mp3 등록</a></li>
-									<li><a href="/admin/reglist">mp3 list</a></li>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>

@@ -13,13 +13,11 @@
 	<table class="table">
 			<thead>
 				<tr>
-					<th>check</th>
-					<th>rank</th>
-					<th></th>
-					<th>artist</th>
-					<th>title</th>
-					<th>like</th>
-					<th>MV</th>
+					<th>선택</th>
+					<th>순위</th>
+					<th>가수</th>
+					<th>제목</th>
+					<th>가사</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,11 +25,9 @@
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
 					<td id="pk">${list.num }</td>
-					<td><i style="font-size:24px" class="fa" onclick="addOne('${list.num}')">&#xf067;</i></td>
 					<td>${list.artist }</td>
 					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
-					<td><i class="material-icons">&#xe87d;</i></td>
-					<td><i style="font-size:24px" class="fa" value="${list.mv }">&#xf16a;</i></td>
+					<td><i style="font-size:24px" class="fa">&#xf1ea;</i></td>
 				</tr>
 				</c:forEach>
 			</tbody>

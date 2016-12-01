@@ -196,23 +196,24 @@
 	</div>
 </section>
 
-<section id="conatcat-info">
-	<div class="container">
+
+<section id="conatcat-info" style="background-image: url(images/qna.jpg); max-width: 100%; height: 30%; background-size: ;" >
+<div class="container">
 		<div class="row">
-			<div class="col-sm-8">
-				<div class="media contact-info wow fadeInDown"
-					data-wow-duration="1000ms" data-wow-delay="600ms">
-					<div class="pull-left">
-						<i class="fa fa-phone"></i>
-					</div>
-					<div class="media-body">
-						<h2>Have a question or need a custom quote?</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation +0123 456 70
-							80</p>
-					</div>
-				</div>
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h2 class="section-heading">문의사항이 있을 경우 탈퇴하세요!</h2>
+				<hr class="primary">
+				<p>우리 일꾼들 연락처</p>
+			</div>
+			<div class="col-lg-4 col-lg-offset-2 text-center">
+				<i class="fa fa-phone fa-3x sr-contact"></i>
+				<p>voice-fishing</p>
+			</div>
+			<div class="col-lg-4 text-center">
+				<i class="fa fa-envelope-o fa-3x sr-contact"></i>
+				<p>
+					<a href="mailto:soulteam@gmail.com">soulteam@gmail.com</a>
+				</p>
 			</div>
 		</div>
 	</div>
