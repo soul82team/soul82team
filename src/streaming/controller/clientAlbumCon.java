@@ -161,10 +161,11 @@ public class clientAlbumCon {
 	}
 	
 	@RequestMapping("/mp3/lyrics")
-	public ModelAndView lyricsView(String lyrics){
-		System.out.println(lyrics);
+	public ModelAndView lyricsView(int num){
+		System.out.println(num);
 		ModelAndView mav = new ModelAndView("/admin/lyricsView");
-			mav.addObject("lyrics", lyrics);
+			List<HashMap> li = upServ.MusicLyrics(num);
+				mav.addObject("lyrics", li);
 		return mav;
 	}
 	

@@ -30,7 +30,8 @@
 					<td><img src="/albumimage/${list.SAVEARTIST}${list.SAVETITLE}.png"
 							style="width: 50px; height: 50px"></td>
 					<td id="tt" onclick="selectOne('${list.TITLE}', '${list.NUM }')">${list.TITLE } - ${list.ARTIST }</td>
-					<td><button type="button" onclick="lyrics('${list.LYRICS }')">가사</button></td>
+					<td><button type="button" onclick="lyrics('${list.NUM }')">가사</button></td>
+<%-- 					onclick="lyrics('${list.LYRICS }')" --%>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -102,9 +103,10 @@ function selectOne(val,num){
 	setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 }
 
-function lyrics(lyrics){
-	var url = "/mp3/lyrics?lyrics="+lyrics;
-	console.log(lyrics);
+function lyrics(num){
+
+	var url = "/mp3/lyrics?num="+num;
+	console.log(num);
 	window.open(url, "get", "height=800; width=500");
 }
 </script>

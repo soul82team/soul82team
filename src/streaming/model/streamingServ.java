@@ -170,4 +170,11 @@ public class streamingServ {
 			return div;
 	}
 	
+	public List MusicLyrics(int num){
+		SqlSession ss = fac.openSession();
+		List li = ss.selectList("mp3.getLyrics", num);
+		ss.close();
+		return li;
+	}
+	
 }

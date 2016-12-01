@@ -67,4 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCount" resultType="java.lang.Integer">
 		select count(*) from songsdata
 	</select>
+	
+	<select id="getLyrics" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+		select lyrics from songsdata where num = #{num }
+	</select>
 </mapper>
