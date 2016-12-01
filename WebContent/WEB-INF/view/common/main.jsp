@@ -35,7 +35,7 @@
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/soul.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; opacity: 0.9; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+							<div align="left" style="background-color: rgba(255, 255, 255, 0.5); border: 1px solid gray; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
 								<table class="chartV">
 								<tr style="text-align: center">
 									<th class="chartRank">Rank</th>
@@ -59,7 +59,7 @@
 					<div class="container">
 						<div class="carousel-content" align="center">
 							<img src="/images/bugs.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+							<div align="left" style="background-color: rgba(255, 255, 255, 0.5); border: 1px solid gray; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
 								<table class="chartV">
 								<tr style="text-align: center">
 									<th class="chartRank">Rank</th>
@@ -87,7 +87,7 @@
 					<div class="container">
 						<div class="carousel-content" align="center"> 
 							<img src="/images/mnet.png" class="animation animated-item-2" style="padding: 2% 2% 2% 2%"/>
-							<div align="left" style="background-color: white; border: 1px solid black; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
+							<div align="left" style="background-color: rgba(255, 255, 255, 0.5); border: 1px solid gray; border-radius: 1em; width: 70%; padding: 1% 1% 1% 2%; margin-bottom: 5%" class="animation animated-item-3">
 								<table class="chartV">
 								<tr style="text-align: center">
 									<th class="chartRank">Rank</th>
@@ -197,13 +197,11 @@
 </section>
 
 
-<section id="conatcat-info" style="background-image: url(images/qna.jpg); max-width: 100%; height: 30%; background-size: ;" >
-<div class="container">
+<section id="conatcat-info" style="background-image: url(images/qnaback.jpg); height: 40%; background-size: cover;" >
+<div class="container" style="padding-left: 30px;">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 text-center">
-				<h2 class="section-heading">문의사항이 있을 경우 탈퇴하세요!</h2>
-				<hr class="primary">
-				<p>우리 일꾼들 연락처</p>
+			<div class="col-lg-8 col-lg-offset-2 text-right">
+				<h2 class="section-heading" style="color: white">문의사항이 있을 경우 탈퇴하세요!</h2>
 			</div>
 			<div class="col-lg-4 col-lg-offset-2 text-center">
 				<i class="fa fa-phone fa-3x sr-contact"></i>
