@@ -14,6 +14,7 @@
 
 .chartV th{
 	padding-bottom: 5px;
+	color: black;
 }
 
 .chartImage{

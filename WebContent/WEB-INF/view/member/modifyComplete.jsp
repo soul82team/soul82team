@@ -2,10 +2,8 @@
 	pageEncoding="EUC-KR"%>
 
 
-<h1>회원정보 수정 성공</h1>
-
-<i>2초 후 페이지 전환됩니다.</i>
-
 <script>
-	setTimeout("location.href='/index'",2000);
+	window.alert("회원정보 수정이 완료되었습니다.");
+	window.opener.location.href='/';
+	window.close();
 </script>
