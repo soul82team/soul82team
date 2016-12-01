@@ -21,23 +21,32 @@ public class streamingServ {
 	@Autowired
 	jAudioServ ja;
 	
-	public boolean insertmp3(MultipartFile f, String artist, String title, String mv) {
+	public boolean insertmp3(MultipartFile f) {
 		try {
-			String oriname = artist + "-" + title + ".mp3";
+			String ori=f.getOriginalFilename();
+			String music=ori.substring(4);
+			String[] artistSplit=music.split(" ");
+			String[] titleSplit=music.split("-");
+			
+			String title=titleSplit[1];
+			String artist=artistSplit[0];
+			String oriname = artist + " -" + title + ".mp3";
+			
 			s3.uploadmp3(f, oriname);
 			String url = "https://s3.ap-northeast-2.amazonaws.com/soul82/mp3/" + oriname;
 
 			MP3reposit mp3up = new MP3reposit();
-			mp3up.setArtist(artist);
-			mp3up.setTitle(title);
-			mp3up.setMv(mv);
-			mp3up.setUrl(url);
-			mp3up.setOriname(oriname);
-
+				mp3up.setArtist(artist);
+				mp3up.setTitle(title);
+				mp3up.setUrl(url);
+				mp3up.setOriname(oriname);
+				
 			SqlSession ss = fac.openSession();
 			ss.insert("mp3.insertmp3", mp3up);
 			ss.close();
-
+			
+			songinfo(artist,title);
+			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,6 +54,12 @@ public class streamingServ {
 		}
 	}
 
+	public void songinfo(String artist, String title) {
+		SqlSession ss = fac.openSession();
+		HashMap map = ja.jTagger(artist, title);
+		ss.close();
+	}
+	
 	public List ListMp3() {
 		SqlSession ss = fac.openSession();
 		List li = ss.selectList("mp3.reglist");
@@ -52,13 +67,6 @@ public class streamingServ {
 		return li;
 	}
 
-	public void songinfo(String artist, String title) {
-		SqlSession ss = fac.openSession();
-		HashMap map = ja.jTagger(artist, title);
-		System.out.println(map.get("title"));
-
-		ss.close();
-	}
 
 	public int makeAlbum(Map map) {
 		SqlSession ss = fac.openSession();

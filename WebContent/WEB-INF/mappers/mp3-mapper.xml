@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertmp3" parameterType="streaming.pojo.MP3reposit">
 		insert into mp3repository
 		values(mp3repository_seq.nextval, #{artist}, #{title},
-		0, #{mv}, #{url},#{oriname})
+		0, #{url},#{oriname})
 	</insert>
 	
 	<select id="reglist" resultType="streaming.pojo.MP3reposit">
