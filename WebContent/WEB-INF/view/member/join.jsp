@@ -122,12 +122,15 @@
 		window.open(url, "authmail", "height=90, width=250");
 		
 	}
-	document.getElementById("confirm").addEventListener("click", function(){
-		if(document.getElementById("mail").value!= null){
+
+	document.getElementById("confirm").disabled = true;
+	
+	document.getElementById("mail").addEventListener("keypress", function(){
+		
+		if(document.getElementById("mail").value!=null){
 			document.getElementById("confirm").disabled = false;
-		}else{
-			document.getElementById("confirm").disabled = true;
 		}
+		
 	})
 	
 	
