@@ -21,7 +21,7 @@
 							</div>
 						</div>
 					</div>
-					<p><b>${allAlbum.TITLE }</b><br/>${allAlbum.ARTIST }</p>
+					<p style="height: 65px; width:250px; padding-top: 5px"><b>${allAlbum.TITLE }</b><br/>${allAlbum.ARTIST }</p>
 				</div>
 			</c:forEach>
 		</div>

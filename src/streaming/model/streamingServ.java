@@ -122,9 +122,9 @@ public class streamingServ {
 	
 	public List allListMp3(int page){
 		SqlSession ss=fac.openSession();
-		int block=12;
+		int block=28;
 		HashMap map=new HashMap();
-			map.put("start",(page*block)-11);
+			map.put("start",(page*block)-27);
 			map.put("end",page*block);
 		List li=ss.selectList("mp3.albumPaging",map);
 		ss.close();
@@ -136,8 +136,8 @@ public class streamingServ {
 		int page=ss.selectOne("mp3.getCount");
 		ss.close();
 		
-		int s=page%12;
-		int div=page/12;
+		int s=page%28;
+		int div=page/28;
 
 		if(s>=1){
 			return div+=1;

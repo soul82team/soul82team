@@ -37,7 +37,19 @@
 			</tbody>
 		</table>
 	</div>
+
+	<div align="center">
+		<ul class="pagination pagination-sm">
+			<c:forEach var="i" begin="1" end="${last }">
+				<li><a href="/admin/reglist?page=${i }">${i }</a></li>
+			</c:forEach>
+		</ul>
+	</div>
+
+
 </div>
+
+
 
 <script>
 //전체선택

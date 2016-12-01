@@ -36,7 +36,7 @@ public class streamingCon {
 		
 		List<HashMap> li = upServ.RankallListMp3(page);
 			mav.addObject("list", li);
-	
+			mav.addObject("last",upServ.RankLastPage());
 		mav.setViewName("body:admin/mp3list");
 
 		return mav;
