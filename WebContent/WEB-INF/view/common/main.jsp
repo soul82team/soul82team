@@ -164,10 +164,10 @@
                   <div class="overlay">
                      <div class="recent-work-inner">
                         <h3>
-                           <a href="#">${mp3.title }</a>
+                           <a onclick="albumView('${mp3.num}', '${mp3.title }')" style="cursor: pointer;">${mp3.title }</a>
                         </h3>
                         <p>${mp3.artist }</p>
-                        <a class="preview" onclick="albumView('${mp3.num}', '${mp3.title }')"><i class="fa fa-eye"></i> View</a>
+                        <a class="preview" onclick="albumView('${mp3.num}', '${mp3.title }')" style="cursor: pointer;"><i class="fa fa-eye"></i> View</a>
                      </div>
                   </div>
                </div>
@@ -198,19 +198,19 @@
 
 
 <section id="conatcat-info" style="background-image: url(images/qnaback.jpg); height: 40%; background-size: cover;" >
-<div class="container" style="padding-left: 30px;">
+<div class="container">
       <div class="row">
-         <div class="col-lg-8 col-lg-offset-2 text-right">
-            <h2 class="section-heading" style="color: white">문의사항이 있을 경우 탈퇴하세요!</h2>
+         <div class="col-lg-8 col-lg-offset-3 text-right" style="padding-top: 2%">
+            <h2 class="section-heading" style="color: white">Soul Music을 이용해주셔서 감사합니다 !</h2>
          </div>
-         <div class="col-lg-4 col-lg-offset-2 text-center">
-            <i class="fa fa-phone fa-3x sr-contact"></i>
-            <p>voice-fishing</p>
+         <div class="col-lg-2 col-lg-offset-6 text-center" style="padding-top: 7%;">
+            <i class="fa fa-phone fa-3x sr-contact" style="color: white;"></i>
+            <p style="color: black">voice-fishing</p>
          </div>
-         <div class="col-lg-4 text-center">
-            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+         <div class="col-lg-2 text-center" style="padding-top: 7%;">
+            <i class="fa fa-envelope-o fa-3x sr-contact" style="color: white;"></i>
             <p>
-               <a href="mailto:soulteam@gmail.com">soulteam@gmail.com</a>
+               <a href="mailto:soulteam@gmail.com" style="text-decoration: none; color: black">soulteam@gmail.com</a>
             </p>
          </div>
       </div>
