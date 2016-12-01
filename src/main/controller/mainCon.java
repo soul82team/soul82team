@@ -352,5 +352,12 @@ public class mainCon {
 		return li;
 
 	}
+	
+	@RequestMapping("/about")
+	public ModelAndView aboutPage(){
+		ModelAndView mav = new ModelAndView("body:common/about");
+		
+		return mav;
+	}
 
 }

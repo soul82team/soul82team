@@ -22,7 +22,7 @@
 				<c:choose>
 					<c:when test="${sessionScope.userId eq null }">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/">About</a></li>
+							<li><a href="/about">About</a></li>
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							<li><a id="myBtn" style="cursor: pointer;">Login</a></li>
