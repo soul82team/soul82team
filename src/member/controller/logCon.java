@@ -37,7 +37,7 @@ public class logCon {
 	public String passFindView() {
 		return "body:member/passFind";
 	}
-	@RequestMapping("//member/passf")
+	@RequestMapping("/member/passf")
 	public ModelAndView passfind(String id, String mail, String name, String birthYear, String birthMonth, String birthDay){
 		ModelAndView mav = new ModelAndView();
 		String birth=birthYear+birthMonth+birthDay;
