@@ -42,7 +42,7 @@
 			<p>
 				<label>이메일</label>
 				<input type="email" id="mail" name="mail" placeholder="E-mail입력" required="required" />
-				<button id="confirm" onclick="authpop()" type="button">인증받기</button>
+				<button id="confirm" onclick="authpop()" type="button" >인증받기</button>
 			</p>
 		</div>
 		<p>
@@ -122,5 +122,13 @@
 		window.open(url, "authmail", "height=90, width=250");
 		
 	}
-
+	document.getElementById("confirm").addEventListener("click", function(){
+		if(document.getElementById("mail").value!= null){
+			document.getElementById("confirm").disabled = false;
+		}else{
+			document.getElementById("confirm").disabled = true;
+		}
+	})
+	
+	
 </script>

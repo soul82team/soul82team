@@ -6,7 +6,7 @@
 
 <header>
 <div id="reg" align="center">
-   <img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
+   <img src="/images/1.png" style="width: 130px; padding-bottom: 20px;" />
 
    <form id="reg_form" style="width: 700px; border: black solid 1px;
     border-radius: 1em" action="/admin/mp3up" method="post" enctype="multipart/form-data">
