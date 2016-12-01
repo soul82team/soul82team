@@ -35,7 +35,7 @@
 							<li><a href="/musicchart">MusicChart</a></li>
 							<li><a href="/admin/allalbum?page=1">Album</a></li>
 							
-							<li class="dropdown"><img src=""
+							<li class="dropdown"><img src="/memberimage/${sessionScope.imgname}"
 								style="width: 30px; height: 30px;" id="img"> <a
 								class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userId }<span
 									class="caret"></span></a>

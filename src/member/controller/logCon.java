@@ -21,7 +21,8 @@ import member.model.modifyServ;
 public class logCon {
 	@Autowired
 	logServ ls;
-	
+	@Autowired
+	modifyServ ms;
 	@RequestMapping("/member/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
@@ -61,9 +62,15 @@ public class logCon {
 		            Cookie ck = new Cookie("saveId", id);
 		            ck.setPath("/");
 		            ck.setMaxAge(60*60*24*30);
-		            response.addCookie(ck);            
+		            response.addCookie(ck);
+		            
 		         }
-
+			 System.out.println(id);
+			 String name=ms.imgnameGet(id);
+			 
+			 
+			 System.out.println(name);
+			 session.setAttribute("imgname", name);
 			mav.setViewName("redirect:/index");	// redirect:   경로는 뷰설정이 애초에 다른 매핑잡아둔 경로로 요청 전환
 		}else {
 			mav.setViewName("body:member/loginFail");

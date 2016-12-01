@@ -43,6 +43,13 @@ public class modifyServ {
 		sql.close();
 		return map;
 	}
+	public String imgnameGet(String id){
+		String name;
+		SqlSession sql = fac.openSession();
+		name=sql.selectOne("member.imgnameget",id);
+		sql.close();
+		return name;
+	}
 	public int memdelet(String id){
 		SqlSession sql = fac.openSession();
 		int r=sql.delete("member.memdel",id);
