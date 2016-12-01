@@ -30,7 +30,7 @@ public class reviewCon {
 		return mav;
 	}
 	
-	@RequestMapping("music/inform")
+	@RequestMapping("/music/inform")
 	public ModelAndView albuminform(int num , String title, HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		String Id = (String) session.getAttribute("userId");
@@ -51,6 +51,7 @@ public class reviewCon {
 	public ModelAndView write(HttpServletRequest req, HttpSession session) {
 		String Id = (String) session.getAttribute("userId");
 		int g = Integer.parseInt(req.getParameter("star-input"));
+		String num = req.getParameter("num");
 		String t = req.getParameter("title");
 		String c = req.getParameter("comment");
 		System.out.println(g + "//" + c);
@@ -62,6 +63,9 @@ public class reviewCon {
 		boolean b = rs.reviewin(map);
 		ModelAndView mav = new ModelAndView();
 		if (b == true) {
+			mav.addObject("title", t);
+			mav.addObject("num", num);
+			System.out.println(t + " " + num);
 			mav.setViewName("board:board/review/reviewc");
 		} else {
 			mav.setViewName("board:board/review/reviewf");
@@ -74,7 +78,7 @@ public class reviewCon {
 //		ModelAndView mav = new ModelAndView();
 //		List li=rs.readAll();
 //		mav.addObject("data",li);
-//	
+//
 //		mav.setViewName("board:board/review/reviewList");
 //		return mav;
 //	}

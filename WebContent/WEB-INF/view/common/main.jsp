@@ -113,7 +113,7 @@
 </section>
 
 
-<section id="feature" style="background-image: url(images/search_back.jpg); max-width: 100%; height: auto; background-size: cover;" >
+<section id="feature" style="background-image: url(images/search_back.jpg); min-width: 30%; height: auto; background-size: cover;" >
 
 
 	<div class="container" align="center" style="height: 660px">

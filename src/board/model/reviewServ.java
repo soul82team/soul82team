@@ -16,9 +16,10 @@ public class reviewServ {
 	public boolean reviewin(HashMap map) {
 		SqlSession sql = fac.openSession();
 		int r = sql.insert("review.write", map);
-		if (r > 0)
+		if (r > 0){
+			System.out.println("서비스 등록완료");
 			return true;
-		else
+		}else
 			return false;
 	}
 	public List selectAlbum(int num) {

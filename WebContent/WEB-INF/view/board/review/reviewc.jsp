@@ -3,5 +3,4 @@
 
 <script>
 	window.alert("등록 성공 !");
-	window.location.reload();
 </script>

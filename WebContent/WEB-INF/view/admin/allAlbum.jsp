@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
+
 <section id="recent-works">
 	<div class="container" style="padding-top: 3%">
 		<div class="row">
@@ -11,7 +15,7 @@
 							style="width: 250px; height: 250px">
 						<div class="overlay" style="width: 250px; height: 250px; padding-top: 10px">
 							<div class="recent-work-inner">
-								<h3><a href="#">${allAlbum.SAVETITLE}</a></h3>
+								<h3><a href="#">${mp3.SAVETITLE}</a></h3>
 								<p>${allAlbum.SAVEARTIST}</p>
 								<a class="preview" onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')" style="cursor: pointer;"><i class="fa fa-eye"></i> View</a>
 							</div>

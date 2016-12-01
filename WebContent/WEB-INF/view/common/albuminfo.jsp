@@ -153,7 +153,8 @@ h2 {
  <div class="form-group" align="center" style="padding-top: 5%; padding-bottom: 5%">
 <form action="/music/review">
 	<input name="userId" value="${userid}" hidden/>
-	<input name="title" value="그대라는사치" hidden/>
+	<input name="title" value="${mp3.SAVETITLE}" hidden/>
+	<input name="num" value="${mp3.NUM}" hidden/>
    
     <table style="width: 80%;">
         <tr>
@@ -211,6 +212,8 @@ h2 {
 		</table>
 	</div>
 </div>
+
+
 <script>
 	// star rating
 	var starRating = function(){
@@ -244,5 +247,7 @@ h2 {
 	  });
 	};
 	starRating();
+	
+	
 	
 </script>
