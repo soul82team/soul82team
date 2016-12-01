@@ -15,7 +15,7 @@
 							style="width: 250px; height: 250px">
 						<div class="overlay" style="width: 250px; height: 250px; padding-top: 10px">
 							<div class="recent-work-inner">
-								<h3><a href="#">${mp3.SAVETITLE}</a></h3>
+								<h3><a onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')" style="cursor: pointer;">${mp3.SAVETITLE}</a></h3>
 								<p>${allAlbum.SAVEARTIST}</p>
 								<a class="preview" onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')" style="cursor: pointer;"><i class="fa fa-eye"></i> View</a>
 							</div>
