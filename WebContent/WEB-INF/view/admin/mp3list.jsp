@@ -27,7 +27,7 @@
 					<td id="pk">${list.num }</td>
 					<td>${list.artist }</td>
 					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title }</td>
-					<td><i style="font-size:24px" class="fa">&#xf1ea;</i></td>
+					<td><i style="font-size:24px" class="fa" id="lyrics">&nbsp;&#xf0f6;</i></td>
 				</tr>
 				</c:forEach>
 			</tbody>

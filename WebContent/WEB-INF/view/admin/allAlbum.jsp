@@ -2,16 +2,22 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <section id="recent-works">
-	<div class="container">
+	<div class="container" style="padding-top: 3%">
 		<div class="row">
 			<c:forEach var="allAlbum" items="${allAlbum }" varStatus="status">
 				<div class="col-xs-12 col-sm-4 col-md-3">
-					<div class="recent-work-wrap" style="padding-top: 10px">
+					<div class="recent-work-wrap">
 						<img src="/albumimage/${allAlbum.SAVEARTIST}${allAlbum.SAVETITLE}.png"
 							style="width: 250px; height: 250px">
-						<p>
-							<b>${allAlbum.TITLE }</b><br/>${allAlbum.ARTIST }</p>
+						<div class="overlay" style="width: 250px; height: 250px; padding-top: 10px">
+							<div class="recent-work-inner">
+								<h3><a href="#">${allAlbum.SAVETITLE}</a></h3>
+								<p>${allAlbum.SAVEARTIST}</p>
+								<a class="preview" onclick="albumView('${allAlbum.NUM}', '${allAlbum.SAVETITLE}')"><i class="fa fa-eye"></i> View</a>
+							</div>
+						</div>
 					</div>
+					<p><b>${allAlbum.TITLE }</b><br/>${allAlbum.ARTIST }</p>
 				</div>
 			</c:forEach>
 		</div>

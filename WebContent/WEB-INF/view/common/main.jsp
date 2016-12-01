@@ -166,9 +166,7 @@
 									<a href="#">${mp3.title }</a>
 								</h3>
 								<p>${mp3.artist }</p>
-								<a class="preview"
-									onclick="albumView('${mp3.num}', '${mp3.title }')"><i
-									class="fa fa-eye"></i> View</a>
+								<a class="preview" onclick="albumView('${mp3.num}', '${mp3.title }')"><i class="fa fa-eye"></i> View</a>
 							</div>
 						</div>
 					</div>
@@ -284,12 +282,6 @@
 		console.log(url);
 		window.open(url, "choice", "height=200; width=100");
 	});
-	
-	function albumView(num, title){
-		var url="/music/inform?num=" + num + "&title=" + title;
-		console.log(num + "" + title);
-		location.href = url;
-	}
 	
 	$("#search").keyup(function(){
 		var word=$("#search").val();

@@ -139,11 +139,13 @@ h2 {
 			<tr>
 				<th class="tg-031e" rowspan="5"><img src="/albumimage/${mp3.SAVEARTIST}${mp3.SAVETITLE}.png" style="width: 300px; height: 300px"></th>
 				<th class="tg-yw4l" colspan="3">
-					<p><b>앨범</b>${mp3.ALBUM}</p>
-					<p><b>아티스트</b>${mp3.ARTIST}</p>
-					<p><b>타이틀</b>${mp3.TITLE}</p>
-					<p><b>년도</b>${mp3.YEAR}</p>
-					<p><b>장르</b>${mp3.GENRE}</p>
+					<p><b>앨범</b>&nbsp;&nbsp;${mp3.ALBUM}</p>
+					<p><b>아티스트</b>&nbsp;&nbsp;${mp3.ARTIST}</p>
+					<p><b>타이틀</b>&nbsp;&nbsp;${mp3.TITLE}</p>
+					<p><b>발매일</b>&nbsp;&nbsp;${mp3.YEAR}</p>
+					<p><b>장르</b>&nbsp;&nbsp;${mp3.GENRE}</p>
+					<br/><br/><br/>
+					<i style="font-size:24px;" class="fa" id="lyrics">&nbsp;&#xf0f6;</i>
 				</th>
 			</tr>
 		</table>

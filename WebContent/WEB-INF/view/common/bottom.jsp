@@ -20,5 +20,12 @@
 	<script src="/js/main.js"></script>
 	<script src="/js/wow.min.js"></script>
 	
+	<script>
+	function albumView(num, title){
+		var url="/music/inform?num=" + num + "&title=" + title;
+		console.log(num + "" + title);
+		location.href = url;
+	}
+	</script>
 
     

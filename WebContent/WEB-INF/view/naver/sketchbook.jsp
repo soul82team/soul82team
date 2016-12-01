@@ -33,7 +33,7 @@
 	<table class="tg"> 
 	  <tr>
 		<c:forEach var="i" items="${yhy }">
-	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150"></th>
+	    <th class="tg-yw4l"><img src="${i.img}" class="img-thumbnail" alt="Cinque Terre" width="200" height="150" onclick="sskCast('${i.link}')"></th>
   		</c:forEach>
 	  </tr>
 	  <tr>
