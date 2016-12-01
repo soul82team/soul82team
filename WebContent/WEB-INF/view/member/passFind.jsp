@@ -5,7 +5,7 @@
 
 <header>
 <div id="reg" align="center">
-	<img src="/img/4.png" style="width: 130px; padding-bottom: 20px;" />
+	<img src="/images/1.png" style="width: 130px; padding-bottom: 20px;" />
 
 	<form id="reg_form" style="width: 700px; border: black solid 1px;
 	 border-radius: 1em" action="/member/passf" method="post" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
 				<label>아이디</label> <input type="text" id="id" name="id" placeholder="ID을 입력하세요" required />
 				<span id="rst"></span>                                              
 			</p>
-			
+			<p>
 				<label>이름</label> 
 				<input type="text" id="name" name="name" placeholder="본인의 이름" min="2" maxlength="15" required />
 			</p>
