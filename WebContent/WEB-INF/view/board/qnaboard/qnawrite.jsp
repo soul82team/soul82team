@@ -11,8 +11,8 @@
 		<option value="회원정보">회원정보</option>
 		<option value="기타">기타</option>
 	</select>
-	<input type="text" name="title" size="80"/> <br/>
-	<textarea name="content" id="ta" style="width:726px;">
+	<input type="text" name="title" size="80" required="required"/> <br/>
+	<textarea name="content" id="ta" style="width:726px;" required="required">
 	</textarea>
 	<br/>
 	<div align="center">
