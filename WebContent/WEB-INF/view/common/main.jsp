@@ -24,6 +24,7 @@
 
 .chartTA{
    padding-left:6%;
+   width: 80%;
 }
 
 
