@@ -42,7 +42,9 @@
 								<ul class="dropdown-menu">
 									<!-- <li><a href="/board/review">리뷰 작성</a></li> -->
 									<li><a href="/qna/qnaList?page=1">질문게시판</a></li>
+									<c:if test="${sessionScope.notice eq 1}">
 									<li><a href="/admin/reg">mp3 등록</a></li>
+									</c:if>
 									<li><a href="/mp3/myalbum">내 앨범</a></li>
 									<li><a href="/youtube/board">MV 보기</a></li>
 									<li><a href="/member/modifyPage">내정보수정</a></li>

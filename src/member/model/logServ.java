@@ -13,6 +13,15 @@ public class logServ {
 	@Autowired
 	SqlSessionFactory fac;
 	
+	public int getnotice(String id) {
+		SqlSession sql = fac.openSession();
+		
+			
+		int r = sql.selectOne("member.getnotice",id);
+		sql.close();
+		return r;
+	}
+	
 	public int logCheck(String id, String pass) {
 		SqlSession sql = fac.openSession();
 		HashMap<String, String> map = new HashMap<>();
