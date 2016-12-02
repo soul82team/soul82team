@@ -55,8 +55,7 @@
 		<li><a href="/qna/qnaList?page=${i }">${i }</a></li>
 	</c:forEach>
 	</ul>
-
-	<form action="/qna/search?word=${obj.NUM }">
+	<form action="/qna/search">
 		<input type="text" name="search" />
 		<input type="submit" value="°Ë»ö" />
 	</form>
