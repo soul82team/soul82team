@@ -150,9 +150,9 @@
 <section id="recent-works" style="height: 900px">
    <div class="container" style="padding-top: 5%">
       <div class="center wow fadeInDown">
-         <h2>오늘의 노래</h2>
+         <h2>오늘의 신곡</h2>
          <p class="lead">
-            오늘의 인기차트 <b>TOP 10</b>
+         <b>오늘의 노래를 감상해보세요 !</b>
          </p>
       </div>
       <div class="row">

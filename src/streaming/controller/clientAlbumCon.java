@@ -164,8 +164,8 @@ public class clientAlbumCon {
 	public ModelAndView lyricsView(int num){
 		System.out.println(num);
 		ModelAndView mav = new ModelAndView("/admin/lyricsView");
-			List<HashMap> li = upServ.MusicLyrics(num);
-				mav.addObject("lyrics", li);
+			List<String> li = upServ.MusicLyrics(num);
+				mav.addObject("lyrics", li.get(0));
 		return mav;
 	}
 	

@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from myalbum where num=#{num}
 	</delete>
 	
-	<select id="search" parameterType="java.lang.String" resultType="streaming.pojo.MP3reposit"> 
+	<select id="search" parameterType="java.lang.String" resultType="java.util.HashMap"> 
 		select * from mp3repository where (title like #{search}) or (artist like #{search})
 	</select>
 	
@@ -68,7 +68,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from songsdata
 	</select>
 	
-	<select id="getLyrics" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+	<select id="getLyrics" parameterType="java.lang.Integer" resultType="java.lang.String">
 		select lyrics from songsdata where num = #{num }
 	</select>
 </mapper>

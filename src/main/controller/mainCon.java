@@ -330,7 +330,7 @@ public class mainCon {
 	public ModelAndView soulSearch(String search) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(search);
-		List<MP3reposit> li = upServ.searchMusic(search);
+		List<HashMap> li = upServ.searchMusic(search);
 		mv.addObject("list", li);
 		mv.setViewName("body:admin/mp3list");
 		return mv;

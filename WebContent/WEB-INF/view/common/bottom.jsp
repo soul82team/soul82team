@@ -30,7 +30,14 @@
 	function lyrics(num){
 		var url = "/mp3/lyrics?num="+num;
 		console.log(num);
-		window.open(url, "get", "height=800; width=500");
+		window.open(url, "get", "height=300; width=300");
+	}
+	
+	//º±≈√«— «—∞Ó µË±‚
+	function selectOne(val,num){
+		console.log(num);
+		window.open("/mp3/Onelisten?num="+num, "target", "width=440,height=150");
+		setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 	}
 	
 	</script>
