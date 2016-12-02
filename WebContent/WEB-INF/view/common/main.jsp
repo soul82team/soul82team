@@ -156,7 +156,7 @@
          </p>
       </div>
       <div class="row">
-         <c:forEach var="mp3" items="${mp3 }" begin="1" end="8" step="1">
+         <c:forEach var="mp3" items="${mp3 }" begin="0" end="7" step="1">
             <div class="col-xs-12 col-sm-4 col-md-3">
                <div class="recent-work-wrap">
                   <img src="/albumimage/${mp3.artist}${mp3.title}.png"

@@ -50,7 +50,7 @@ public class streamingCon {
 		if (r == true) {
 //			upServ.songinfo(artist, title);
 			mav.addObject("list", upServ.ListMp3());
-			mav.setViewName("t:nav");
+			mav.setViewName("body:admin/adminpage");
 		} else {
 			System.out.println("¸ÁÇÔ");
 		}
