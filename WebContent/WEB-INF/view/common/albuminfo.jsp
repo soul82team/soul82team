@@ -145,13 +145,18 @@ h2 {
 					<p><b>발매일</b>&nbsp;&nbsp;${mp3.YEAR}</p>
 					<p><b>장르</b>&nbsp;&nbsp;${mp3.GENRE}</p>
 					<br/><br/><br/>
-					<i class="fa fa-music" style="font-size:24px" onclick="selectOne('${mp3.TITLE}', '${mp3.NUM }')"></i>&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-music" style="font-size:24px" onclick="selectOne('${mp3.TITLE}', '${mp3.NUM }')" id="songplay"></i>&nbsp;&nbsp;&nbsp;
 					<i style="font-size:24px;" class="fa" onclick="lyrics('${mp3.NUM}')">&nbsp;&#xf0f6;</i>
 				</th>
 			</tr>
 		</table>
 	</div>
- <div class="form-group" align="center" style="padding-top: 5%; padding-bottom: 5%">
+	<c:choose>
+		<c:when test="${sessionScope.userId eq null }">
+		
+		</c:when>
+		<c:otherwise>
+			<div class="form-group" align="center" style="padding-top: 5%;">
 <form action="/music/review">
 	<input name="userId" value="${userid}" hidden/>
 	<input name="title" value="${mp3.SAVETITLE}" hidden/>
@@ -182,14 +187,18 @@ h2 {
         <textarea class="form-control" rows="2" name="comment" style="width: 100%; resize: none; border: 1px solid gray;" placeholder="곡 평가"></textarea>
      </th>
      <th width="10%" style="padding-left: 20px">
-      	<button type="submit" class="btn btn-success">등록</button>
+      	<button type="submit" class="btn btn-success" >등록</button>
  	 </th>
    </tr>
    </table>
 </form>
  </div>
+		</c:otherwise>
+	
+	</c:choose>
 
-	<div class="container">
+
+	<div class="container" style="padding-top: 5%;">
 		<table class="table" style="width: 80%">
 			<thead>
 				<tr>

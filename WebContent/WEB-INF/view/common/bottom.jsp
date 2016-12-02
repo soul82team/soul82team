@@ -35,9 +35,15 @@
 	
 	//선택한 한곡 듣기
 	function selectOne(val,num){
-		console.log(num);
-		window.open("/mp3/Onelisten?num="+num, "target", "width=420,height=150");
-		setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
+		if(${sessionScope.userId eq null}){
+			window.alert("로그인 후 이용해 주세요 !");
+			$("#myModal").modal();
+		}else{
+			console.log(num);
+			window.open("/mp3/Onelisten?num="+num, "target", "width=420,height=150");
+			setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
+		}
+		
 	}
 	
 	</script>
