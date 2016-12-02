@@ -30,7 +30,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="list" items="${mp3}" varStatus="status">
+					<c:forEach var="list" items="${mp3}" varStatus="status" begin="1" end="100" step="1">
 					<tr>
 						<td style="width:80px;">${status.count }</td>
 						<td style="width:180px;"><img src="/albumimage/${list.artist}${list.title}.png" style="width:50px; height:50px"/></td>

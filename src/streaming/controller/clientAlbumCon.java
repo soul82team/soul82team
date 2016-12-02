@@ -156,7 +156,7 @@ public class clientAlbumCon {
 		ModelAndView mv=new ModelAndView();
 		System.out.println("넘어온 num값"+num);
 		int r=upServ.deleteAlbumList(num);
-		mv.setViewName("#");
+		mv.setViewName("body:member/deletComplete");
 		return mv;
 	}
 	
