@@ -76,6 +76,7 @@ public class modifyCon {
 		if(rst==1) {
 			int rr=ms.memdelet(id);
 			if(rr==1){
+				
 				session.invalidate();
 				mav.setViewName("body:member/deletComplete");
 			}

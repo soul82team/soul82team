@@ -51,7 +51,8 @@ public class modifyServ {
 	public int memdelet(String id){
 		SqlSession sql = fac.openSession();
 		int r=sql.delete("member.memdel",id);
-		
+		int r2=sql.delete("member.imgdel",id);
+		sql.close();
 		return r;
 		
 	}
