@@ -16,7 +16,7 @@
 			<thead>
 				<tr>
 					<th>선택</th>
-					<th>순위</th>
+					<th hidden>순위</th>
 					<th>앨범</th>
 					<th>뮤직</th>
 					<th>가사</th>
@@ -26,7 +26,7 @@
 				<c:forEach var="list" items="${list }" varStatus="status">
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
-					<td id="pk">${list.NUM }</td>
+					<td id="pk" hidden>${list.NUM }</td>
 					<td><img src="/albumimage/${list.SAVEARTIST}${list.SAVETITLE}.png"
 							style="width: 50px; height: 50px"></td>
 					<td id="tt" onclick="selectOne('${list.TITLE}', '${list.NUM }')">${list.TITLE } - ${list.ARTIST }</td>
@@ -77,7 +77,7 @@ $(function(){
 			console.log(t);
 			url+=t;
 		});
-		window.open(url, "", "height=500; width=800");
+		window.open(url, "", "height=480; width=420");
 	});
 });
 

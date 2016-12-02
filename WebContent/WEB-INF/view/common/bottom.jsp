@@ -36,7 +36,7 @@
 	//º±≈√«— «—∞Ó µË±‚
 	function selectOne(val,num){
 		console.log(num);
-		window.open("/mp3/Onelisten?num="+num, "target", "width=440,height=150");
+		window.open("/mp3/Onelisten?num="+num, "target", "width=420,height=150");
 		setTimeout(function(){top.window.opener = top;top.window.open('','_parent','');top.window.close();});
 	}
 	
