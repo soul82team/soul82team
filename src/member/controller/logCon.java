@@ -70,11 +70,10 @@ public class logCon {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(id + "@@" + pass);
 		int rst = ls.logCheck(id, pass);
-		int r = ls.getnotice(id);
-		
-		System.out.println(r);
 		
 		if (rst == 1) {
+			int r = ls.getnotice(id);
+			System.out.println(r);
 			session.setAttribute("userId", id);
 			String name = ms.imgnameGet(id);
 			System.out.println(name);
