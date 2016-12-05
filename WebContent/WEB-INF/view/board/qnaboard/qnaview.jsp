@@ -21,7 +21,25 @@
     </div>
 
       <div align="right" class="col-lg-10 col-lg-offset-2" style="width:68%;">
+        <input type="button" class="btn btn-danger" onclick="delMemo('${obj.num}','${obj.writer }','${sessionScope.userId }')" value="삭제"/>
         <input type="button" class="btn btn-default" onclick="location.href='/qna/qnaList?page=1'" value="목록으로"/>
       </div>
   </fieldset>
 </form>
+
+
+<script>
+function delMemo(num,writer,userId){
+	if(writer==userId){
+		if(confirm("정말로 삭제하시겠습니까?")==true){
+			window.alert("삭제되었습니다.")
+			location.href="/qna/delMemo?num="+num;
+		}else{
+			return;
+		}
+	}else{
+		window.alert("자신의 글만 삭제할 수 있습니다.");
+	}
+}
+
+</script>

@@ -32,7 +32,6 @@ public class youtubeCon {
 	@RequestMapping("/youtube/search")
 	public ModelAndView mvSearch(String urlSearch) {
 		try {
-			System.out.println("À¯ºZ °Ë»ö¾î"+urlSearch);
 			String urlPath = "https://www.youtube.com/results?search_query="+URLEncoder.encode(urlSearch,"UTF-8");
 			String pageContents = "";
 			StringBuilder contents = new StringBuilder();
@@ -40,7 +39,6 @@ public class youtubeCon {
 			
 			URL url = new URL(urlPath);
 			URLConnection con = (URLConnection) url.openConnection();
-			System.out.println(con);
 			InputStreamReader reader = new InputStreamReader(con.getInputStream(), "utf-8");
 
 			BufferedReader buff = new BufferedReader(reader);
@@ -90,11 +88,6 @@ public class youtubeCon {
 				map.put("ex", exS[0]);
 				search.add(map);
 			}
-			
-			for(int i=0;i<search.size();i++){
-				System.out.println(search.get(i));
-			}
-			
 			mv.addObject("search", search);
 			mv.setViewName("/youtube/youtubeList");
 			return mv;

@@ -35,17 +35,8 @@
 
 <div align="right">
 	<form action="/qna/regpage">
-
 		<input type="hidden" name="menu" value="board" />
-		
-		<c:choose>
-			<c:when test="${logCheck eq null }">
-				[비로그인 상태]버튼 활성화하고 클릭할때 에러메세지 띄우고싶은데...
-			</c:when>
-			<c:otherwise>
-				<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
-			</c:otherwise>
-		</c:choose>
+		<button type="submit" class="btn btn-primary" name="write">질문 등록</button>
 	</form>
 </div>
 	

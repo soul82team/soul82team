@@ -24,6 +24,17 @@ public class qnaServ {
 		return r;
 	}
 	
+	
+	// 내가 쓴 글을 지우기
+	public int delMemo(int num){
+		SqlSession ss=fac.openSession();
+		int r=0;
+		r=ss.delete("qnaboard.delContents",num);
+		ss.commit();
+		ss.close();
+		return r;
+	}
+	
 	public int regMemo(qnaVO qvo){
 		SqlSession ss=fac.openSession();
 		int r=0;

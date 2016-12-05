@@ -79,4 +79,18 @@ public class qnaCon {
 		mv.setViewName("board:board/qnaboard/qnalist_search");
 		return mv;
 	}
+	
+	
+	@RequestMapping("/qna/delMemo")
+	public ModelAndView delMemo(int num){
+		ModelAndView mv=new ModelAndView();
+		int r=qs.delMemo(num);
+		if(r==1){
+			mv.setViewName("redirect:/qna/qnaList?page=1");
+			return mv;
+		}else{
+			System.out.println("½ÇÆÐ");
+			return null;
+		}
+	}
 }
