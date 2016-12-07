@@ -21,11 +21,13 @@
 	</tr>
 	<br/>
 <div class="table-responsive">
+
 	<table class="table">
 			<thead>
 				<tr>
 					<th>선택</th>
-					<th>순위</th>
+					<th hidden>순위</th>
+					<th>앨범</th>
 					<th>뮤직</th>
 					<th>가사</th>
 				</tr>
@@ -34,13 +36,38 @@
 				<c:forEach var="list" items="${mp3list }" varStatus="status">
 				<tr>
 					<td><input type="checkbox" id="cBox"></td>
-					<td id="pk">${list.num }</td>
-					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title } - ${list.artist }</td>
+					<td id="pk" hidden>${list.num }</td>
+					<td><img src="/albumimage/${list.SAVEARTIST}${list.SAVETITLE}.png"
+							style="width: 50px; height: 50px"></td>
+					<td id="tt" onclick="selectOne('${list.title}', '${list.num }')">${list.title } - ${list.artist }</td>
 					<td><i class="fa fa-file-text-o" style="font-size: 24px" onclick="lyrics('${list.num}')"></i></td>
 				</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+	</table>
+
+
+<!-- 	기존 리스트 안나오던 테이블	 -->
+<!-- 	<table class="table"> -->
+<!-- 			<thead> -->
+<!-- 				<tr> -->
+<!-- 					<th>선택</th> -->
+<!-- 					<th>순위</th> -->
+<!-- 					<th>뮤직</th> -->
+<!-- 					<th>가사</th> -->
+<!-- 				</tr> -->
+<!-- 			</thead> -->
+<!-- 			<tbody> -->
+<%-- 				<c:forEach var="list" items="${mp3list }" varStatus="status"> --%>
+<!-- 				<tr> -->
+<!-- 					<td><input type="checkbox" id="cBox"></td> -->
+<%-- 					<td id="pk">${list.num }</td> --%>
+<%-- 					<td id="tt" onclick="selectOne('${list.title}', ${list.num })">${list.title } - ${list.artist }</td> --%>
+<%-- 					<td><i class="fa fa-file-text-o" style="font-size: 24px" onclick="lyrics('${list.num}')"></i></td> --%>
+<!-- 				</tr> -->
+<%-- 				</c:forEach> --%>
+<!-- 			</tbody> -->
+<!-- 		</table> -->
 	</div>
 </div>
 

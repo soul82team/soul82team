@@ -24,61 +24,6 @@ public class scrapCon {
 	@Autowired
 	scrapServ ss;
 
-	// @RequestMapping("/naver")
-	// public String getNaverChart() {
-	// String urlPath =
-	// "http://music.naver.com/listen/top100.nhn?domain=TOTAL&duration=1d";
-	// String pageContents = "";
-	// StringBuilder contents = new StringBuilder();
-	//
-	// try {
-	// URL url = new URL(urlPath);
-	// URLConnection con = (URLConnection) url.openConnection();
-	// InputStreamReader reader = new InputStreamReader(con.getInputStream(),
-	// "utf-8");
-	//
-	// BufferedReader buff = new BufferedReader(reader);
-	//
-	// while ((pageContents = buff.readLine()) != null) {
-	// contents.append(pageContents);
-	// contents.append("\r\n");
-	// }
-	// buff.close();
-	//
-	// String naverSource=contents.toString();
-	// String[] naverTitle = naverSource.split("><span class=\"ellipsis\">");
-	// String[] title = null;
-	//
-	// String[] naverArtist = naverSource.split("<span class=\"ellipsis\" >");
-	// String[] artist = null;
-	//
-	// String[] navernAlbum =
-	// naverSource.split("http://musicmeta.phinf.naver.net");
-	// String[] album = null;
-	//
-	// ArrayList<HashMap> naverMusic = new ArrayList<>();
-	//
-	// for (int i = 1; i < 45; i++) {
-	// HashMap map = new HashMap();
-	// title = naverTitle[i].split("\\<");
-	// artist = naverArtist[i].split("\\<");
-	// artist[0]=artist[0].replaceAll("\\s+", "");
-	// album = navernAlbum[i].split("\\?");
-	// album[0]="http://musicmeta.phinf.naver.net"+album[0];
-	// map.put("title", title[0]);
-	// map.put("artist", artist[0]);
-	// map.put("album", album[0]);
-	// naverMusic.add(map);
-	// System.out.println(map.get("title")+" / "+map.get("artist")+" /
-	// "+map.get("album"));
-	// }
-	//
-	// return null;
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// return null;
-	// }
-	// }
 	@RequestMapping("/top10")
 	public ModelAndView top10() {
 		try {
@@ -148,47 +93,6 @@ public class scrapCon {
 			}
 
 			// =================================================================
-			// URL url = new URL(urlPath);
-			// URLConnection con = (URLConnection) url.openConnection();
-			// InputStreamReader reader = new
-			// InputStreamReader(con.getInputStream(), "utf-8");
-			//
-			// BufferedReader buff = new BufferedReader(reader);
-			//
-			// while ((pageContents = buff.readLine()) != null) {
-			// contents.append(pageContents);
-			// contents.append("\r\n");
-			// }
-			// buff.close();
-			// String naverSource=contents.toString();
-			// String[] naverTitle = naverSource.split("><span
-			// class=\"ellipsis\">");
-			// String[] title11 = null;
-			//
-			// String[] naverArtist = naverSource.split("<span
-			// class=\"ellipsis\" >");
-			// String[] artist11 = null;
-			//
-			// String[] navernAlbum =
-			// naverSource.split("http://musicmeta.phinf.naver.net");
-			// String[] album11 = null;
-			//
-			// ArrayList<HashMap> naverMusic = new ArrayList<>();
-			//
-			// for (int i = 1; i < 11; i++) {
-			// HashMap map = new HashMap();
-			// title = naverTitle[i].split("\\<");
-			// artist = naverArtist[i].split("\\<");
-			// artist[0]=artist[0].replaceAll("\\s+", "");
-			// album = navernAlbum[i].split("\\?");
-			// album[0]="http://musicmeta.phinf.naver.net"+album[0];
-			// map.put("title", title[0]);
-			// map.put("artist", artist[0]);
-			// map.put("album", album[0]);
-			// naverMusic.add(map);
-			// System.out.println(map.get("title")+" / "+map.get("artist")+" /
-			// "+map.get("album"));
-			// }
 			mv.addObject("bugs", bugs);
 			mv.addObject("mnet", mnet);
 			// mv.setViewName("t:nav");
@@ -247,30 +151,27 @@ public class scrapCon {
 		}
 
 	}
-	
+
 	@RequestMapping("/choice/list")
-	public ModelAndView choiceList(String tt){
+	public ModelAndView choiceList(String tt) {
 		ModelAndView mav = new ModelAndView("/chart/choicelist");
-		
-			mav.addObject("title", tt);
-			
+
+		mav.addObject("title", tt);
+
 		System.out.println(tt);
 		return mav;
-	}
-	
+	}	
+
 	@RequestMapping("/choice/createAlbum")
 	@ResponseBody
-	public String createAlbum(String albumName, String title, String userId){
-		
-		System.out.println("**"+title);
-		
+	public String createAlbum(String albumName, String title, String userId) {
 		boolean r = ss.create(albumName, title, userId);
 		if (r) {
 			return "true";
 		} else {
 			return "false";
 		}
-		
+
 	}
-	
+
 }

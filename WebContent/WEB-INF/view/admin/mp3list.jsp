@@ -2,7 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<h2>mp3list.jsp</h2>
 
 <div class="container" >
 	<div style="padding-top: 3%; padding-bottom: 1%"><img src="/images/soul.png" /></div>
